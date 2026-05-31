@@ -1,0 +1,723 @@
+.hero-badge {
+    background-color: color-mix(in oklab, var(--primary) 10%, transparent);
+    color: var(--primary);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.hero-title {
+    font-size: 40px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.hero-desc {
+    font-size: 16px;
+    font-weight: 500;
+    max-width: 850px;
+}
+
+/* --- UPPERROW FEATURE CARDS --- */
+.features-banner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+    margin-top: 45px;
+}
+
+.feature-card {
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+    background-color: var(--white);
+    cursor: pointer;
+    transition: .5s;
+}
+
+.feature-card:hover {
+    border-color: var(--primary);
+}
+
+.feature-icon {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.feature-card h3 {
+    font-size: 16px;
+    color: #1a202c;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.feature-card p {
+    font-size: 13px;
+    color: #718096;
+}
+
+/* --- DUAL COLUMN DESKTOP GRID SYSTEM --- */
+.layout-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 55px;
+    align-items: start;
+}
+
+.content-block {
+    /* margin-bottom: 50px; */
+    margin-top: -80px;
+}
+
+.block-heading {
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: var(--primary);
+    border-bottom: 1px solid #edf2f7;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.pull-quote {
+    font-style: italic;
+    font-size: 16px;
+    color: #4a5568;
+    border-left: 3px solid var(--primary);
+    padding-left: 20px;
+    margin: 25px 20px;
+    line-height: 1.5;
+}
+
+.quote-author {
+    display: block;
+    font-size: 12px;
+    color: var(--muted-foreground);
+    margin-top: 6px;
+    font-style: normal;
+}
+
+/* --- METRICS SUB-ROW STYLING --- */
+.metrics-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 35px;
+    padding: 24px;
+    border-radius: 8px;
+}
+
+.metric-item {
+    flex: 1;
+    min-width: 70px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.metric-item:hover {
+    border-color: var(--primary);
+}
+
+.metric-num {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.metric-lbl {
+    font-size: 12px;
+    color: var(--muted-foreground);
+    margin-top: 10px;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+/* --- RESEARCH SCOPE LAYOUT --- */
+.scope-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.scope-box {
+    border: 2px solid var(--border);
+    padding: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.scope-box:hover {
+    border-color: var(--primary);
+}
+
+.scope-box h4 {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #1a202c;
+}
+
+.scope-box p {
+    font-size: 13px;
+    color: var(--muted-foreground);
+}
+
+/* --- PROCESS TIMELINE RAIL --- */
+.timeline-intro {
+    margin-bottom: 25px;
+}
+
+.timeline-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.timeline-node {
+    display: flex;
+    gap: 20px;
+}
+
+.node-index {
+    background-color: var(--primary);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.node-data h5 {
+    font-size: 14px;
+    color: #1a202c;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.node-data p {
+    font-size: 13px;
+    color: #4a5568;
+    text-align: justify;
+}
+
+/* --- BOARD MEMBERS LAYOUT --- */
+.board-flex-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.board-flex-grid .member-card {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    border: 2px solid var(--border);
+    padding: 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.board-flex-grid .member-card:hover {
+    border-color: var(--primary);
+}
+
+.monogram-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 700;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+.member-info h5 {
+    font-size: 14px;
+    color: #1a202c;
+    font-weight: 600;
+}
+
+.member-info .role {
+    font-size: 12px;
+    color: #718096;
+}
+
+.member-info .inst {
+    font-size: 12px;
+    color: #a0aec0;
+}
+
+/* --- ETHICS BRANDING CHIPS --- */
+.ethics-intro {
+    margin-bottom: 24px;
+}
+
+.indexing-logos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.indexing-logos-grid .logo-box {
+    border: 2px solid var(--border);
+    border-radius: 30px;
+    padding: 14px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted-foreground);
+    cursor: pointer;
+    transition: .5s;
+}
+
+.indexing-logos-grid .logo-box:hover {
+    border-color: var(--primary);
+    background-color: var(--primary);
+    color: var(--accent-foreground);
+}
+
+/* --- SIDEBAR CONFIGURATIONS --- */
+.sidebar-rail {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.widget {
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 24px;
+    background-color: #ffffff;
+}
+
+.widget.colored-widget {
+    background-color: #f8fafc;
+    border-color: #edf2f7;
+}
+
+.widget h4 {
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: #4a5568;
+    margin-bottom: 16px;
+}
+
+.widget-list {
+    list-style: none;
+}
+
+.widget-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.widget-list li:last-child {
+    border: none;
+}
+
+.widget-list a {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+}
+
+.widget-list a:hover {
+    text-decoration: underline;
+}
+
+.contact-box .contact-item {
+    font-size: 13px;
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.contact-box .contact-item:last-child {
+    margin-bottom: 0;
+}
+
+.contact-box .lbl {
+    font-weight: bold;
+    color: #4a5568;
+}
+
+.contact-box .val {
+    color: #4a5568;
+}
+
+.contact-box .link {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.chronicle {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.history-row {
+    font-size: 13px;
+    color: #4a5568;
+    display: flex;
+    gap: 12px;
+}
+
+.history-row .year {
+    color: #1a202c;
+    font-weight: bold;
+    min-width: 35px;
+}
+
+/* --- GLOBAL CORE DEEP FOOTER --- */
+.site-footer {
+    background-color: #4f46e5;
+    color: white;
+    padding: 50px 0;
+    margin-top: 60px;
+}
+
+.footer-layout {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.footer-col h5 {
+    font-size: 14px;
+    margin-bottom: 16px;
+    opacity: 0.95;
+    font-weight: 600;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: white;
+    opacity: 0.7;
+    text-decoration: none;
+    font-size: 13px;
+    transition: opacity 0.15s;
+}
+
+.footer-col ul li a:hover {
+    opacity: 1;
+}
+
+/* --- PREVIEW NOTIFICATION ENGINE UTILITY BAR --- */
+.preview-utility-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fffaf0;
+    color: #c05621;
+    text-align: center;
+    padding: 12px;
+    font-size: 12px;
+    border-top: 1px solid #feebc8;
+    z-index: 9999;
+}
+
+/* --- MOBILE BREAKPOINT OVERRIDES --- */
+@media (max-width: 900px) {
+    .layout-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .scope-grid,
+    .board-flex-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-layout {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+
+/* --- SIDEBAR CONTAINER STRUCTURE --- */
+.sidebar-rail {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+}
+
+/* --- REUSABLE SPECIFIC WIDGET CARD SKINNERS --- */
+.widget {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    /* Softer, rounded corner styling from the image */
+    padding: 30px 24px;
+}
+
+.widget-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #4f46e5;
+    /* Professional deep indigo layout branding color */
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f1f5f9;
+    /* Subtle divider style below title headers */
+}
+
+/* --- WIDGET 1: QUICK LINKS --- */
+.widget-list {
+    list-style: none;
+}
+
+.widget-list li {
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.widget-list li:last-child {
+    border-bottom: none;
+}
+
+.widget-list a {
+    color: #4f46e5;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    transition: opacity 0.15s ease;
+}
+
+.widget-list a:hover {
+    opacity: 0.8;
+}
+
+.widget-list .arrow {
+    font-size: 16px;
+    color: #4f46e5;
+}
+
+/* --- WIDGET 2: CONTACT DETAILS --- */
+.contact-box {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.contact-box .lbl {
+    font-size: 12px;
+    font-weight: 500;
+    color: #94a3b8;
+    /* Slate tint for layout labels */
+}
+
+.contact-box .val {
+    font-size: 14px;
+    color: #1e293b;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.contact-box .link {
+    color: #1e293b;
+    text-decoration: none;
+}
+
+.contact-box .link:hover {
+    text-decoration: underline;
+}
+
+/* --- WIDGET 3: JOURNAL TIMELINE --- */
+.timeline-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.timeline-row {
+    display: flex;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 14px;
+}
+
+.timeline-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.timeline-row .year {
+    color: #4f46e5;
+    font-weight: 700;
+    min-width: 55px;
+    /* Clean column alignment layout spacing */
+}
+
+.timeline-row .evt {
+    color: #64748b;
+}
+
+/* --- ADAPTIVE PORT RESOLUTIONS --- */
+@media (max-width: 900px) {
+    .sidebar-rail {
+        max-width: 100%;
+        /* Rows slide cleanly below key components on compact tablets */
+    }
+}
+
+
+
+
+
+/* --- COMPONENT HEADINGS --- */
+.block-heading-indigo {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #4f46e5;
+    /* The specific brand indigo from the image headers */
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 10px;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+}
+
+/* --- EDITORIAL BOARD LAYOUT --- */
+.board-flex-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 45px;
+}
+
+.member-card {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    border: 1px solid #e2e8f0;
+    padding: 24px;
+    border-radius: 16px;
+    /* Enhanced pill/card rounding from original design */
+    background-color: #ffffff;
+}
+
+/* Precise CSS gradient overlay styling for avatar bubbles */
+.gradient-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
+}
+
+.member-info h5 {
+    font-size: 15px;
+    color: #1e293b;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.member-info .role {
+    font-size: 13px;
+    color: #6366f1;
+    /* Secondary structural blue-indigo link text accent */
+    font-weight: 500;
+}
+
+.member-info .inst {
+    font-size: 13px;
+    color: #94a3b8;
+    margin-top: 2px;
+}
+
+/* --- ETHICS & INDEXING LAYOUT --- */
+.ethics-intro-text {
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    text-align: justify;
+}
+
+.indexing-logos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.logo-box {
+    border: 1px solid #e2e8f0;
+    border-radius: 30px;
+    /* Highly-rounded capsule chip look */
+    padding: 12px 20px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e293b;
+    background-color: #ffffff;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+    cursor: default;
+}
+
+.logo-box:hover {
+    background-color: #f8fafc;
+    border-color: #cbd5e1;
+}
+
+/* --- ADAPTIVE OVERRIDES --- */
+@media (max-width: 768px) {
+    .board-flex-grid {
+        grid-template-columns: 1fr;
+        /* Responsively wraps columns into single list stacks */
+        gap: 16px;
+    }
+
+    .indexing-logos-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* Collapses down cleanly to a two-column index row layout */
+    }
+}

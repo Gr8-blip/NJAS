@@ -1,0 +1,137 @@
+.metrics-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    align-items: start;
+}
+
+.metrics-column h1 {
+    font-size: 40px;
+    margin-bottom: 25px;
+}
+
+.metric-card {
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    transition: .5s;
+}
+
+.metric-card:nth-child(2):hover {
+    border: 2px solid var(--chart-1);
+    box-shadow: 0 1px 10px var(--chart-1);
+    transform: translateY(-5px);
+}
+
+.metric-card:nth-child(3):hover {
+    border: 2px solid var(--chart-2);
+    box-shadow: 0 1px 10px var(--chart-2);
+    transform: translateY(-5px);
+}
+
+.metric-card:nth-child(4):hover {
+    border: 2px solid var(--chart-3);
+    box-shadow: 0 1px 10px var(--chart-3);
+    transform: translateY(-5px);
+}
+
+.metric-card:nth-child(5):hover {
+    border: 2px solid var(--chart-4);
+    box-shadow: 0 1px 10px var(--chart-4);
+    transform: translateY(-5px);
+}
+
+.metric-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.metric-label.parent-label {
+    color: var(--chart-1);
+}
+
+.metric-label.acceptance {
+    color: var(--chart-2);
+}
+
+.metric-label.decision {
+    color: var(--chart-3);
+}
+
+.metric-label.published {
+    color: var(--chart-4);
+}
+
+.metric-value {
+    font-size: 60px !important;
+    font-weight: 700;
+    color: #1a202c;
+    margin: 5px 0;
+}
+
+.metric-sub {
+    font-size: 13px;
+    color: #718096;
+}
+
+/* SUBMIT PANEL */
+.submit-panel {
+    background: linear-gradient(120deg, var(--primary), var(--accent));
+    color: white;
+    padding: 40px;
+    border-radius: 12px;
+    height: 100vh;
+    margin-top: 70px;
+}
+
+.submit-panel h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.submit-panel p {
+    font-size: 16px;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin-bottom: 25px;
+}
+
+.submit-links {
+    list-style: none;
+    margin-bottom: 35px;
+}
+
+.submit-links li {
+    margin-bottom: 12px;
+}
+
+.submit-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    opacity: 0.95;
+}
+
+.submit-links a:hover {
+    text-decoration: underline;
+}
+
+.submit-action-btn {
+    display: block;
+    text-align: center;
+    background-color: white;
+    color: #6b46c1;
+    text-decoration: none;
+    padding: 14px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: 0.5s;
+}
+
+.submit-action-btn:hover {
+    background-color: #f7fafc;
+    transform: translateY(-5px);
+}

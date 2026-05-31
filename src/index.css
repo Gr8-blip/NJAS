@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+:root {
+    --primary: #6366f1;
+    --white: #fff;
+    --sidebar-primary: #6366f1;
+    --sidebar-primary-foreground: #fff;
+    --accent: #ec4899;
+    --accent-foreground: #fff;
+    --chart-1: #6366f1;
+    --chart-2: #ec4899;
+    --chart-3: #f59e0b;
+    --chart-4: #10b981;
+    --chart-5: #3b82f6;
+    --radius: 1rem;
+    --background: #fff;
+    --foreground: #0f172a;
+    --card: #f8fafc;
+    --card-foreground: #0f172a;
+    --popover: #fff;
+    --popover-foreground: #0f172a;
+    --secondary: #e0e7ff;
+    --secondary-foreground: #3730a3;
+    --muted: #cbd5e1;
+    --muted-foreground: #64748b;
+    --destructive: #ef4444;
+    --destructive-foreground: #fff;
+    --border: #e2e8f0;
+    --input: #f1f5f9;
+    --ring: #6366f1;
+    --sidebar: #fff;
+    --sidebar-foreground: #0f172a;
+    --sidebar-accent: #f1f5f9;
+    --sidebar-accent-foreground: #0f172a;
+    --sidebar-border: #e2e8f0;
+    --sidebar-ring: #6366f1;
+}
+
+section {
+  padding: 70px 0;
+  width: 90%;
+  margin: 0 auto;
+}
