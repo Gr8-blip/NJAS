@@ -26,9 +26,9 @@ const Search = () => {
                     </select>
                 </div>
 
-                <div class="trending-row">
-                    <h3 class="trending-title">🔥 TRENDING NOW</h3>
-                    <ul class="trending-list">
+                <div className="trending-row">
+                    <h3 className="trending-title">🔥 TRENDING NOW</h3>
+                    <ul className="trending-list">
                         <li><a href="#">quantum error correction</a></li>
                         <li><a href="#">CRISPR delivery</a></li>
                         <li><a href="#">large language models</a></li>

@@ -22,43 +22,82 @@
     max-width: 850px;
 }
 
-/* --- UPPERROW FEATURE CARDS --- */
-.features-banner {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 20px;
-    margin-top: 45px;
+/* --- RESPONSIBILITIES LIST --- */
+.responsibilities-card {
+    margin-bottom: 50px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 24px;
+    /* Matches the soft outer container rounding from the image */
+    padding: 40px;
+    width: 100%;
+    max-width: 850px;
+    /* Constrains readability bounds to align with your main content layout */
+    box-sizing: border-box;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
 }
 
-.feature-card {
-    border: 2px solid var(--border);
-    border-radius: 10px;
-    padding: 24px;
-    background-color: var(--white);
-    cursor: pointer;
-    transition: .5s;
+.responsibilities-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #0f172a;
+    /* Deep near-black slate color */
+    margin: 0 0 20px 0;
 }
 
-.feature-card:hover {
-    border-color: var(--primary);
+.responsibilities-intro {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #475569;
+    /* Balanced slate grey text color */
+    margin: 0 0 24px 0;
 }
 
-.feature-icon {
-    font-size: 24px;
-    margin-bottom: 12px;
+/* --- LIST METRICS LAYOUT --- */
+.responsibilities-list {
+    list-style: none;
+    /* Removes standard browser bullets to inject custom design dots */
+    padding: 0;
+    margin: 0 0 28px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    /* Precise vertical padding gaps between list items */
 }
 
-.feature-card h3 {
-    font-size: 16px;
-    color: #1a202c;
-    margin-bottom: 6px;
-    font-weight: 600;
+.responsibilities-list li {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #475569;
+    position: relative;
+    padding-left: 24px;
+    /* Creates clean text indent to make room for bullet dots */
 }
 
-.feature-card p {
-    font-size: 13px;
-    color: #718096;
+/* Injects customized vibrant blue-purple bullet indicators */
+.responsibilities-list li::before {
+    content: "•";
+    color: #5c62d6;
+    /* The specific slate-blue branding tint from your image dots */
+    font-size: 20px;
+    position: absolute;
+    left: 4px;
+    top: -2px;
+    line-height: 1;
 }
+
+/* --- FOOTER STATEMENT BLOCK --- */
+.responsibilities-footer-note {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #64748b;
+    /* Soft slate neutral tint for footer disclaimer blocks */
+    font-style: italic;
+    /* Matches original typography styling precisely */
+    text-align: justify;
+    margin: 0;
+}
+
 
 /* --- DUAL COLUMN DESKTOP GRID SYSTEM --- */
 .layout-grid {
@@ -217,22 +256,69 @@
 .board-flex-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 28px;
 }
 
 .board-flex-grid .member-card {
     display: flex;
-    gap: 15px;
+    flex-direction: column;
+    gap: 20px;
     align-items: center;
-    border: 2px solid var(--border);
-    padding: 25px;
-    border-radius: 8px;
+    text-align: center;
+    background: #ffffff;
+    border: none;
+    padding: 32px 28px;
+    border-radius: 16px;
     cursor: pointer;
-    transition: .5s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 4px 16px rgba(0, 0, 0, 0.04);
+    position: relative;
+    overflow: hidden;
+}
+
+.board-flex-grid .member-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #5c62d6, #7c3aed);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
 }
 
 .board-flex-grid .member-card:hover {
-    border-color: var(--primary);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12), 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.board-flex-grid .member-card:hover::before {
+    transform: scaleX(1);
+}
+
+.member-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.member-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.board-flex-grid .member-card:hover .member-avatar {
+    transform: scale(1.08);
 }
 
 .monogram-avatar {
@@ -248,27 +334,41 @@
     flex-shrink: 0;
 }
 
+.member-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
 .member-info h5 {
-    font-size: 14px;
-    color: #1a202c;
-    font-weight: 600;
+    font-size: 16px;
+    color: #0f172a;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.3;
 }
 
 .member-info .role {
-    font-size: 12px;
-    color: #718096;
+    font-size: 13px;
+    color: #5c62d6;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    margin: 0;
 }
 
 .member-info .inst {
     font-size: 12px;
-    color: #a0aec0;
+    color: #64748b;
+    margin: 4px 0 0 0;
+    line-height: 1.4;
 }
 
-.profile-email {
-    color: var(--primary);
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 500;
+.member-info p {
+    margin: 0;
+    font-size: 12px;
+    color: #475569;
+    line-height: 1.5;
 }
 
 /* --- ETHICS BRANDING CHIPS --- */
@@ -301,6 +401,65 @@
 }
 
 /* --- SIDEBAR CONFIGURATIONS --- */
+/* --- COMPONENT STYLES --- */
+.overview-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 24px;
+    /* Matches the soft outer container rounding from the image */
+    padding: 32px;
+    width: 100%;
+    max-width: 440px;
+    /* Adapts cleanly into sidebar tracks */
+    box-sizing: border-box;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+}
+
+
+/* --- LIST METRICS LAYOUT --- */
+.overview-metrics-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* Precise vertical padding gaps between row groups */
+}
+
+.metric-row-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.metric-row-item span {
+    /* position: relative;
+    top: 20px; */
+    margin-top: 7px !important;
+    margin-right: 8px;
+    font-size: 20px;
+}
+
+/* --- TEXT DATABLOCK DATA --- */
+.metric-data-block {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.metric-data-block .metric-label {
+    font-size: 13px !important;
+    color: #94a3b8;
+    /* Soft neutral grey for secondary sub-labels */
+    font-weight: 500;
+}
+
+.metric-data-block .metric-value {
+    font-size: 24px !important;
+    font-weight: 700;
+    color: #0f172a;
+    /* Deep near-black slate color for metrics numbers counters */
+    line-height: 1;
+}
+
 .sidebar-rail {
     display: flex;
     flex-direction: column;
@@ -726,5 +885,17 @@
     .indexing-logos-grid {
         grid-template-columns: repeat(2, 1fr);
         /* Collapses down cleanly to a two-column index row layout */
+    }
+}
+
+/* --- RESPONSIVE WORKSPACE MEDIA CODES --- */
+@media (max-width: 640px) {
+    .responsibilities-card {
+        padding: 24px;
+        /* Adapts cleanly on constrained smaller viewports */
+    }
+
+    .responsibilities-title {
+        font-size: 22px;
     }
 }

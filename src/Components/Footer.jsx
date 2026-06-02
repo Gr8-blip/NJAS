@@ -5,8 +5,8 @@ import { Link } from 'react-router'
 const Footer = () => {
     return (
         <>
-            <footer class="main-footer">
-                <div class="container footer-grid">
+            <footer className="main-footer">
+                <div className="container footer-grid">
                     <div>
                         <h4>Tropical Journal of Science and Practice of Phamarcy</h4>
                         <p>Published by the Institute for Scientific Research</p>
@@ -28,7 +28,7 @@ const Footer = () => {
                         </ul>
                     </div>
                 </div>
-                <div class="footer-bottom">
+                <div className="footer-bottom">
                     <p>ISSN 2398-4473 (Print) | ISSN 2398-4481 (Online) © 2026 Institute for Scientific Research. All rights reserved.</p>
                 </div>
             </footer>

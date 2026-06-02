@@ -6,7 +6,7 @@ import { Link } from 'react-router'
 const Article = () => {
     return (
         <>
-            <div class="breadcrumbs container">
+            <div className="breadcrumbs container">
                 <Link to="/">Home</Link> › <Link to="/articles/ai">Artificial Intelligence</Link> › Neuromorphic computing...
             </div>
 
@@ -22,29 +22,29 @@ const Article = () => {
                     <li>📤 Published 14 May 2026</li>
                 </ul>
 
-                <div class="actions-bar">
-                    <button class="btn btn-primary" id="btn-download">⬇️ Download PDF</button>
-                    <button class="btn btn-secondary" id="btn-cite">📋 Cite article</button>
-                    <button class="btn btn-secondary" id="btn-share">🔗 Share</button>
-                    <button class="btn btn-secondary" id="btn-save">💾 Save</button>
-                    <button class="btn btn-secondary" id="btn-ai">✨ AI summary</button>
+                <div className="actions-bar">
+                    <button className="btn btn-primary" id="btn-download">⬇️ Download PDF</button>
+                    <button className="btn btn-secondary" id="btn-cite">📋 Cite article</button>
+                    <button className="btn btn-secondary" id="btn-share">🔗 Share</button>
+                    <button className="btn btn-secondary" id="btn-save">💾 Save</button>
+                    <button className="btn btn-secondary" id="btn-ai">✨ AI summary</button>
                 </div>
             </section>
 
             <section id='article-content'>
                 <div className="content-container">
-                    <article class="article-content-box">
-                        <div class="abstract-box">
+                    <article className="article-content-box">
+                        <div className="abstract-box">
                             <h2>ABSTRACT</h2>
                             <p>We introduce a neuromorphic chip architecture optimised for sparse, event-driven simulation of atmospheric dynamics. Benchmarked against GPU clusters across five continental climate zones, our approach reduces energy consumption by 78% while maintaining sub-1% RMSE against ERA5 reanalysis data. The architecture exploits temporal sparsity inherent in meteorological signals via asynchronous spiking neural networks (SNNs), enabling real-time planetary-scale climate prediction without sacrificing physical fidelity.</p>
 
-                            <div class="keywords-row">
-                                <span class="keyword">neuromorphic computing</span>
-                                <span class="keyword">climate modelling</span>
-                                <span class="keyword">spiking neural networks</span>
-                                <span class="keyword">atmospheric simulation</span>
-                                <span class="keyword">energy-efficient AI</span>
-                                <span class="keyword">ERA5</span>
+                            <div className="keywords-row">
+                                <span className="keyword">neuromorphic computing</span>
+                                <span className="keyword">climate modelling</span>
+                                <span className="keyword">spiking neural networks</span>
+                                <span className="keyword">atmospheric simulation</span>
+                                <span className="keyword">energy-efficient AI</span>
+                                <span className="keyword">ERA5</span>
                             </div>
                         </div>
 
@@ -58,7 +58,7 @@ const Article = () => {
                             spiking neural networks (SNNs) activate only when input signals exceed a threshold, yielding
                             near-zero idle power.</p>
 
-                        <blockquote class="pull-quote">
+                        <blockquote className="pull-quote">
                             "Unlike dense matrix operations on conventional accelerators, event-driven spiking architectures activate only when signals exceed threshold — yielding near-zero idle power during quiescent atmospheric states."
                         </blockquote>
 
@@ -70,43 +70,43 @@ const Article = () => {
                             ability to capture sharp convective onset events.</p>
 
                         <h3>References</h3>
-                        <ol class="references-list">
+                        <ol className="references-list">
                             <li>Krizhevsky, A., Sutskever, I., Hinton, G. E. (2012). Imagenet classification with deep convolutional neural networks. <em>Advances in Neural Information Processing Systems</em>, 25.</li>
                             <li>LeCun, Y., Bengio, Y., Hinton, G. (2015). Deep learning. <em>Nature</em>, 521(7553), 436-444.</li>
                             <li>Goodfellow, I., Pouget-Abadie, J., Mirza, M., et al. (2014). Generative adversarial networks. <em>Advances in Neural Information Processing Systems</em>, 27.</li>
                         </ol>
                     </article>
-                    <aside class="article-sidebar">
-                        <div class="sidebar-card">
-                            <h4 class="card-title">ARTICLE METRICS</h4>
-                            <div class="metrics-list">
-                                <div class="metric-row">
-                                    <span class="metric-label">Views</span>
-                                    <span class="metrics-value">1,247</span>
+                    <aside className="article-sidebar">
+                        <div className="sidebar-card">
+                            <h4 className="card-title">ARTICLE METRICS</h4>
+                            <div className="metrics-list">
+                                <div className="metric-row">
+                                    <span className="metric-label">Views</span>
+                                    <span className="metrics-value">1,247</span>
                                 </div>
-                                <div class="metric-row">
-                                    <span class="metric-label">Downloads</span>
-                                    <span class="metrics-value">156</span>
+                                <div className="metric-row">
+                                    <span className="metric-label">Downloads</span>
+                                    <span className="metrics-value">156</span>
                                 </div>
-                                <div class="metric-row">
-                                    <span class="metric-label">Citations</span>
-                                    <span class="metrics-value">23</span>
+                                <div className="metric-row">
+                                    <span className="metric-label">Citations</span>
+                                    <span className="metrics-value">23</span>
                                 </div>
-                                <div class="metric-row">
-                                    <span class="metric-label">Read time</span>
-                                    <span class="metrics-value">18 min</span>
+                                <div className="metric-row">
+                                    <span className="metric-label">Read time</span>
+                                    <span className="metrics-value">18 min</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="sidebar-card">
-                            <h4 class="card-title">ARTICLE INFO</h4>
-                            <div class="metrics-list">
-                                <div class="metric-row">
-                                    <p class="doi-text"><b>DOI:</b> 10.1038/s41586-026-00847-x</p>
+                        <div className="sidebar-card">
+                            <h4 className="card-title">ARTICLE INFO</h4>
+                            <div className="metrics-list">
+                                <div className="metric-row">
+                                    <p className="doi-text"><b>DOI:</b> 10.1038/s41586-026-00847-x</p>
                                 </div>
-                                <div class="metric-row">
-                                    <span class="license-badge">CC BY</span>
-                                    <span class="license-text">Open access free to reuse</span>
+                                <div className="metric-row">
+                                    <span className="license-badge">CC BY</span>
+                                    <span className="license-text">Open access free to reuse</span>
                                 </div>
                                 <div className="metric-row">
                                     <span>University of Lagos; KTH Stockholm; IIT Bombay; UNAM</span>
@@ -116,49 +116,49 @@ const Article = () => {
                                 </div>
                             </div>
                         </div>
-                        <div class="sidebar-card">
-                            <h4 class="card-title">SEARCH THE ARTICLE</h4>
-                            <div class="metrics-list">
-                                <div class="metric-row">
+                        <div className="sidebar-card">
+                            <h4 className="card-title">SEARCH THE ARTICLE</h4>
+                            <div className="metrics-list">
+                                <div className="metric-row">
                                     <button>Copy link</button>
                                 </div>
-                                <div class="metric-row">
+                                <div className="metric-row">
                                     <button>Email</button>
                                 </div>
-                                <div class="metric-row">
+                                <div className="metric-row">
                                     <button>Linkedin</button>
                                 </div>
                             </div>
                         </div>
-                        <div class="sidebar-card">
-                            <h4 class="card-title related-title">RELATED ARTICLES</h4>
-                            <hr class="card-divider"></hr>
-                            <div class="related-list">
-                                <div class="related-item">
-                                    <span class="related-tag">AI & CLIMATE</span>
-                                    <a href="#" class="related-link">Energy-efficient neural networks for climate prediction</a>
-                                    <span class="related-date">May 2026</span>
+                        <div className="sidebar-card">
+                            <h4 className="card-title related-title">RELATED ARTICLES</h4>
+                            <hr className="card-divider"></hr>
+                            <div className="related-list">
+                                <div className="related-item">
+                                    <span className="related-tag">AI & CLIMATE</span>
+                                    <a href="#" className="related-link">Energy-efficient neural networks for climate prediction</a>
+                                    <span className="related-date">May 2026</span>
                                 </div>
 
-                                <hr class="card-divider-light"></hr>
-                                <div class="related-item">
-                                    <span class="related-tag">AI & CLIMATE</span>
-                                    <a href="#" class="related-link">Spiking neural networks in atmospheric modeling</a>
-                                    <span class="related-date">May 2026</span>
+                                <hr className="card-divider-light"></hr>
+                                <div className="related-item">
+                                    <span className="related-tag">AI & CLIMATE</span>
+                                    <a href="#" className="related-link">Spiking neural networks in atmospheric modeling</a>
+                                    <span className="related-date">May 2026</span>
                                 </div>
 
-                                <hr class="card-divider-light"></hr>
-                                <div class="related-item">
-                                    <span class="related-tag">ENV. & SCI.</span>
-                                    <a href="#" class="related-link">Deep Learning Emulators for Sub-Seasonal Precipitation Forecasting</a>
-                                    <span class="related-date">May 2026</span>
+                                <hr className="card-divider-light"></hr>
+                                <div className="related-item">
+                                    <span className="related-tag">ENV. & SCI.</span>
+                                    <a href="#" className="related-link">Deep Learning Emulators for Sub-Seasonal Precipitation Forecasting</a>
+                                    <span className="related-date">May 2026</span>
                                 </div>
 
-                                <hr class="card-divider-light"></hr>
-                                <div class="related-item">
-                                    <span class="related-tag">AI & CLIMATE</span>
-                                    <a href="#" class="related-link">Spiking neural networks in atmospheric modeling</a>
-                                    <span class="related-date">May 2026</span>
+                                <hr className="card-divider-light"></hr>
+                                <div className="related-item">
+                                    <span className="related-tag">AI & CLIMATE</span>
+                                    <a href="#" className="related-link">Spiking neural networks in atmospheric modeling</a>
+                                    <span className="related-date">May 2026</span>
                                 </div>
                             </div>
                         </div>
@@ -169,12 +169,8 @@ const Article = () => {
             </section>
 
 
-            <section class="references-section">
-
-            </section>
-
-            <footer class="main-footer">
-                <div class="container footer-grid">
+            <footer className="main-footer">
+                <div className="container footer-grid">
                     <div>
                         <h4>Journal of Advances in Science & Technology</h4>
                         <p>Published by the Institute for Scientific Research</p>
@@ -196,7 +192,7 @@ const Article = () => {
                         </ul>
                     </div>
                 </div>
-                <div class="footer-bottom">
+                <div className="footer-bottom">
                     <p>ISSN 2398-4473 (Print) | ISSN 2398-4481 (Online) © 2026 Institute for Scientific Research. All rights reserved.</p>
                 </div>
             </footer>
