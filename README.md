@@ -1,2 +1,1 @@
-# njas-frontend
-Frontend for NJAS — Nigerian Journal Applied Science
+# NJAS — Nigerian Journal Applied Science 
