@@ -218,7 +218,6 @@ const About = () => {
             <ul className="widget-list">
               <li><Link to="/submit">Submit a manuscript <span className="arrow">›</span></Link></li>
               <li><Link to="/author-guidelines">Author guidelines <span className="arrow">›</span></Link></li>
-              <li><Link to="/reviewer-guidelines">Reviewer guidelines <span className="arrow">›</span></Link></li>
               <li><Link to="/contact">Contact us <span className="arrow">›</span></Link></li>
             </ul>
           </div>
@@ -227,15 +226,21 @@ const About = () => {
             <div className="contact-box">
               <div className="contact-item">
                 <span className="lbl">Email</span>
-                <a href="mailto:editorial@jast.org" className="val link">editorial@jast.org</a>
+                <a href="mailto:contact@mcgillard.com" className="val link">contact@mcgillard.com</a>
               </div>
               <div className="contact-item">
                 <span className="lbl">Phone</span>
-                <span className="val">+1 (555) 123-4567</span>
+                <span className="val">+234 906 802 2212</span>
               </div>
               <div className="contact-item">
                 <span className="lbl">Address</span>
-                <span className="val">Institute for Scientific Research<br />Cambridge, MA 02138, USA</span>
+                <span className="val">Tantua Road, Amassoma, Wilberforce Island,</span>
+                <span className="val">Bayelsa State, Nigeria</span>
+              </div>
+              <div className="contact-item">
+                <span className="lbl">Office Hours</span>
+                <span className="val">Mon-Fri: 9am - 5pm EST</span>
+                <button className="btn-subscribe">Schedule a Meeting</button>
               </div>
             </div>
           </div>

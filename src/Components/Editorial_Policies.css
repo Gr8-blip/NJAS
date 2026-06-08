@@ -1,0 +1,50 @@
+.editorial-article {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 800px;
+    padding: 20px;
+    border: 1px solid #e2e8f0;
+    border-radius: 24px;
+    margin-bottom: 32px;
+}
+
+.editorial-article h4 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.editorial-article h3 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.editorial-article p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.editorial-article ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.editorial-article li {
+    margin-bottom: 8px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.editorial-article .pull-quote {
+    background-color: #f1f5f9;
+    padding: 16px;
+}
+
+.editorial-article ol li{
+    margin-bottom: 8px;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-left: 25px;
+}

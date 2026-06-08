@@ -20,6 +20,21 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div>
+                        <h4>FOR AUTHORS</h4>
+                        <ul>
+                            <li><Link to="/author-guidelines">Author Guidelines</Link></li>
+                            <li><Link to="/submit-manuscript">Submit Manuscript</Link></li>
+                            <li><Link to="/faq">FAQ</Link></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>FOR READERS</h4>
+                        <ul>
+                            <li><Link to="/issues">Browse Articles</Link></li>
+                            <li><Link to="/subscribe">Subscribe</Link></li>
+                        </ul>
+                    </div>
+                    <div>
                         <h4>LEGAL</h4>
                         <ul>
                             <li><Link to="/privacy">Privacy Policy</Link></li>
@@ -32,9 +47,9 @@ const Footer = () => {
                     <p>ISSN 2398-4473 (Print) | ISSN 2398-4481 (Online) © 2026 Institute for Scientific Research. All rights reserved.</p>
                 </div>
             </footer>
-
         </>
     )
 }
+
 
 export default Footer

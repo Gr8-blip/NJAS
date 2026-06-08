@@ -65,7 +65,7 @@
 }
 
 .metric-value {
-    font-size: 60px !important;
+    font-size: 30px !important;
     font-weight: 700;
     color: #1a202c;
     margin: 5px 0;
@@ -82,7 +82,7 @@
     color: white;
     padding: 40px;
     border-radius: 12px;
-    height: 100vh;
+    height: 78vh;
     margin-top: 70px;
 }
 

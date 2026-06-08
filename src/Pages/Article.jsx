@@ -1,6 +1,7 @@
 import React from 'react'
 import '../Components/Article_page.css'
 import { Link } from 'react-router'
+import Footer from '../Components/Footer'
 
 
 const Article = () => {
@@ -168,34 +169,7 @@ const Article = () => {
 
             </section>
 
-
-            <footer className="main-footer">
-                <div className="container footer-grid">
-                    <div>
-                        <h4>Journal of Advances in Science & Technology</h4>
-                        <p>Published by the Institute for Scientific Research</p>
-                    </div>
-                    <div>
-                        <h4>QUICK LINKS</h4>
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Advertise</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4>LEGAL</h4>
-                        <ul>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms of Service</a></li>
-                            <li><a href="#">Accessibility</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div className="footer-bottom">
-                    <p>ISSN 2398-4473 (Print) | ISSN 2398-4481 (Online) © 2026 Institute for Scientific Research. All rights reserved.</p>
-                </div>
-            </footer>
+            <Footer />
 
         </>
     )
