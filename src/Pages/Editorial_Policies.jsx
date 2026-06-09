@@ -1,6 +1,7 @@
 import React from 'react'
 import '../Components/Editorial_Policies.css'
 import { Link } from 'react-router'
+import Footer from '../Components/Footer'
 
 const Editorial_Policies = () => {
     return (
@@ -365,6 +366,9 @@ const Editorial_Policies = () => {
                     </div>
                 </aside>
             </section >
+
+
+            <Footer />
         </>
     )
 }

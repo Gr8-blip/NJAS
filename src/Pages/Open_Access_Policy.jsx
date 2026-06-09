@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '../Components/Footer'
 
 const Open_Access_Policy = () => {
     return (
@@ -13,6 +14,8 @@ const Open_Access_Policy = () => {
                     material in any medium or format, for noncommercial purposes only. 
                 </p>
             </section>
+
+            <Footer />
         </>
     )
 }

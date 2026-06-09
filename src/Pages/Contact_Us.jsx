@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
+import Footer from '../Components/Footer'
 
 const Contact_Us = () => {
     return (
@@ -47,7 +48,8 @@ const Contact_Us = () => {
                 </aside>
             </section>
 
-
+            
+            <Footer />
         </>
     )
 }

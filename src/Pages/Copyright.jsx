@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '../Components/Footer'
 
 const Copyright = () => {
     return (
@@ -17,6 +18,8 @@ const Copyright = () => {
                     to us (the Publishers) and its licensees in perpetuity, in all forms, formats and media (whether known or created in the future) to (i) publish, reproduce, distribute, display and store the contribution, (ii) translate the contribution into other languages, create adaptations, reprints, include within collections and create summaries, extracts and/or abstracts of the contribution, (iii) create any other derivative works(s) based on the contribution, (iv) to exploit all subsidiary rights in the contribution, (v) the inclusion of electronic links from the contribution to third party material where-ever it may be located, and (vi) license any thrid party to do any or all of the above.
                 </p>
             </section>
+
+            <Footer />
         </>
     )
 }
