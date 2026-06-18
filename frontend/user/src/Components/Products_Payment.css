@@ -1,0 +1,310 @@
+/* --- REUSABLE MASTER CARD DESIGN --- */
+.policy-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 35px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.section-title {
+    font-family: Georgia, Cambria, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.text-blue {
+    color: #4f46e5;
+}
+
+.section-intro {
+    font-size: 14.5px;
+    color: #64748b;
+    margin-bottom: 24px;
+}
+
+/* Reusable custom point lists style blocks */
+.panel-list {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 13.5px;
+}
+
+.panel-list li {
+    position: relative;
+    padding-left: 16px;
+}
+
+.panel-list li::before {
+    content: "•";
+    position: absolute;
+    left: 4px;
+    font-size: 14px;
+}
+
+.list-green li::before {
+    color: #16a34a;
+}
+
+.list-blue li::before {
+    color: #2563eb;
+}
+
+.list-purple li::before {
+    color: #6366f1;
+}
+
+/* ==================== SECTION 1: IMPORTANT INFO ==================== */
+.info-blocks-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.info-block-row {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+}
+
+.check-icon {
+    color: #6366f1;
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: 1px;
+}
+
+.info-block-content h4 {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 4px;
+}
+
+.info-block-content p {
+    font-size: 13.5px;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+/* ==================== SECTION 2: REFUND POLICY ==================== */
+.policy-containers-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.status-panel {
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid transparent;
+}
+
+.status-panel h4 {
+    font-size: 14.5px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.status-panel p {
+    font-size: 13.5px;
+}
+
+/* Alert panel variations matching images rules backgrounds */
+.panel-red {
+    background-color: #fef2f2;
+    border-color: #fee2e2;
+    color: #991b1b;
+}
+
+.panel-red h4 {
+    color: #991b1b;
+}
+
+.panel-red p {
+    color: #ba1c1c;
+}
+
+.panel-green {
+    background-color: #f0fdf4;
+    border-color: #dcfce7;
+    color: #166534;
+}
+
+.panel-green h4 {
+    color: #166534;
+}
+
+.panel-green p {
+    color: #15803d;
+    margin-bottom: 8px;
+}
+
+.panel-blue {
+    background-color: #f0fdfa;
+    border-color: #ccfbf1;
+    color: #115e59;
+}
+
+.panel-blue h4 {
+    color: #1e3a8a;
+    background-color: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 12px;
+    padding: 20px;
+    margin: -20px -20px 14px -20px;
+}
+
+.status-panel.panel-blue {
+    background-color: #eff6ff;
+    border-color: #bfdbfe;
+}
+
+.panel-blue .panel-list {
+    color: #1e40af;
+}
+
+/* ==================== SECTION 3: PAYMENT OPTIONS ==================== */
+.payment-option-box {
+    border: 1px solid #edf2f7;
+    border-radius: 12px;
+    padding: 24px;
+    background-color: #ffffff;
+}
+
+.option-header-row {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.payment-badge-icon {
+    font-size: 24px;
+    background-color: #f1f5f9;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.option-header-text h4 {
+    font-size: 15px;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.option-header-text p {
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+/* ==================== SECTION 4: SUBSCRIPTION ==================== */
+.subscription-blocks-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.sub-row-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px 24px;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+
+.sub-icon {
+    font-size: 24px;
+    background-color: #f8fafc;
+    padding: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.sub-content-area h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #334155;
+}
+
+.price-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #6366f1;
+    margin: 2px 0;
+}
+
+.text-neutral {
+    font-size: 14px;
+    color: #94a3b8;
+    font-weight: 400;
+}
+
+.sub-meta {
+    font-size: 11px;
+    color: #a0aec0;
+    margin-top: -4px;
+    margin-bottom: 4px;
+}
+
+.sub-desc {
+    font-size: 12.5px;
+    color: #64748b;
+}
+
+/* ==================== SECTION 5: PUBLICATION CHARGES ==================== */
+.charges-split-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.charge-card-pane {
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px;
+    background-color: #ffffff;
+}
+
+.charge-card-pane h4 {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 6px;
+}
+
+.charge-price {
+    font-size: 24px;
+    font-weight: 700;
+    color: #5a67d8;
+    margin-bottom: 6px;
+}
+
+.charge-desc {
+    font-size: 12.5px;
+    color: #718096;
+}
+
+/* --- MOBILE ADAPTIVE VIEWPORTS BREAKPOINTS --- */
+@media (max-width: 640px) {
+    .policy-card {
+        padding: 20px;
+    }
+
+    .charges-split-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+}
