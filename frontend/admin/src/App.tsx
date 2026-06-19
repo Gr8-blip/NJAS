@@ -14,7 +14,7 @@ import UploadVolume from "./pages/journal/UploadVolume";
 export default function App() {
   return (
     <>
-      <Router>
+      <Router basename="/admin">
         <ScrollToTop />
         <Routes>
           <Route element={<AppLayout />}>
