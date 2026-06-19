@@ -49,6 +49,11 @@ header{
     gap: 15px;
 }
 
+.sign-in-btn a{
+    color: var(--white);
+    text-decoration: none;
+}
+
 .sign-in-btn {
     background-color: var(--primary);
     color: var(--accent-foreground);

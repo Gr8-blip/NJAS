@@ -10,8 +10,9 @@
     padding: 40px 0;
 }
 
-.article-section{
-    background-color: #6365f123;
+.article-section {
+    background-color: #6366f1;
+    color: #fff;
 }
 
 .article-swiper {
@@ -46,8 +47,9 @@
 }
 
 .stat-box {
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(139, 92, 246, 0.05));
-    border: 2px solid var(--primary);
+    background-color: #f3ecff;
+    /* background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(139, 92, 246, 0.05)); */
+    /* border: 2px solid var(--chart-3); */
     border-radius: 12px;
     padding: 30px !important;
     width: 80px;
@@ -62,6 +64,7 @@
     margin: 0 !important;
     margin-bottom: 8px !important;
     text-align: center !important;
+    color: #6366f1;
 
 }
 
@@ -78,16 +81,17 @@
     font-size: 13px;
     font-weight: 700;
     margin-bottom: 30px;
-    color: var(--primary);
+    /* color: var(--primary); */
+    color: #fff;
 }
 
 .article-top span {
-    font-size: 11px;
+    font-size: 16px;
+    font-weight: 600 !important;
     padding: 10px 20px;
     border-radius: 50px;
     margin-right: 20px;
-    background: linear-gradient(to right, var(--primary), var(--accent));
-    color: var(--white);
+    color: #ff609e;
 }
 
 #article h1 {
@@ -106,11 +110,11 @@
     list-style-type: none;
     font-size: 14px;
     font-weight: 500;
-    color: #000;
+    color: #fff;
 }
 
 #article .author strong {
-    color: #000;
+    color: #fff;
 }
 
 #article p {
@@ -128,7 +132,8 @@
 }
 
 .article-btn button {
-    background-color: var(--primary);
+    /* background-color: var(--chart-3); */
+    background-color: #ff609e;
     color: var(--accent-foreground);
     border: none;
     padding: 10px 20px;
@@ -140,14 +145,14 @@
     transition: 0.5s;
 }
 
-.article-btn button:first-child:hover {
+.article-btn button:hover {
     box-shadow: 0 1px 10px var(--primary);
     transform: translateY(-10px);
 }
 
-.article-btn button:nth-child(2) {
-    background-color: transparent;
-    color: var(--primary);
+/* .article-btn button:nth-child(2) {
+    background-color: var(--accent);
+    color: var(--white);
     border: 2px solid var(--primary);
 }
 
@@ -167,7 +172,7 @@
     background-color: var(--accent);
     color: var(--accent-foreground);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+} */
 
 /* Responsive Design */
 

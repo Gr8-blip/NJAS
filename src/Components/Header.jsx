@@ -24,7 +24,7 @@ const Header = () => {
                             <p>Published by the Institute for Scientific Research</p>
                         </div>
                         <div className='header-actions'>
-                            <button className='sign-in-btn'>Sign In</button>
+                            <button className='sign-in-btn'><Link to='/'>Sign In</Link></button>
                             <button className={`hamburger ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu} aria-label="Toggle menu">
                                 <span></span>
                                 <span></span>
