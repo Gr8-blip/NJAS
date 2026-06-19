@@ -135,3 +135,249 @@
     background-color: #f7fafc;
     transform: translateY(-5px);
 }
+
+/* Responsive Design */
+
+/* Large Tablets and Small Desktops (1024px) */
+@media (max-width: 1024px) {
+    .metrics-container {
+        grid-template-columns: repeat(2, 1fr);
+        /* grid-template-columns: auto; */
+        gap: 30px;
+    }
+
+    .metrics-column h1 {
+        font-size: 34px;
+        margin-bottom: 20px;
+    }
+
+    .metric-card {
+        padding: 16px;
+        margin-bottom: 12px;
+    }
+
+    .metric-label {
+        font-size: 11px;
+    }
+
+    .metric-value {
+        font-size: 26px !important;
+    }
+
+    .metric-sub {
+        font-size: 12px;
+    }
+
+    .submit-panel {
+        padding: 35px;
+        height: auto;
+        margin-top: 60px;
+    }
+
+    .submit-panel h2 {
+        font-size: 26px;
+        margin-bottom: 18px;
+    }
+
+    .submit-panel p {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+
+    .submit-links li {
+        margin-bottom: 10px;
+    }
+
+    .submit-links a {
+        font-size: 15px;
+    }
+
+    .submit-action-btn {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
+
+/* Tablets (768px) */
+@media (max-width: 768px) {
+    .metrics-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .metrics-column h1 {
+        font-size: 28px;
+        margin-bottom: 18px;
+    }
+
+    .metric-card {
+        padding: 15px;
+        margin-bottom: 10px;
+    }
+
+    .metric-label {
+        font-size: 11px;
+    }
+
+    .metric-value {
+        font-size: 24px !important;
+    }
+
+    .metric-sub {
+        font-size: 11px;
+    }
+
+    .submit-panel {
+        padding: 30px;
+        height: auto;
+        margin-top: 50px;
+    }
+
+    .submit-panel h2 {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+
+    .submit-panel p {
+        font-size: 14px;
+        margin-bottom: 18px;
+    }
+
+    .submit-links li {
+        margin-bottom: 9px;
+    }
+
+    .submit-links a {
+        font-size: 14px;
+    }
+
+    .submit-action-btn {
+        padding: 11px;
+        font-size: 13px;
+    }
+}
+
+/* Large Phones (640px) */
+@media (max-width: 640px) {
+    .metrics-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .metrics-column h1 {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    .metric-card {
+        padding: 12px;
+        margin-bottom: 8px;
+    }
+
+    .metric-label {
+        font-size: 10px;
+    }
+
+    .metric-value {
+        font-size: 22px !important;
+    }
+
+    .metric-sub {
+        font-size: 10px;
+    }
+
+    .submit-panel {
+        padding: 25px;
+        height: auto;
+        margin-top: 40px;
+        border-radius: 8px;
+    }
+
+    .submit-panel h2 {
+        font-size: 20px;
+        margin-bottom: 14px;
+    }
+
+    .submit-panel p {
+        font-size: 13px;
+        margin-bottom: 15px;
+    }
+
+    .submit-links li {
+        margin-bottom: 8px;
+    }
+
+    .submit-links a {
+        font-size: 13px;
+    }
+
+    .submit-action-btn {
+        padding: 10px;
+        font-size: 12px;
+    }
+}
+
+/* Small Phones (480px) */
+@media (max-width: 480px) {
+    .metrics-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .metrics-column h1 {
+        font-size: 20px;
+        margin-bottom: 12px;
+        line-height: 1.3;
+    }
+
+    .metric-card {
+        padding: 10px;
+        margin-bottom: 6px;
+        border-radius: 6px;
+    }
+
+    .metric-label {
+        font-size: 9px;
+    }
+
+    .metric-value {
+        font-size: 20px !important;
+        margin: 3px 0;
+    }
+
+    .metric-sub {
+        font-size: 9px;
+    }
+
+    .submit-panel {
+        padding: 20px;
+        height: auto;
+        margin-top: 30px;
+        border-radius: 8px;
+    }
+
+    .submit-panel h2 {
+        font-size: 18px;
+        margin-bottom: 12px;
+        line-height: 1.3;
+    }
+
+    .submit-panel p {
+        font-size: 12px;
+        margin-bottom: 12px;
+        line-height: 1.5;
+    }
+
+    .submit-links li {
+        margin-bottom: 6px;
+    }
+
+    .submit-links a {
+        font-size: 12px;
+    }
+
+    .submit-action-btn {
+        padding: 10px 12px;
+        font-size: 11px;
+    }
+}

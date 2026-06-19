@@ -471,6 +471,862 @@
     }
 }
 
+/* Responsive Design */
+
+/* Large Tablets and Small Desktops (1024px) */
+@media (max-width: 1024px) {
+    .hero-badge {
+        padding: 7px 13px;
+        font-size: 12px;
+    }
+
+    .hero-title {
+        font-size: 36px;
+        margin-top: 25px;
+        margin-bottom: 12px;
+    }
+
+    .hero-desc {
+        font-size: 15px;
+        max-width: 800px;
+    }
+
+    .features-banner {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 18px;
+        margin-top: 40px;
+    }
+
+    .feature-card {
+        padding: 20px;
+    }
+
+    .feature-card h3 {
+        font-size: 15px;
+    }
+
+    .feature-card p {
+        font-size: 12px;
+    }
+
+    .layout-grid {
+        grid-template-columns: 1fr 280px;
+        gap: 50px;
+    }
+
+    .block-heading {
+        font-size: 15px;
+        margin-bottom: 18px;
+    }
+
+    .pull-quote {
+        font-size: 15px;
+        padding-left: 18px;
+        margin: 22px 15px;
+    }
+
+    .metrics-row {
+        gap: 25px;
+        margin-top: 30px;
+        padding: 20px;
+    }
+
+    .metric-item {
+        padding: 16px;
+    }
+
+    .metric-num {
+        font-size: 22px;
+    }
+
+    .metric-lbl {
+        font-size: 11px;
+        margin-top: 8px;
+    }
+
+    .scope-box {
+        padding: 18px;
+    }
+
+    .scope-box h4 {
+        font-size: 13px;
+    }
+
+    .scope-box p {
+        font-size: 12px;
+    }
+
+    .timeline-node {
+        gap: 18px;
+    }
+
+    .node-index {
+        width: 26px;
+        height: 26px;
+        font-size: 11px;
+    }
+
+    .node-data h5 {
+        font-size: 13px;
+    }
+
+    .node-data p {
+        font-size: 12px;
+    }
+
+    .board-flex-grid .member-card {
+        padding: 20px;
+        gap: 12px;
+    }
+
+    .monogram-avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 11px;
+    }
+
+    .member-info h5 {
+        font-size: 13px;
+    }
+
+    .member-info .role,
+    .member-info .inst {
+        font-size: 11px;
+    }
+
+    .indexing-logos-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+
+    .indexing-logos-grid .logo-box {
+        padding: 12px;
+        font-size: 11px;
+    }
+
+    .sidebar-rail {
+        gap: 25px;
+    }
+
+    .widget {
+        padding: 20px;
+    }
+
+    .widget h4 {
+        font-size: 11px;
+        margin-bottom: 14px;
+    }
+
+    .widget-list a {
+        font-size: 13px;
+    }
+
+    .contact-box .contact-item {
+        font-size: 12px;
+    }
+
+    .footer-layout {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 35px;
+    }
+
+    .footer-col h5 {
+        font-size: 13px;
+        margin-bottom: 14px;
+    }
+
+    .footer-col ul li a {
+        font-size: 12px;
+    }
+}
+
+/* Tablets (768px) */
+@media (max-width: 768px) {
+    .hero-badge {
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+
+    .hero-title {
+        font-size: 30px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .hero-desc {
+        font-size: 14px;
+        max-width: 100%;
+    }
+
+    .features-banner {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 15px;
+        margin-top: 35px;
+    }
+
+    .feature-card {
+        padding: 16px;
+    }
+
+    .feature-icon {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .feature-card h3 {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .feature-card p {
+        font-size: 11px;
+    }
+
+    .layout-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .content-block {
+        margin-top: 0;
+    }
+
+    .block-heading {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+
+    .pull-quote {
+        font-size: 14px;
+        padding-left: 15px;
+        margin: 18px 10px;
+    }
+
+    .quote-author {
+        font-size: 11px;
+        margin-top: 5px;
+    }
+
+    .metrics-row {
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 25px;
+        padding: 15px;
+    }
+
+    .metric-item {
+        flex: 1;
+        min-width: 100px;
+        padding: 14px;
+    }
+
+    .metric-num {
+        font-size: 20px;
+    }
+
+    .metric-lbl {
+        font-size: 10px;
+        margin-top: 6px;
+    }
+
+    .scope-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .scope-box {
+        padding: 15px;
+    }
+
+    .scope-box h4 {
+        font-size: 12px;
+    }
+
+    .scope-box p {
+        font-size: 11px;
+    }
+
+    .timeline-list {
+        gap: 20px;
+    }
+
+    .timeline-node {
+        gap: 15px;
+    }
+
+    .node-index {
+        width: 24px;
+        height: 24px;
+        font-size: 10px;
+    }
+
+    .node-data h5 {
+        font-size: 12px;
+    }
+
+    .node-data p {
+        font-size: 11px;
+    }
+
+    .board-flex-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .board-flex-grid .member-card {
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .monogram-avatar {
+        width: 38px;
+        height: 38px;
+        font-size: 10px;
+    }
+
+    .member-info h5 {
+        font-size: 12px;
+    }
+
+    .member-info .role,
+    .member-info .inst {
+        font-size: 10px;
+    }
+
+    .profile-email {
+        font-size: 12px;
+    }
+
+    .indexing-logos-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .indexing-logos-grid .logo-box {
+        padding: 10px;
+        font-size: 10px;
+    }
+
+    .sidebar-rail {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .widget {
+        flex: 1;
+        min-width: 250px;
+        padding: 18px;
+    }
+
+    .widget h4 {
+        font-size: 10px;
+        margin-bottom: 12px;
+    }
+
+    .widget-list li {
+        padding: 8px 0;
+    }
+
+    .widget-list a {
+        font-size: 12px;
+    }
+
+    .contact-box .contact-item {
+        font-size: 11px;
+        margin-bottom: 12px;
+    }
+
+    .chronicle {
+        gap: 10px;
+    }
+
+    .history-row {
+        font-size: 12px;
+        gap: 10px;
+    }
+
+    .history-row .year {
+        min-width: 30px;
+    }
+
+    .footer-layout {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .footer-col h5 {
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+
+    .footer-col ul li {
+        margin-bottom: 8px;
+    }
+
+    .footer-col ul li a {
+        font-size: 11px;
+    }
+}
+
+/* Large Phones (640px) */
+@media (max-width: 640px) {
+    .hero-badge {
+        padding: 5px 10px;
+        font-size: 10px;
+    }
+
+    .hero-title {
+        font-size: 26px;
+        margin-top: 18px;
+        margin-bottom: 10px;
+        line-height: 1.3;
+    }
+
+    .hero-desc {
+        font-size: 13px;
+    }
+
+    .features-banner {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 12px;
+        margin-top: 30px;
+    }
+
+    .feature-card {
+        padding: 14px;
+    }
+
+    .feature-icon {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .feature-card h3 {
+        font-size: 13px;
+    }
+
+    .feature-card p {
+        font-size: 10px;
+    }
+
+    .layout-grid {
+        gap: 20px;
+    }
+
+    .block-heading {
+        font-size: 13px;
+        margin-bottom: 12px;
+        padding-bottom: 6px;
+    }
+
+    .pull-quote {
+        font-size: 13px;
+        padding-left: 12px;
+        margin: 15px 8px;
+    }
+
+    .quote-author {
+        font-size: 10px;
+    }
+
+    .metrics-row {
+        gap: 12px;
+        margin-top: 20px;
+        padding: 12px;
+    }
+
+    .metric-item {
+        min-width: 80px;
+        padding: 12px;
+    }
+
+    .metric-num {
+        font-size: 18px;
+    }
+
+    .metric-lbl {
+        font-size: 9px;
+        margin-top: 5px;
+    }
+
+    .scope-box {
+        padding: 12px;
+    }
+
+    .scope-box h4 {
+        font-size: 11px;
+    }
+
+    .scope-box p {
+        font-size: 10px;
+    }
+
+    .timeline-list {
+        gap: 16px;
+    }
+
+    .timeline-node {
+        gap: 12px;
+    }
+
+    .node-index {
+        width: 22px;
+        height: 22px;
+        font-size: 9px;
+    }
+
+    .node-data h5 {
+        font-size: 11px;
+    }
+
+    .node-data p {
+        font-size: 10px;
+    }
+
+    .board-flex-grid .member-card {
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .monogram-avatar {
+        width: 36px;
+        height: 36px;
+        font-size: 9px;
+    }
+
+    .member-info h5 {
+        font-size: 11px;
+    }
+
+    .member-info .role,
+    .member-info .inst {
+        font-size: 9px;
+    }
+
+    .profile-email {
+        font-size: 11px;
+    }
+
+    .indexing-logos-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .indexing-logos-grid .logo-box {
+        padding: 8px;
+        font-size: 9px;
+    }
+
+    .sidebar-rail {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .widget {
+        min-width: unset;
+        padding: 14px;
+    }
+
+    .widget h4 {
+        font-size: 9px;
+        margin-bottom: 10px;
+    }
+
+    .widget-list li {
+        padding: 6px 0;
+    }
+
+    .widget-list a {
+        font-size: 11px;
+    }
+
+    .contact-box .contact-item {
+        font-size: 10px;
+        margin-bottom: 10px;
+    }
+
+    .history-row {
+        font-size: 11px;
+    }
+
+    .footer-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .footer-col h5 {
+        font-size: 11px;
+        margin-bottom: 10px;
+    }
+
+    .footer-col ul li {
+        margin-bottom: 6px;
+    }
+
+    .footer-col ul li a {
+        font-size: 10px;
+    }
+}
+
+/* Small Phones (480px) */
+@media (max-width: 480px) {
+    .hero-badge {
+        padding: 5px 10px;
+        font-size: 9px;
+    }
+
+    .hero-title {
+        font-size: 22px;
+        margin-top: 15px;
+        margin-bottom: 8px;
+        line-height: 1.2;
+    }
+
+    .hero-desc {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .features-banner {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 10px;
+        margin-top: 25px;
+    }
+
+    .feature-card {
+        padding: 12px;
+        border-radius: 8px;
+    }
+
+    .feature-icon {
+        font-size: 16px;
+        margin-bottom: 6px;
+    }
+
+    .feature-card h3 {
+        font-size: 12px;
+        margin-bottom: 3px;
+    }
+
+    .feature-card p {
+        font-size: 9px;
+    }
+
+    .layout-grid {
+        gap: 15px;
+    }
+
+    .content-block {
+        margin-top: 0;
+    }
+
+    .block-heading {
+        font-size: 12px;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        letter-spacing: 0.3px;
+    }
+
+    .pull-quote {
+        font-size: 12px;
+        padding-left: 10px;
+        margin: 12px 6px;
+        border-left-width: 2px;
+    }
+
+    .quote-author {
+        font-size: 9px;
+        margin-top: 3px;
+    }
+
+    .metrics-row {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 15px;
+        padding: 10px;
+    }
+
+    .metric-item {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .metric-num {
+        font-size: 16px;
+    }
+
+    .metric-lbl {
+        font-size: 8px;
+        margin-top: 4px;
+    }
+
+    .scope-grid {
+        gap: 10px;
+    }
+
+    .scope-box {
+        padding: 10px;
+        border-radius: 6px;
+    }
+
+    .scope-box h4 {
+        font-size: 10px;
+        margin-bottom: 6px;
+    }
+
+    .scope-box p {
+        font-size: 9px;
+    }
+
+    .timeline-intro {
+        margin-bottom: 15px;
+    }
+
+    .timeline-list {
+        gap: 12px;
+    }
+
+    .timeline-node {
+        gap: 10px;
+    }
+
+    .node-index {
+        width: 20px;
+        height: 20px;
+        font-size: 8px;
+    }
+
+    .node-data h5 {
+        font-size: 10px;
+        margin-bottom: 3px;
+    }
+
+    .node-data p {
+        font-size: 9px;
+        text-align: left;
+        line-height: 1.4;
+    }
+
+    .board-flex-grid {
+        gap: 10px;
+    }
+
+    .board-flex-grid .member-card {
+        flex-direction: column;
+        padding: 10px;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .monogram-avatar {
+        width: 32px;
+        height: 32px;
+        font-size: 8px;
+    }
+
+    .member-info h5 {
+        font-size: 10px;
+    }
+
+    .member-info .role,
+    .member-info .inst {
+        font-size: 8px;
+    }
+
+    .profile-email {
+        font-size: 9px;
+    }
+
+    .indexing-logos-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .indexing-logos-grid .logo-box {
+        padding: 8px;
+        font-size: 8px;
+        border-radius: 20px;
+    }
+
+    .sidebar-rail {
+        gap: 10px;
+    }
+
+    .widget {
+        padding: 12px;
+        border-radius: 12px;
+    }
+
+    .widget h4 {
+        font-size: 8px;
+        margin-bottom: 8px;
+        letter-spacing: 0.2px;
+    }
+
+    .widget-list li {
+        padding: 6px 0;
+    }
+
+    .widget-list a {
+        font-size: 10px;
+    }
+
+    .contact-box .contact-item {
+        font-size: 9px;
+        margin-bottom: 8px;
+    }
+
+    .contact-box .lbl {
+        font-size: 8px;
+    }
+
+    .contact-box .val {
+        font-size: 9px;
+    }
+
+    .contact-box .link {
+        font-size: 9px;
+    }
+
+    .chronicle {
+        gap: 8px;
+    }
+
+    .history-row {
+        font-size: 10px;
+        gap: 8px;
+    }
+
+    .history-row .year {
+        min-width: 25px;
+        font-size: 9px;
+    }
+
+    .site-footer {
+        padding: 30px 0;
+        margin-top: 40px;
+    }
+
+    .footer-layout {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .footer-col h5 {
+        font-size: 10px;
+        margin-bottom: 8px;
+    }
+
+    .footer-col ul li {
+        margin-bottom: 5px;
+    }
+
+    .footer-col ul li a {
+        font-size: 9px;
+    }
+}
+
 
 /* --- SIDEBAR CONTAINER STRUCTURE --- */
 .sidebar-rail {

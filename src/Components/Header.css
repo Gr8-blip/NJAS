@@ -1,11 +1,11 @@
-/* header{
+header{
     background-color: #fff;
     position: sticky;
     top: 0;
-    z-index: 99999999999999;
-} */
+    z-index: 9999;
+}
 
-.navbar-top{
+.navbar-top {
     background: linear-gradient(to right, var(--primary), var(--accent));
     color: var(--white);
     padding: 10px;
@@ -14,16 +14,16 @@
     font-weight: 500;
 }
 
-.main-navbar-top{
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   width: 90%;
-   margin: 0 auto;
-   padding: 20px 0;
+.main-navbar-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 0;
 }
 
-.main-navbar-top .logo h1{
+.main-navbar-top .logo h1 {
     font-size: 25px;
     font-weight: 700;
     /* color: var(--primary); */
@@ -32,14 +32,24 @@
     -webkit-text-fill-color: transparent;
 }
 
-.main-navbar-top .logo p{
+.main-navbar-top .logo a{
+    text-decoration: none;
+}
+
+.main-navbar-top .logo p {
     font-size: 14px;
     font-weight: 500;
     margin-top: 5px;
     color: var(--muted-foreground);
 }
 
-.main-navbar-top button{
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.sign-in-btn {
     background-color: var(--primary);
     color: var(--accent-foreground);
     border: none;
@@ -49,14 +59,45 @@
     font-weight: 500;
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.main-navbar-top button:hover{
+.sign-in-btn:hover {
     background-color: var(--accent);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
-.main-nav{
+.hamburger {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    gap: 6px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(12px, 12px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+}
+
+.main-nav {
     display: flex;
     justify-content: center;
     gap: 10px;
@@ -65,9 +106,10 @@
     list-style-type: none;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
 }
 
-.main-nav .nav-link{
+.main-nav .nav-link {
     text-decoration: none;
     color: var(--foreground);
     font-size: 14px;
@@ -75,9 +117,139 @@
     padding: 10px 15px;
     border-radius: 5px;
     transition: background-color 0.3s ease, color 0.3s ease;
+    white-space: nowrap;
 }
 
-.main-nav .nav-link:hover{
+.main-nav .nav-link:hover {
     background-color: var(--primary);
     color: var(--accent-foreground);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .main-navbar-top .logo h1 {
+        font-size: 20px;
+    }
+
+    .main-nav {
+        gap: 5px;
+    }
+
+    .main-nav .nav-link {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-navbar-top {
+        width: 95%;
+    }
+
+    .main-navbar-top .logo h1 {
+        font-size: 18px;
+    }
+
+    .main-navbar-top .logo p {
+        font-size: 12px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .sign-in-btn {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+
+    .main-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: transparent;
+        flex-direction: column;
+        padding: 0;
+        border-top: none;
+        border-bottom: none;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        margin-top: 0;
+        align-items: stretch;
+    }
+
+    .main-nav.active {
+        max-height: 500px;
+        background-color: var(--background);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        padding: 20px;
+    }
+
+    .main-nav .nav-link {
+        padding: 12px 20px;
+        border-radius: 0;
+        text-align: left;
+        white-space: normal;
+        font-size: 14px;
+    }
+
+    .main-nav .nav-link:hover {
+        background-color: var(--primary);
+        color: var(--accent-foreground);
+    }
+
+    .main-navbar {
+        position: relative;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-top {
+        font-size: 11px;
+        padding: 8px;
+    }
+
+    .main-navbar-top {
+        width: 100%;
+        padding: 15px 10px;
+        flex-wrap: wrap;
+    }
+
+    .main-navbar-top .logo h1 {
+        font-size: 16px;
+    }
+
+    .main-navbar-top .logo p {
+        font-size: 11px;
+    }
+
+    .sign-in-btn {
+        padding: 7px 12px;
+        font-size: 11px;
+    }
+
+    .main-nav {
+        max-height: 0;
+        background-color: transparent;
+        border-top: none;
+        border-bottom: none;
+        padding: 0;
+    }
+
+    .main-nav.active {
+        max-height: 450px;
+        background-color: var(--background);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        padding: 20px;
+    }
+
+    .main-nav .nav-link {
+        padding: 10px 15px;
+        font-size: 13px;
+    }
 }
