@@ -9,7 +9,7 @@
 
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 40px;
     width: 90%;
     margin: 0 auto;
@@ -56,4 +56,168 @@
 
 .footer-bottom p {
     color: white !important;
+}
+
+/* Responsive Design */
+
+/* Large Tablets and Small Desktops (1024px) */
+@media (max-width: 1024px) {
+    .main-footer {
+        padding: 45px 0 15px 0;
+        margin-top: 40px;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 35px;
+        width: 92%;
+        padding-bottom: 35px;
+    }
+
+    .footer-grid h4 {
+        font-size: 13px;
+        margin-bottom: 12px;
+    }
+
+    .footer-grid p {
+        font-size: 13px;
+    }
+
+    .footer-grid ul li {
+        margin-bottom: 8px;
+    }
+
+    .footer-grid ul li a {
+        font-size: 13px;
+    }
+
+    .footer-bottom {
+        padding-top: 15px;
+        font-size: 11px;
+    }
+}
+
+/* Tablets (768px) */
+@media (max-width: 768px) {
+    .main-footer {
+        padding: 40px 0 15px 0;
+        margin-top: 35px;
+        position: relative;
+        width: 100%;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        width: 95%;
+        padding-bottom: 30px;
+    }
+
+    .footer-grid h4 {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .footer-grid p {
+        font-size: 12px;
+    }
+
+    .footer-grid ul li {
+        margin-bottom: 7px;
+    }
+
+    .footer-grid ul li a {
+        font-size: 12px;
+    }
+
+    .footer-bottom {
+        padding-top: 12px;
+        font-size: 10px;
+    }
+}
+
+/* Large Phones (640px) */
+@media (max-width: 640px) {
+    .main-footer {
+        padding: 35px 0 12px 0;
+        margin-top: 30px;
+        position: relative;
+        width: 100%;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        width: 95%;
+        padding-bottom: 25px;
+    }
+
+    .footer-grid h4 {
+        font-size: 11px;
+        margin-bottom: 9px;
+        letter-spacing: 0.3px;
+    }
+
+    .footer-grid p {
+        font-size: 11px;
+    }
+
+    .footer-grid ul li {
+        margin-bottom: 6px;
+    }
+
+    .footer-grid ul li a {
+        font-size: 11px;
+    }
+
+    .footer-bottom {
+        padding-top: 10px;
+        font-size: 9px;
+    }
+}
+
+/* Small Phones (480px) */
+@media (max-width: 480px) {
+    .main-footer {
+        padding: 30px 0 10px 0;
+        margin-top: 25px;
+        position: relative;
+        width: 100%;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        width: 95%;
+        padding-bottom: 20px;
+    }
+
+    .footer-grid h4 {
+        font-size: 10px;
+        margin-bottom: 8px;
+        letter-spacing: 0.2px;
+        text-transform: uppercase;
+    }
+
+    .footer-grid p {
+        font-size: 10px;
+        line-height: 1.4;
+    }
+
+    .footer-grid ul li {
+        margin-bottom: 5px;
+    }
+
+    .footer-grid ul li a {
+        font-size: 10px;
+    }
+
+    .footer-bottom {
+        padding-top: 8px;
+        font-size: 8px;
+    }
+
+    .footer-bottom p {
+        line-height: 1.3;
+    }
 }

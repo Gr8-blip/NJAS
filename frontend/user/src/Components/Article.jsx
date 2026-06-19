@@ -56,53 +56,55 @@ const Article = () => {
 
     return (
         <>
-            <section id='article'>
-                <Swiper
-                    modules={[Pagination, Autoplay]}
-                    pagination={{ clickable: true }}
-                    autoplay={{ delay: 5000, disableOnInteraction: false }}
-                    spaceBetween={50}
-                    slidesPerView={1}
-                    className="article-swiper"
-                >
-                    {articles.map((article) => (
-                        <SwiperSlide key={article.id}>
-                            <div className="article-content">
-                                <div className="article-main">
-                                    <div className="article-top">
-                                        <p><span>{article.badge}</span> {article.volume}</p>
-                                    </div>
-                                    <h1>{article.title}</h1>
-                                    <ul className='author'>
-                                        <li><strong>Authors:</strong> {article.authors}</li>
-                                        <li>📅 Received {article.received}</li>
-                                        <li>✓ Accepted {article.accepted}</li>
-                                        <li>📤 Published {article.published}</li>
-                                    </ul>
-                                    <p>{article.description}</p>
+            <div className='article-section'>
+                <section id='article'>
+                    <Swiper
+                        modules={[Pagination, Autoplay]}
+                        pagination={{ clickable: true }}
+                        autoplay={{ delay: 5000, disableOnInteraction: false }}
+                        spaceBetween={50}
+                        slidesPerView={1}
+                        className="article-swiper"
+                    >
+                        {articles.map((article) => (
+                            <SwiperSlide key={article.id}>
+                                <div className="article-content">
+                                    <div className="article-main">
+                                        <div className="article-top">
+                                            <p><span>{article.badge}</span> {article.volume}</p>
+                                        </div>
+                                        <h1>{article.title}</h1>
+                                        <ul className='author'>
+                                            <li><strong>Authors:</strong> {article.authors}</li>
+                                            <li>📅 Received {article.received}</li>
+                                            <li>✓ Accepted {article.accepted}</li>
+                                            <li>📤 Published {article.published}</li>
+                                        </ul>
+                                        <p>{article.description}</p>
 
-                                    <div className="article-btn">
-                                        <button>Read full article</button>
-                                        <button>Download PDF</button>
-                                        <button>Cite</button>
+                                        <div className="article-btn">
+                                            <button>Read full article</button>
+                                            <button>Download PDF</button>
+                                            <button>Cite</button>
+                                        </div>
+                                    </div>
+
+                                    <div className="article-sidebar">
+                                        <div className="stat-box">
+                                            <p className="stat-label">VIEWS</p>
+                                            <p className="stat-number">{article.views.toLocaleString()}</p>
+                                        </div>
+                                        <div className="stat-box">
+                                            <p className="stat-label">CITATIONS</p>
+                                            <p className="stat-number">{article.citations}</p>
+                                        </div>
                                     </div>
                                 </div>
-
-                                <div className="article-sidebar">
-                                    <div className="stat-box">
-                                        <p className="stat-label">VIEWS</p>
-                                        <p className="stat-number">{article.views.toLocaleString()}</p>
-                                    </div>
-                                    <div className="stat-box">
-                                        <p className="stat-label">CITATIONS</p>
-                                        <p className="stat-number">{article.citations}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-            </section>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                </section>
+            </div>
         </>
     )
 }

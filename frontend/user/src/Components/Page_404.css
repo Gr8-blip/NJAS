@@ -1,0 +1,609 @@
+
+.container-404 {
+    width: 80%;
+    margin: 0 auto;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Card Styling */
+.card-404 {
+    background: #ffffff;
+    border: 1px solid #eef0f6;
+    border-radius: 12px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
+}
+
+/* Top Section Elements */
+.icon-container-404 {
+    width: 56px;
+    height: 56px;
+    background-color: #f5f0ff;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--primary);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.card-404 h1 {
+    font-size: 48px;
+    color: var(--primary);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.card-404 h2 {
+    font-size: 20px;
+    color: #1e1e2f;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.description-404 {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #7a7a9a;
+    margin-bottom: 30px;
+}
+
+/* Action Buttons */
+.button-group-404 {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 35px;
+}
+
+.btn-404 {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-primary-404 {
+    background-color: var(--primary);
+    color: #ffffff;
+    border: none;
+}
+
+.btn-primary-404:hover {
+    background-color: var(--primary);
+}
+
+.btn-secondary-404 {
+    background-color: #ffffff;
+    color: #4a4a6a;
+    border: 1px solid #e2e4ed;
+}
+
+.btn-secondary-404:hover {
+    background-color: #f8f9fc;
+}
+
+/* Divider */
+.divider-404 {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #b5b5c3;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.divider-404::before,
+.divider-404::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #edf0f5;
+}
+
+.divider-404:not(:empty)::before {
+    margin-right: 15px;
+}
+
+.divider-404:not(:empty)::after {
+    margin-left: 15px;
+}
+
+/* Suggested Pages Card */
+.suggested-card-404 {
+    background: #ffffff;
+    border: 1px solid #eef0f6;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.suggested-title-404 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1e1e2f;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.suggested-title-404 span {
+    color: var(--primary);
+}
+
+.grid-links-404 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.grid-item-404 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: #ffffff;
+    border: 1px solid #edf0f5;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #4a4a6a;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.grid-item-404:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.grid-item-404 .arrow {
+    color: #b5b5c3;
+    font-size: 12px;
+}
+
+/* Footer Banner */
+.footer-banner-404 {
+    background-color: #faf8ff;
+    border: 1px solid #f0ebff;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-banner-404 p {
+    font-size: 12px;
+    color: #7a7a9a;
+    margin-bottom: 6px;
+}
+
+.footer-banner-404 a {
+    font-size: 13px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.footer-banner-404 a:hover {
+    text-decoration: underline;
+}
+
+/* --- RESPONSIVE DESIGN FOR ALL DEVICES --- */
+
+/* Large Tablets and Small Desktops (1024px) */
+@media (max-width: 1024px) {
+    .container-404 {
+        width: 85%;
+        max-width: 450px;
+        gap: 18px;
+    }
+
+    .card-404 {
+        padding: 36px 28px;
+    }
+
+    .icon-container-404 {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 18px;
+        font-size: 22px;
+    }
+
+    .card-404 h1 {
+        font-size: 44px;
+        margin-bottom: 8px;
+    }
+
+    .card-404 h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .description-404 {
+        font-size: 12.5px;
+        margin-bottom: 26px;
+    }
+
+    .button-group-404 {
+        gap: 10px;
+        margin-bottom: 30px;
+    }
+
+    .btn-404 {
+        padding: 9px 18px;
+        border-radius: 7px;
+        font-size: 12.5px;
+    }
+
+    .divider-404 {
+        font-size: 9px;
+    }
+
+    .divider-404:not(:empty)::before {
+        margin-right: 12px;
+    }
+
+    .divider-404:not(:empty)::after {
+        margin-left: 12px;
+    }
+
+    .suggested-card-404 {
+        padding: 22px;
+    }
+
+    .suggested-title-404 {
+        font-size: 13.5px;
+        margin-bottom: 16px;
+    }
+
+    .grid-links-404 {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .grid-item-404 {
+        padding: 10px 14px;
+        font-size: 12.5px;
+        border-radius: 6px;
+    }
+
+    .grid-item-404 .arrow {
+        font-size: 11px;
+    }
+
+    .footer-banner-404 {
+        padding: 18px;
+    }
+
+    .footer-banner-404 p {
+        font-size: 11.5px;
+    }
+
+    .footer-banner-404 a {
+        font-size: 12.5px;
+    }
+}
+
+/* Tablets (768px) */
+@media (max-width: 768px) {
+    .container-404 {
+        width: 90%;
+        max-width: 100%;
+        gap: 16px;
+    }
+
+    .card-404 {
+        padding: 30px 24px;
+        border-radius: 10px;
+    }
+
+    .icon-container-404 {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 16px;
+        font-size: 20px;
+    }
+
+    .card-404 h1 {
+        font-size: 40px;
+        margin-bottom: 6px;
+    }
+
+    .card-404 h2 {
+        font-size: 17px;
+        margin-bottom: 8px;
+    }
+
+    .description-404 {
+        font-size: 12px;
+        margin-bottom: 22px;
+    }
+
+    .button-group-404 {
+        gap: 8px;
+        margin-bottom: 26px;
+        flex-wrap: wrap;
+    }
+
+    .btn-404 {
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 12px;
+        flex: 1;
+        min-width: 120px;
+    }
+
+    .divider-404 {
+        font-size: 8px;
+        letter-spacing: 0.5px;
+    }
+
+    .divider-404:not(:empty)::before {
+        margin-right: 10px;
+    }
+
+    .divider-404:not(:empty)::after {
+        margin-left: 10px;
+    }
+
+    .suggested-card-404 {
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .suggested-title-404 {
+        font-size: 13px;
+        margin-bottom: 14px;
+    }
+
+    .grid-links-404 {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .grid-item-404 {
+        padding: 9px 12px;
+        font-size: 12px;
+        border-radius: 6px;
+    }
+
+    .grid-item-404 .arrow {
+        font-size: 10px;
+    }
+
+    .footer-banner-404 {
+        padding: 16px;
+        border-radius: 10px;
+    }
+
+    .footer-banner-404 p {
+        font-size: 11px;
+    }
+
+    .footer-banner-404 a {
+        font-size: 12px;
+    }
+}
+
+/* Large Phones (640px) */
+@media (max-width: 640px) {
+    .container-404 {
+        width: 92%;
+        max-width: 100%;
+        gap: 14px;
+        margin: 0 auto;
+    }
+
+    .card-404 {
+        padding: 24px 18px;
+        border-radius: 8px;
+    }
+
+    .icon-container-404 {
+        width: 44px;
+        height: 44px;
+        margin-bottom: 14px;
+        font-size: 18px;
+    }
+
+    .card-404 h1 {
+        font-size: 36px;
+        margin-bottom: 4px;
+    }
+
+    .card-404 h2 {
+        font-size: 16px;
+        margin-bottom: 6px;
+    }
+
+    .description-404 {
+        font-size: 11.5px;
+        margin-bottom: 18px;
+    }
+
+    .button-group-404 {
+        gap: 6px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+    }
+
+    .btn-404 {
+        padding: 7px 14px;
+        border-radius: 5px;
+        font-size: 11.5px;
+        flex: 1;
+        min-width: 100px;
+    }
+
+    .divider-404 {
+        font-size: 7.5px;
+    }
+
+    .divider-404:not(:empty)::before {
+        margin-right: 8px;
+    }
+
+    .divider-404:not(:empty)::after {
+        margin-left: 8px;
+    }
+
+    .suggested-card-404 {
+        padding: 16px;
+        border-radius: 8px;
+    }
+
+    .suggested-title-404 {
+        font-size: 12px;
+        margin-bottom: 12px;
+        gap: 5px;
+    }
+
+    .grid-links-404 {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+    }
+
+    .grid-item-404 {
+        padding: 8px 10px;
+        font-size: 11px;
+        border-radius: 5px;
+    }
+
+    .grid-item-404 .arrow {
+        font-size: 9px;
+    }
+
+    .footer-banner-404 {
+        padding: 14px;
+        border-radius: 8px;
+    }
+
+    .footer-banner-404 p {
+        font-size: 10px;
+    }
+
+    .footer-banner-404 a {
+        font-size: 11px;
+    }
+}
+
+/* Small Phones (480px) */
+@media (max-width: 480px) {
+    .container-404 {
+        width: 94%;
+        max-width: 100%;
+        gap: 12px;
+        margin: 0 auto;
+    }
+
+    .card-404 {
+        padding: 20px 14px;
+        border-radius: 6px;
+    }
+
+    .icon-container-404 {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 12px;
+        font-size: 16px;
+    }
+
+    .card-404 h1 {
+        font-size: 32px;
+        margin-bottom: 2px;
+    }
+
+    .card-404 h2 {
+        font-size: 15px;
+        margin-bottom: 4px;
+    }
+
+    .description-404 {
+        font-size: 11px;
+        line-height: 1.5;
+        margin-bottom: 16px;
+    }
+
+    .button-group-404 {
+        gap: 4px;
+        margin-bottom: 16px;
+        flex-wrap: wrap;
+    }
+
+    .btn-404 {
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 11px;
+        gap: 4px;
+        flex: 1;
+        min-width: 80px;
+    }
+
+    .divider-404 {
+        font-size: 7px;
+        letter-spacing: 0.3px;
+    }
+
+    .divider-404:not(:empty)::before {
+        margin-right: 6px;
+    }
+
+    .divider-404:not(:empty)::after {
+        margin-left: 6px;
+    }
+
+    .suggested-card-404 {
+        padding: 12px;
+        border-radius: 6px;
+    }
+
+    .suggested-title-404 {
+        font-size: 11px;
+        margin-bottom: 10px;
+        gap: 4px;
+    }
+
+    .grid-links-404 {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    .grid-item-404 {
+        padding: 6px 8px;
+        font-size: 10px;
+        border-radius: 4px;
+    }
+
+    .grid-item-404 .arrow {
+        font-size: 8px;
+    }
+
+    .footer-banner-404 {
+        padding: 10px;
+        border-radius: 6px;
+    }
+
+    .footer-banner-404 p {
+        font-size: 9px;
+        margin-bottom: 4px;
+    }
+
+    .footer-banner-404 a {
+        font-size: 10px;
+    }
+}

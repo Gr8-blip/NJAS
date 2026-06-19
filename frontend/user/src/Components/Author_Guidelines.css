@@ -169,14 +169,408 @@
     color: #0f172a;
 }
 
-/* --- MOBILE BREAKPOINT OVERRIDES --- */
-@media (max-width: 640px) {
-    .checklist-card {
-        padding: 24px;
+/* --- RESPONSIVE DESIGN FOR ALL DEVICES --- */
+
+/* Large Tablets and Small Desktops (1024px) */
+@media (max-width: 1024px) {
+    .guildelines-content {
+        max-width: 750px;
+        padding: 18px;
+        gap: 20px;
+        margin-bottom: 28px;
     }
+
+    .guildelines-content h4 {
+        font-size: 16px;
+    }
+
+    .guildelines-content h3 {
+        font-size: 22px;
+    }
+
+    .guildelines-content p {
+        font-size: 15px;
+    }
+
+    .guildelines-content li {
+        font-size: 15px;
+        margin-bottom: 6px;
+    }
+
+    .guildelines-content .manuscript-length {
+        padding: 14px;
+        margin-left: 35px !important;
+        gap: 14px;
+    }
+
+    .guildelines-content .manuscript-length h4 {
+        font-size: 16px;
+    }
+
+    .guildelines-content-layout {
+        gap: 28px;
+    }
+
+    .guildelines-content-layout .copyright,
+    .guildelines-content-layout .ethical-matters {
+        padding: 14px;
+    }
+
+    .guildelines-content-layout .copyright h3,
+    .guildelines-content-layout .ethical-matters h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .guildelines-content-layout .copyright p,
+    .guildelines-content-layout .ethical-matters p {
+        font-size: 14px;
+    }
+
+    .checklist-title {
+        font-size: 22px;
+        margin-bottom: 28px;
+    }
+
+    .checklist-group {
+        gap: 20px;
+    }
+
+    .checklist-item {
+        gap: 14px;
+    }
+
+    .checkbox-custom {
+        height: 18px;
+        width: 18px;
+    }
+
+    .checklist-text {
+        font-size: 14px;
+    }
+}
+
+/* Tablets (768px) */
+@media (max-width: 768px) {
+    .guildelines-content {
+        max-width: 100%;
+        padding: 16px;
+        gap: 18px;
+        margin-bottom: 24px;
+    }
+
+    .guildelines-content h4 {
+        font-size: 15px;
+    }
+
+    .guildelines-content h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .guildelines-content p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .guildelines-content ul {
+        padding-left: 18px;
+    }
+
+    .guildelines-content li {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .guildelines-content .pull-quote {
+        padding: 14px;
+        background-color: #f1f5f9;
+    }
+
+    .guldelines-content .manuscript-length {
+        flex-direction: column;
+        gap: 12px;
+        padding: 12px;
+        margin-left: 30px !important;
+        border-radius: 12px;
+    }
+
+    .guildelines-content .manuscript-length h4 {
+        font-size: 15px;
+        margin-bottom: 6px;
+    }
+
+    #manuscript-style ol {
+        padding-left: 25px;
+    }
+
+    .guildelines-content-layout {
+        flex-direction: column;
+        gap: 20px;
+        justify-content: flex-start;
+    }
+
+    .guildelines-content-layout .copyright,
+    .guildelines-content-layout .ethical-matters {
+        padding: 12px;
+        border-radius: 12px;
+    }
+
+    .guildelines-content-layout .copyright h3,
+    .guildelines-content-layout .ethical-matters h3 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .guildelines-content-layout .copyright p,
+    .guildelines-content-layout .ethical-matters p {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
     .checklist-title {
         font-size: 20px;
         margin-bottom: 24px;
+    }
+
+    .checklist-group {
+        gap: 18px;
+    }
+
+    .checklist-item {
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .checkbox-custom {
+        height: 18px;
+        width: 18px;
+        margin-top: 2px;
+    }
+
+    .checklist-text {
+        font-size: 13px;
+    }
+}
+
+/* Large Phones (640px) */
+@media (max-width: 640px) {
+    .guildelines-content {
+        padding: 14px;
+        gap: 16px;
+        margin-bottom: 20px;
+        border-radius: 16px;
+    }
+
+    .guildelines-content h4 {
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
+
+    .guildelines-content h3 {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .guildelines-content p {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .guildelines-content ul {
+        padding-left: 16px;
+    }
+
+    .guildelines-content li {
+        font-size: 13px;
+        margin-bottom: 4px;
+    }
+
+    .guildelines-content .pull-quote {
+        padding: 12px;
+    }
+
+    .guildelines-content .manuscript-length {
+        padding: 10px;
+        margin-left: 24px !important;
+        gap: 10px;
+        border-radius: 10px;
+    }
+
+    .guildelines-content .manuscript-length h4 {
+        font-size: 14px;
+    }
+
+    #manuscript-style ol {
+        padding-left: 20px;
+    }
+
+    .guildelines-content-layout {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .guildelines-content-layout .copyright,
+    .guildelines-content-layout .ethical-matters {
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .guildelines-content-layout .copyright h3,
+    .guildelines-content-layout .ethical-matters h3 {
+        font-size: 15px;
+        margin-bottom: 6px;
+    }
+
+    .guildelines-content-layout .copyright p,
+    .guildelines-content-layout .ethical-matters p {
+        font-size: 12px;
+    }
+
+    .checklist-title {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .checklist-group {
+        gap: 16px;
+    }
+
+    .checklist-item {
+        gap: 10px;
+    }
+
+    .checkbox-custom {
+        height: 16px;
+        width: 16px;
+        margin-top: 3px;
+    }
+
+    .checkbox-custom::after {
+        left: 4px;
+        top: 1px;
+        width: 4px;
+        height: 8px;
+    }
+
+    .checklist-text {
+        font-size: 12px;
+    }
+}
+
+/* Small Phones (480px) */
+@media (max-width: 480px) {
+    .guildelines-content {
+        padding: 12px;
+        gap: 14px;
+        margin-bottom: 18px;
+        border-radius: 12px;
+    }
+
+    .guildelines-content h4 {
+        font-size: 13px;
+        margin-bottom: 4px;
+    }
+
+    .guildelines-content h3 {
+        font-size: 16px;
+        margin-bottom: 6px;
+        line-height: 1.3;
+    }
+
+    .guildelines-content p {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .guildelines-content ul {
+        padding-left: 15px;
+    }
+
+    .guildelines-content li {
+        font-size: 12px;
+        margin-bottom: 3px;
+    }
+
+    .guildelines-content .pull-quote {
+        padding: 10px;
+        background-color: #f1f5f9;
+    }
+
+    .guildelines-content .manuscript-length {
+        padding: 8px;
+        margin-left: 16px !important;
+        gap: 8px;
+        border-left: 2px solid var(--accent) !important;
+        border-radius: 8px;
+    }
+
+    .guildelines-content .manuscript-length h4 {
+        font-size: 13px;
+        margin-bottom: 4px;
+    }
+
+    #manuscript-style ol {
+        padding-left: 18px;
+        font-size: 12px;
+    }
+
+    .guildelines-content-layout {
+        flex-direction: column;
+        gap: 14px;
+        justify-content: flex-start;
+    }
+
+    .guildelines-content-layout .copyright,
+    .guildelines-content-layout .ethical-matters {
+        padding: 8px;
+        border-radius: 8px;
+        width: 100%;
+    }
+
+    .guildelines-content-layout .copyright h3,
+    .guildelines-content-layout .ethical-matters h3 {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .guildelines-content-layout .copyright p,
+    .guildelines-content-layout .ethical-matters p {
+        font-size: 11px;
+        line-height: 1.4;
+    }
+
+    .checklist-title {
+        font-size: 16px;
+        margin-bottom: 18px;
+        line-height: 1.3;
+    }
+
+    .checklist-group {
+        gap: 14px;
+    }
+
+    .checklist-item {
+        gap: 8px;
+        align-items: flex-start;
+    }
+
+    .checkbox-custom {
+        height: 14px;
+        width: 14px;
+        margin-top: 4px;
+    }
+
+    .checkbox-custom::after {
+        left: 3px;
+        top: 0px;
+        width: 3px;
+        height: 7px;
+    }
+
+    .checklist-text {
+        font-size: 11px;
+        line-height: 1.4;
     }
 }
 

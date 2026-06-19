@@ -298,13 +298,602 @@
 }
 
 /* --- MOBILE ADAPTIVE VIEWPORTS BREAKPOINTS --- */
-@media (max-width: 640px) {
+
+/* Large Tablets and Small Desktops (1024px) */
+@media (max-width: 1024px) {
     .policy-card {
+        padding: 30px;
+    }
+
+    .section-title {
+        font-size: 20px;
+        margin-bottom: 18px;
+    }
+
+    .section-intro {
+        font-size: 14px;
+        margin-bottom: 22px;
+    }
+
+    .panel-list {
+        gap: 5px;
+        font-size: 13px;
+    }
+
+    .info-blocks-stack {
+        gap: 12px;
+    }
+
+    .info-block-row {
+        padding: 14px 18px;
+        gap: 12px;
+    }
+
+    .info-block-content h4 {
+        font-size: 14px;
+        margin-bottom: 3px;
+    }
+
+    .info-block-content p {
+        font-size: 13px;
+    }
+
+    .policy-containers-stack {
+        gap: 14px;
+    }
+
+    .status-panel {
+        padding: 18px;
+    }
+
+    .status-panel h4 {
+        font-size: 14px;
+    }
+
+    .status-panel p {
+        font-size: 13px;
+    }
+
+    .payment-option-box {
         padding: 20px;
+    }
+
+    .option-header-row {
+        gap: 12px;
+        margin-bottom: 14px;
+    }
+
+    .payment-badge-icon {
+        font-size: 20px;
+    }
+
+    .option-header-text h4 {
+        font-size: 14px;
+    }
+
+    .option-header-text p {
+        font-size: 12.5px;
+    }
+
+    .subscription-blocks-stack {
+        gap: 12px;
+    }
+
+    .sub-row-card {
+        padding: 18px 20px;
+        gap: 16px;
+    }
+
+    .sub-icon {
+        font-size: 20px;
+    }
+
+    .sub-content-area h4 {
+        font-size: 13.5px;
+    }
+
+    .price-value {
+        font-size: 18px;
+    }
+
+    .text-neutral {
+        font-size: 13px;
+    }
+
+    .sub-desc {
+        font-size: 12px;
+    }
+
+    .charges-split-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+    }
+
+    .charge-card-pane {
+        padding: 20px;
+    }
+
+    .charge-card-pane h4 {
+        font-size: 13px;
+    }
+
+    .charge-price {
+        font-size: 22px;
+    }
+
+    .charge-desc {
+        font-size: 12px;
+    }
+}
+
+/* Tablets (768px) */
+@media (max-width: 768px) {
+    .policy-card {
+        padding: 24px;
+        border-radius: 14px;
+    }
+
+    .section-title {
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+
+    .section-intro {
+        font-size: 13.5px;
+        margin-bottom: 20px;
+    }
+
+    .panel-list {
+        gap: 4px;
+        font-size: 13px;
+    }
+
+    .panel-list li {
+        padding-left: 14px;
+    }
+
+    .info-blocks-stack {
+        gap: 10px;
+    }
+
+    .info-block-row {
+        padding: 12px 16px;
+        gap: 10px;
+        border-radius: 10px;
+    }
+
+    .check-icon {
+        font-size: 14px;
+    }
+
+    .info-block-content h4 {
+        font-size: 13.5px;
+        margin-bottom: 2px;
+    }
+
+    .info-block-content p {
+        font-size: 12.5px;
+    }
+
+    .policy-containers-stack {
+        gap: 12px;
+    }
+
+    .status-panel {
+        padding: 16px;
+        border-radius: 10px;
+    }
+
+    .status-panel h4 {
+        font-size: 13.5px;
+    }
+
+    .status-panel p {
+        font-size: 12.5px;
+    }
+
+    .panel-blue h4 {
+        padding: 16px;
+        margin: -16px -16px 12px -16px;
+    }
+
+    .payment-option-box {
+        padding: 18px;
+        border-radius: 10px;
+    }
+
+    .option-header-row {
+        gap: 10px;
+        margin-bottom: 12px;
+    }
+
+    .payment-badge-icon {
+        font-size: 18px;
+        padding: 6px;
+    }
+
+    .option-header-text h4 {
+        font-size: 13.5px;
+    }
+
+    .option-header-text p {
+        font-size: 12px;
+    }
+
+    .subscription-blocks-stack {
+        gap: 10px;
+    }
+
+    .sub-row-card {
+        padding: 16px 18px;
+        gap: 14px;
+        border-radius: 10px;
+    }
+
+    .sub-icon {
+        font-size: 18px;
+        padding: 8px;
+    }
+
+    .sub-content-area h4 {
+        font-size: 13px;
+    }
+
+    .price-value {
+        font-size: 16px;
+    }
+
+    .text-neutral {
+        font-size: 12.5px;
+    }
+
+    .sub-meta {
+        font-size: 10px;
+    }
+
+    .sub-desc {
+        font-size: 12px;
     }
 
     .charges-split-grid {
         grid-template-columns: 1fr;
         gap: 14px;
+    }
+
+    .charge-card-pane {
+        padding: 18px;
+        border-radius: 10px;
+    }
+
+    .charge-card-pane h4 {
+        font-size: 12.5px;
+    }
+
+    .charge-price {
+        font-size: 20px;
+    }
+
+    .charge-desc {
+        font-size: 11.5px;
+    }
+}
+
+/* Large Phones (640px) */
+@media (max-width: 640px) {
+    .policy-card {
+        padding: 18px;
+        border-radius: 12px;
+    }
+
+    .section-title {
+        font-size: 16px;
+        margin-bottom: 14px;
+        gap: 8px;
+    }
+
+    .section-intro {
+        font-size: 13px;
+        margin-bottom: 18px;
+    }
+
+    .panel-list {
+        gap: 3px;
+        font-size: 12.5px;
+    }
+
+    .panel-list li {
+        padding-left: 12px;
+    }
+
+    .panel-list li::before {
+        font-size: 13px;
+        left: 2px;
+    }
+
+    .info-blocks-stack {
+        gap: 8px;
+    }
+
+    .info-block-row {
+        padding: 10px 14px;
+        gap: 8px;
+        border-radius: 8px;
+    }
+
+    .check-icon {
+        font-size: 13px;
+    }
+
+    .info-block-content h4 {
+        font-size: 13px;
+        margin-bottom: 2px;
+    }
+
+    .info-block-content p {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    .policy-containers-stack {
+        gap: 10px;
+    }
+
+    .status-panel {
+        padding: 14px;
+        border-radius: 8px;
+    }
+
+    .status-panel h4 {
+        font-size: 13px;
+        margin-bottom: 4px;
+    }
+
+    .status-panel p {
+        font-size: 12px;
+    }
+
+    .panel-blue h4 {
+        padding: 14px;
+        margin: -14px -14px 10px -14px;
+    }
+
+    .payment-option-box {
+        padding: 16px;
+        border-radius: 8px;
+    }
+
+    .option-header-row {
+        gap: 8px;
+        margin-bottom: 10px;
+    }
+
+    .payment-badge-icon {
+        font-size: 16px;
+        padding: 5px;
+    }
+
+    .option-header-text h4 {
+        font-size: 13px;
+    }
+
+    .option-header-text p {
+        font-size: 11.5px;
+    }
+
+    .subscription-blocks-stack {
+        gap: 8px;
+    }
+
+    .sub-row-card {
+        padding: 14px 16px;
+        gap: 12px;
+        border-radius: 8px;
+    }
+
+    .sub-icon {
+        font-size: 16px;
+        padding: 6px;
+    }
+
+    .sub-content-area h4 {
+        font-size: 12.5px;
+    }
+
+    .price-value {
+        font-size: 15px;
+    }
+
+    .text-neutral {
+        font-size: 12px;
+    }
+
+    .sub-meta {
+        font-size: 9.5px;
+    }
+
+    .sub-desc {
+        font-size: 11.5px;
+    }
+
+    .charges-split-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .charge-card-pane {
+        padding: 16px;
+        border-radius: 8px;
+    }
+
+    .charge-card-pane h4 {
+        font-size: 12px;
+    }
+
+    .charge-price {
+        font-size: 18px;
+    }
+
+    .charge-desc {
+        font-size: 11px;
+    }
+}
+
+/* Small Phones (480px) */
+@media (max-width: 480px) {
+    .policy-card {
+        padding: 14px;
+        border-radius: 10px;
+    }
+
+    .section-title {
+        font-size: 15px;
+        margin-bottom: 12px;
+        gap: 6px;
+    }
+
+    .section-intro {
+        font-size: 12px;
+        margin-bottom: 16px;
+    }
+
+    .panel-list {
+        gap: 2px;
+        font-size: 12px;
+    }
+
+    .panel-list li {
+        padding-left: 10px;
+    }
+
+    .panel-list li::before {
+        font-size: 12px;
+        left: 0px;
+    }
+
+    .info-blocks-stack {
+        gap: 6px;
+    }
+
+    .info-block-row {
+        padding: 8px 12px;
+        gap: 6px;
+        border-radius: 6px;
+    }
+
+    .check-icon {
+        font-size: 12px;
+    }
+
+    .info-block-content h4 {
+        font-size: 12px;
+        margin-bottom: 1px;
+    }
+
+    .info-block-content p {
+        font-size: 11px;
+        line-height: 1.4;
+    }
+
+    .policy-containers-stack {
+        gap: 8px;
+    }
+
+    .status-panel {
+        padding: 12px;
+        border-radius: 6px;
+    }
+
+    .status-panel h4 {
+        font-size: 12px;
+        margin-bottom: 3px;
+    }
+
+    .status-panel p {
+        font-size: 11px;
+    }
+
+    .panel-blue h4 {
+        padding: 12px;
+        margin: -12px -12px 8px -12px;
+    }
+
+    .payment-option-box {
+        padding: 14px;
+        border-radius: 6px;
+    }
+
+    .option-header-row {
+        gap: 6px;
+        margin-bottom: 8px;
+    }
+
+    .payment-badge-icon {
+        font-size: 14px;
+        padding: 4px;
+    }
+
+    .option-header-text h4 {
+        font-size: 12px;
+    }
+
+    .option-header-text p {
+        font-size: 11px;
+    }
+
+    .subscription-blocks-stack {
+        gap: 6px;
+    }
+
+    .sub-row-card {
+        padding: 12px 14px;
+        gap: 10px;
+        border-radius: 6px;
+    }
+
+    .sub-icon {
+        font-size: 14px;
+        padding: 5px;
+    }
+
+    .sub-content-area h4 {
+        font-size: 12px;
+    }
+
+    .price-value {
+        font-size: 14px;
+    }
+
+    .text-neutral {
+        font-size: 11px;
+    }
+
+    .sub-meta {
+        font-size: 9px;
+    }
+
+    .sub-desc {
+        font-size: 11px;
+    }
+
+    .charges-split-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .charge-card-pane {
+        padding: 14px;
+        border-radius: 6px;
+    }
+
+    .charge-card-pane h4 {
+        font-size: 11.5px;
+    }
+
+    .charge-price {
+        font-size: 16px;
+    }
+
+    .charge-desc {
+        font-size: 10px;
     }
 }

@@ -27,13 +27,13 @@ const Footer = () => {
                             <li><Link to="/faq">FAQ</Link></li>
                         </ul>
                     </div>
-                    <div>
+                    {/* <div>
                         <h4>FOR READERS</h4>
                         <ul>
                             <li><Link to="/issues">Browse Articles</Link></li>
                             <li><Link to="/subscribe">Subscribe</Link></li>
                         </ul>
-                    </div>
+                    </div> */}
                     <div>
                         <h4>LEGAL</h4>
                         <ul>

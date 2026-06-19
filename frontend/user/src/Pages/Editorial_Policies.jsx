@@ -337,7 +337,7 @@ const Editorial_Policies = () => {
 
                 </main>
 
-                <aside className="sidebar-rail" style={{ position: 'sticky', top: '20px', zIndex: 10, alignSelf: 'start' }}>
+                <aside className="sidebar-rail" style={{ position: 'sticky', top: '210px', zIndex: 10, alignSelf: 'start' }}>
                     <div className="widget">
                         <h4 className="widget-title">QUICK NAVIGATION</h4>
                         <ul className="widget-list">

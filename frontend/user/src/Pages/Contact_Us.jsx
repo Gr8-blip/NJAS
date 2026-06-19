@@ -28,7 +28,7 @@ const Contact_Us = () => {
                                 </b>
                             </div>
                             <div className='member-card'>
-                                <h4>Tell</h4>
+                                <h4>Phone</h4>
                                 <Link to="tel:+2349068022212"> +234 906 802 2212</Link>
                             </div>
                         </div>

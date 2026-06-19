@@ -31,7 +31,7 @@ const About = () => {
           <div className="feature-card">
             <div className="feature-icon">🌐</div>
             <h3>Global reach</h3>
-            <p>Authors and readers in 140+ countries</p>
+            <p>Authors and readers n 140+ countries</p>
           </div>
           <div className="feature-card">
             <div className="feature-icon">🏅</div>

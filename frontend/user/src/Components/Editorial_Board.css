@@ -253,13 +253,400 @@
 }
  
 /* --- RESPONSIVE WORKSPACE MEDIA CODES --- */
-@media (max-width: 640px) {
+
+/* Large Tablets and Small Desktops (1024px) */
+@media (max-width: 1024px) {
     .responsibilities-card {
-        padding: 24px;
-        /* Adapts cleanly on constrained smaller viewports */
+        padding: 35px;
+        margin-bottom: 45px;
+        max-width: 800px;
+    }
+
+    .responsibilities-title {
+        font-size: 24px;
+        margin-bottom: 18px;
+    }
+
+    .responsibilities-intro {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .responsibilities-list {
+        gap: 14px;
+        margin-bottom: 24px;
+    }
+
+    .responsibilities-list li {
+        font-size: 14px;
+        padding-left: 22px;
+    }
+
+    .responsibilities-list li::before {
+        font-size: 26px;
+        top: -4px;
+        left: 3px;
+    }
+
+    .responsibilities-footer-note {
+        font-size: 12px;
+    }
+
+    .board-flex-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .board-flex-grid .member-card {
+        padding: 28px 24px;
+        gap: 18px;
+    }
+
+    .member-avatar {
+        width: 90px;
+        height: 90px;
+    }
+
+    .member-info h5 {
+        font-size: 15px;
+    }
+
+    .member-info .role {
+        font-size: 12px;
+    }
+
+    .member-info .inst {
+        font-size: 11px;
+    }
+
+    .member-info p {
+        font-size: 11px;
+    }
+
+    .overview-card {
+        padding: 28px;
+        max-width: 400px;
+    }
+
+    .overview-metrics-list {
+        gap: 18px;
+    }
+
+    .metric-row-item span {
+        font-size: 18px;
+        margin-right: 6px;
+    }
+
+    .metric-data-block .metric-label {
+        font-size: 12px !important;
+    }
+
+    .metric-data-block .metric-value {
+        font-size: 22px !important;
+    }
+}
+
+/* Tablets (768px) */
+@media (max-width: 768px) {
+    .responsibilities-card {
+        padding: 28px;
+        margin-bottom: 40px;
+        max-width: 100%;
     }
 
     .responsibilities-title {
         font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    .responsibilities-intro {
+        font-size: 13px;
+        margin-bottom: 18px;
+    }
+
+    .responsibilities-list {
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .responsibilities-list li {
+        font-size: 13px;
+        padding-left: 20px;
+    }
+
+    .responsibilities-list li::before {
+        font-size: 24px;
+        top: -3px;
+        left: 2px;
+    }
+
+    .responsibilities-footer-note {
+        font-size: 11px;
+        line-height: 1.5;
+    }
+
+    .board-flex-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .board-flex-grid .member-card {
+        flex-direction: row;
+        text-align: left;
+        padding: 20px;
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    .member-avatar {
+        width: 80px;
+        height: 80px;
+        flex-shrink: 0;
+    }
+
+    .member-info {
+        flex: 1;
+    }
+
+    .member-info h5 {
+        font-size: 14px;
+    }
+
+    .member-info .role {
+        font-size: 11px;
+    }
+
+    .member-info .inst {
+        font-size: 10px;
+    }
+
+    .member-info p {
+        font-size: 10px;
+    }
+
+    .overview-card {
+        padding: 24px;
+        max-width: 100%;
+    }
+
+    .overview-metrics-list {
+        gap: 16px;
+    }
+
+    .metric-row-item span {
+        font-size: 16px;
+        margin-right: 8px;
+    }
+
+    .metric-data-block .metric-label {
+        font-size: 11px !important;
+    }
+
+    .metric-data-block .metric-value {
+        font-size: 20px !important;
+    }
+}
+
+/* Large Phones (640px) */
+@media (max-width: 640px) {
+    .responsibilities-card {
+        padding: 20px;
+        margin-bottom: 30px;
+        max-width: 100%;
+        border-radius: 16px;
+    }
+
+    .responsibilities-title {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    .responsibilities-intro {
+        font-size: 12px;
+        margin-bottom: 15px;
+    }
+
+    .responsibilities-list {
+        gap: 10px;
+        margin-bottom: 16px;
+    }
+
+    .responsibilities-list li {
+        font-size: 12px;
+        padding-left: 18px;
+    }
+
+    .responsibilities-list li::before {
+        font-size: 20px;
+        top: -2px;
+        left: 1px;
+    }
+
+    .responsibilities-footer-note {
+        font-size: 10px;
+    }
+
+    .board-flex-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .board-flex-grid .member-card {
+        flex-direction: row;
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .member-avatar {
+        width: 70px;
+        height: 70px;
+    }
+
+    .member-info h5 {
+        font-size: 13px;
+    }
+
+    .member-info .role {
+        font-size: 10px;
+    }
+
+    .member-info .inst {
+        font-size: 9px;
+    }
+
+    .member-info p {
+        font-size: 9px;
+    }
+
+    .overview-card {
+        padding: 20px;
+        max-width: 100%;
+        border-radius: 16px;
+    }
+
+    .overview-metrics-list {
+        gap: 14px;
+    }
+
+    .metric-row-item span {
+        font-size: 16px;
+        margin-right: 8px;
+    }
+
+    .metric-data-block .metric-label {
+        font-size: 10px !important;
+    }
+
+    .metric-data-block .metric-value {
+        font-size: 18px !important;
+    }
+}
+
+/* Small Phones (480px) */
+@media (max-width: 480px) {
+    .responsibilities-card {
+        padding: 16px;
+        margin-bottom: 25px;
+        max-width: 100%;
+        border-radius: 12px;
+    }
+
+    .responsibilities-title {
+        font-size: 18px;
+        margin-bottom: 10px;
+        line-height: 1.3;
+    }
+
+    .responsibilities-intro {
+        font-size: 11px;
+        margin-bottom: 12px;
+        line-height: 1.5;
+    }
+
+    .responsibilities-list {
+        gap: 8px;
+        margin-bottom: 14px;
+    }
+
+    .responsibilities-list li {
+        font-size: 11px;
+        padding-left: 16px;
+        line-height: 1.4;
+    }
+
+    .responsibilities-list li::before {
+        font-size: 18px;
+        top: -2px;
+        left: 0;
+    }
+
+    .responsibilities-footer-note {
+        font-size: 9px;
+        line-height: 1.4;
+        text-align: left;
+    }
+
+    .board-flex-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .board-flex-grid .member-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 14px;
+        gap: 12px;
+    }
+
+    .member-avatar {
+        width: 60px;
+        height: 60px;
+    }
+
+    .member-info {
+        width: 100%;
+    }
+
+    .member-info h5 {
+        font-size: 12px;
+    }
+
+    .member-info .role {
+        font-size: 9px;
+    }
+
+    .member-info .inst {
+        font-size: 8px;
+    }
+
+    .member-info p {
+        font-size: 8px;
+    }
+
+    .overview-card {
+        padding: 16px;
+        max-width: 100%;
+        border-radius: 12px;
+    }
+
+    .overview-metrics-list {
+        gap: 12px;
+    }
+
+    .metric-row-item {
+        gap: 12px;
+    }
+
+    .metric-row-item span {
+        font-size: 14px;
+        margin-right: 4px;
+    }
+
+    .metric-data-block .metric-label {
+        font-size: 9px !important;
+    }
+
+    .metric-data-block .metric-value {
+        font-size: 16px !important;
     }
 }
