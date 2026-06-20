@@ -5,14 +5,14 @@ header{
     z-index: 9999;
 }
 
-.navbar-top {
+/* .navbar-top {
     background: linear-gradient(to right, var(--primary), var(--accent));
     color: var(--white);
     padding: 10px;
     text-align: center;
     font-size: 12px;
     font-weight: 500;
-}
+} */
 
 .main-navbar-top {
     display: flex;
@@ -20,7 +20,7 @@ header{
     align-items: center;
     width: 90%;
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 15px 0;
 }
 
 .main-navbar-top .logo h1 {

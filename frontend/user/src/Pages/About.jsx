@@ -6,11 +6,6 @@ import Footer from '../Components/Footer'
 const About = () => {
   return (
     <>
-      <div className="breadcrumbs container">
-        <Link to="/">Home</Link> › <Link to="/articles/ai">Artificial Intelligence</Link> › Neuromorphic computing...
-      </div>
-
-
       <section className="hero-section">
         <span className="hero-badge">ABOUT JAST</span>
         <h2 className="hero-title">Advancing the frontiers of science and <br /> technology since 2012</h2>
