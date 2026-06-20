@@ -41,7 +41,7 @@ class Article(models.Model):
     keywords = models.CharField(max_length=255, blank=True)
     date_approved = models.DateField(blank=True, null=True)
     authors = models.CharField(max_length=255, blank=True)
-    author_affiliations = models.CharField(max_length=255, blank=True)
+    author_affiliations = models.CharField(max_length=10000, blank=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default=STATUS_DRAFT)
     volume = models.ForeignKey(Volume, on_delete=models.SET_NULL, blank=True, null=True, related_name='articles')
     created_at = models.DateTimeField(auto_now_add=True)
