@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "https://jsppharm.com/api/api";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "https://jsppharm.com/api/api/";
 
 export type ArticleStatus = "draft" | "review" | "published" | "archived";
 export type PageStatus = "draft" | "published";
