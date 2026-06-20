@@ -8,7 +8,7 @@ const Footer = () => {
             <footer className="main-footer">
                 <div className="container footer-grid">
                     <div>
-                        <h4>Tropical Journal of Science and Practice of Phamarcy</h4>
+                        <h4>Journal of Science and Practice of Phamarcy</h4>
                         <p>Published by the Institute for Scientific Research</p>
                     </div>
                     <div>

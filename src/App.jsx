@@ -8,6 +8,7 @@ import Editorial_Board from './Pages/Editorial_Board'
 import Article from './Pages/Article'
 import Issues from './Pages/Issues'
 import Contact_Us from './Pages/Contact_Us'
+import Single_Article from './Pages/Single_Article'
 import Author_Guidelines from './Pages/Author_Guidelines'
 import Editorial_Policies from './Pages/Editorial_Policies'
 import Copyright from './Pages/Copyright'
@@ -33,6 +34,7 @@ function App() {
         <Route path="/article" element={<Article />} />
         <Route path="/issues" element={<Issues />} />
         <Route path="/contact" element={<Contact_Us />} />
+        <Route path="/single-article" element={<Single_Article />} />
         <Route path="/author-guidelines" element={<Author_Guidelines />} />
         <Route path="/editorial-policies" element={<Editorial_Policies />} />
         <Route path="/copyright" element={<Copyright /> } />

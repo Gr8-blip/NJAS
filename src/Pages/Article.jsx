@@ -1,172 +1,285 @@
-import React from 'react'
-import '../Components/Article_page.css'
+import React, { useState } from 'react'
+import '../Components/Latest_Article.css'
 import { Link } from 'react-router'
 import Footer from '../Components/Footer'
+import Search from '../Components/Search'
 
 
 const Article = () => {
-    return (
+    const [currentPage, setCurrentPage] = useState(1);
+    const articlesPerPage = 8;
+
+    // Sample articles data
+    const allArticles = [
+        {
+            id: 1,
+            category: 'ARTIFICIAL INTELLIGENCE',
+            categoryClass: 'ai',
+            title: 'Sparse Attention Transformers for Long-Horizon Scientific Time Series',
+            authors: 'Y. Chen, R. Satapan, F. Müller',
+            date: 'May 2026',
+            views: '2,201',
+            pages: '9',
+            highlighted: true
+        },
+        {
+            id: 2,
+            category: 'BIOTECHNOLOGY',
+            categoryClass: 'biotech',
+            title: 'Lipid Nanoparticle Formulation Optimisation for mRNA Delivery Across Tissue Barriers',
+            authors: 'Adegoke, S. Park, L. Rousseau',
+            date: 'May 2026',
+            views: '2,940',
+            pages: '4',
+            highlighted: true
+        },
+        {
+            id: 3,
+            category: 'MATERIALS SCIENCE',
+            categoryClass: 'materials',
+            title: 'Room-Temperature Superconductivity in Hydrogen-Rich Chalcides Under Moderate Pressure',
+            authors: 'M. Isomura, T. Nakamura',
+            date: 'Apr 2026',
+            views: '8,115',
+            pages: '23',
+            highlighted: false
+        },
+        {
+            id: 4,
+            category: 'ARTIFICIAL INTELLIGENCE',
+            categoryClass: 'ai',
+            title: 'Causal Discovery in Observational High-Dimensional Genomics Data',
+            authors: 'D. Osei, W. Li, A. Bhatt',
+            date: 'Apr 2026',
+            views: '1,874',
+            pages: '5',
+            highlighted: false
+        },
+        {
+            id: 5,
+            category: 'ARTIFICIAL INTELLIGENCE',
+            categoryClass: 'ai',
+            title: 'Quantum Machine Learning for Molecular Structure Optimization',
+            authors: 'R. Patel, K. Singh, M. Cohen',
+            date: 'Mar 2026',
+            views: '3,421',
+            pages: '12',
+            highlighted: true
+        },
+        {
+            id: 6,
+            category: 'BIOTECHNOLOGY',
+            categoryClass: 'biotech',
+            title: 'CRISPR Gene Editing in Vivo Using Modified AAV Vectors',
+            authors: 'J. Lee, H. Wong, P. Kumar',
+            date: 'Mar 2026',
+            views: '5,632',
+            pages: '8',
+            highlighted: true
+        },
+        {
+            id: 7,
+            category: 'MATERIALS SCIENCE',
+            categoryClass: 'materials',
+            title: 'Self-Assembling Nanocomposites for Next-Generation Solar Cells',
+            authors: 'A. Müller, G. Zhang',
+            date: 'Feb 2026',
+            views: '2,156',
+            pages: '15',
+            highlighted: false
+        },
+        {
+            id: 8,
+            category: 'ARTIFICIAL INTELLIGENCE',
+            categoryClass: 'ai',
+            title: 'Federated Learning Architecture for Privacy-Preserving Healthcare',
+            authors: 'S. Nakamura, C. Evans',
+            date: 'Feb 2026',
+            views: '4,789',
+            pages: '11',
+            highlighted: false
+        },
+        {
+            id: 9,
+            category: 'BIOTECHNOLOGY',
+            categoryClass: 'biotech',
+            title: 'Synthetic Biology Approaches to Sustainable Biofuel Production',
+            authors: 'M. Torres, L. Silva',
+            date: 'Jan 2026',
+            views: '1,943',
+            pages: '13',
+            highlighted: true
+        },
+        {
+            id: 10,
+            category: 'MATERIALS SCIENCE',
+            categoryClass: 'materials',
+            title: 'Graphene-Based Electrodes for High-Capacity Battery Storage',
+            authors: 'T. Kim, H. Park',
+            date: 'Jan 2026',
+            views: '7,234',
+            pages: '18',
+            highlighted: true
+        },
+        {
+            id: 11,
+            category: 'ARTIFICIAL INTELLIGENCE',
+            categoryClass: 'ai',
+            title: 'Deep Reinforcement Learning for Climate Policy Optimization',
+            authors: 'E. Brown, J. White',
+            date: 'Dec 2025',
+            views: '3,567',
+            pages: '14',
+            highlighted: false
+        },
+        {
+            id: 12,
+            category: 'BIOTECHNOLOGY',
+            categoryClass: 'biotech',
+            title: 'Personalized Medicine Using Multi-Omics Data Integration',
+            authors: 'A. Gupta, S. Patel',
+            date: 'Dec 2025',
+            views: '5,123',
+            pages: '16',
+            highlighted: false
+        },
+    ];
+
+    // Calculate pagination
+    const totalPages = Math.ceil(allArticles.length / articlesPerPage);
+    const startIndex = (currentPage - 1) * articlesPerPage;
+    const endIndex = startIndex + articlesPerPage;
+    const currentArticles = allArticles.slice(startIndex, endIndex);
+
+    // Handle page changes
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    const handlePreviousPage = () => {
+        if (currentPage > 1) {
+            handlePageChange(currentPage - 1);
+        }
+    };
+
+    const handleNextPage = () => {
+        if (currentPage < totalPages) {
+            handlePageChange(currentPage + 1);
+        }
+    };
+
+return (
         <>
-            <div className="breadcrumbs container">
-                <Link to="/">Home</Link> › <Link to="/articles/ai">Artificial Intelligence</Link> › Neuromorphic computing...
-            </div>
+            <Search />
 
-            <section id='article'>
-                <div className="article-top">
-                    <p><span>ARTIFICIAL INTELLIGENCE</span> VOL. 14, ISSUE 3, pp. 214–231</p>
-                </div>
-                <h1>Neuromorphic Computing Architectures for Real-Time Climate Modelling at Scale</h1>
-                <ul className='author'>
-                    <li><strong>Authors:</strong> A. Okafor, J. Lindqvist, P. Sharma, M. Torres</li>
-                    <li>📅 Received 12 Jan 2026</li>
-                    <li>✓ Accepted 02 Apr 2026</li>
-                    <li>📤 Published 14 May 2026</li>
-                </ul>
-
-                <div className="actions-bar">
-                    <button className="btn btn-primary" id="btn-download">⬇️ Download PDF</button>
-                    <button className="btn btn-secondary" id="btn-cite">📋 Cite article</button>
-                    <button className="btn btn-secondary" id="btn-share">🔗 Share</button>
-                    <button className="btn btn-secondary" id="btn-save">💾 Save</button>
-                    <button className="btn btn-secondary" id="btn-ai">✨ AI summary</button>
-                </div>
-            </section>
-
-            <section id='article-content'>
-                <div className="content-container">
-                    <article className="article-content-box">
-                        <div className="abstract-box">
-                            <h2>ABSTRACT</h2>
-                            <p>We introduce a neuromorphic chip architecture optimised for sparse, event-driven simulation of atmospheric dynamics. Benchmarked against GPU clusters across five continental climate zones, our approach reduces energy consumption by 78% while maintaining sub-1% RMSE against ERA5 reanalysis data. The architecture exploits temporal sparsity inherent in meteorological signals via asynchronous spiking neural networks (SNNs), enabling real-time planetary-scale climate prediction without sacrificing physical fidelity.</p>
-
-                            <div className="keywords-row">
-                                <span className="keyword">neuromorphic computing</span>
-                                <span className="keyword">climate modelling</span>
-                                <span className="keyword">spiking neural networks</span>
-                                <span className="keyword">atmospheric simulation</span>
-                                <span className="keyword">energy-efficient AI</span>
-                                <span className="keyword">ERA5</span>
-                            </div>
-                        </div>
-
-                        <h3>1. Introduction</h3>
-                        <p>The escalating computational demands of numerical weather prediction (NWP) have made energy
-                            consumption a critical bottleneck in climate science. Current GPU-based ensemble systems consume
-                            upward of 4 GWh per annum for a single national forecasting centre, a figure projected to double
-                            by 2030 as ensemble sizes grow to accommodate uncertainty quantification at higher resolutions.</p>
-                        <p>Neuromorphic processors, inspired by the sparse, event-driven computation of biological neural
-                            circuits, offer a fundamentally different energy profile. Unlike dense matrix operations on GPUs,
-                            spiking neural networks (SNNs) activate only when input signals exceed a threshold, yielding
-                            near-zero idle power.</p>
-
-                        <blockquote className="pull-quote">
-                            "Unlike dense matrix operations on conventional accelerators, event-driven spiking architectures activate only when signals exceed threshold — yielding near-zero idle power during quiescent atmospheric states."
-                        </blockquote>
-
-                        <h3>2. Methods</h3>
-                        <p>Our architecture, termed ClimatoCore-1, comprises 128 neuromorphic tiles arranged in a mesh topology, each tile housing 1,024 integrate-and-fire neurons with programmable synaptic delays. Input ERA5 reanalysis fields are encoded as Poisson spike trains at 10 ms temporal resolution and routed via on-chip mesh routing.</p>
-
-                        <h3>3. Results</h3>
-                        <p>ClimatoCore-1 achieved a global mean RMSE of 0.81 K for 2 m temperature at 5-day lead time, compared to 0.79 K for the GPU ensemble and 0.76 K for IFS — a 7% accuracy gap accompanied by an 88% reduction in energy usage. Skill scores over tropical regions exceeded those of the GPU ensemble, attributable to the SNN architecture's
-                            ability to capture sharp convective onset events.</p>
-
-                        <h3>References</h3>
-                        <ol className="references-list">
-                            <li>Krizhevsky, A., Sutskever, I., Hinton, G. E. (2012). Imagenet classification with deep convolutional neural networks. <em>Advances in Neural Information Processing Systems</em>, 25.</li>
-                            <li>LeCun, Y., Bengio, Y., Hinton, G. (2015). Deep learning. <em>Nature</em>, 521(7553), 436-444.</li>
-                            <li>Goodfellow, I., Pouget-Abadie, J., Mirza, M., et al. (2014). Generative adversarial networks. <em>Advances in Neural Information Processing Systems</em>, 27.</li>
-                        </ol>
-                    </article>
-                    <aside className="article-sidebar">
-                        <div className="sidebar-card">
-                            <h4 className="card-title">ARTICLE METRICS</h4>
-                            <div className="metrics-list">
-                                <div className="metric-row">
-                                    <span className="metric-label">Views</span>
-                                    <span className="metrics-value">1,247</span>
-                                </div>
-                                <div className="metric-row">
-                                    <span className="metric-label">Downloads</span>
-                                    <span className="metrics-value">156</span>
-                                </div>
-                                <div className="metric-row">
-                                    <span className="metric-label">Citations</span>
-                                    <span className="metrics-value">23</span>
-                                </div>
-                                <div className="metric-row">
-                                    <span className="metric-label">Read time</span>
-                                    <span className="metrics-value">18 min</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="sidebar-card">
-                            <h4 className="card-title">ARTICLE INFO</h4>
-                            <div className="metrics-list">
-                                <div className="metric-row">
-                                    <p className="doi-text"><b>DOI:</b> 10.1038/s41586-026-00847-x</p>
-                                </div>
-                                <div className="metric-row">
-                                    <span className="license-badge">CC BY</span>
-                                    <span className="license-text">Open access free to reuse</span>
-                                </div>
-                                <div className="metric-row">
-                                    <span>University of Lagos; KTH Stockholm; IIT Bombay; UNAM</span>
-                                </div>
-                                <div className="metric-row">
-                                    <Link to={'mailto:a.okafor@unilag.edu.ng'}>a.okafor@unilag.edu.ng</Link>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="sidebar-card">
-                            <h4 className="card-title">SEARCH THE ARTICLE</h4>
-                            <div className="metrics-list">
-                                <div className="metric-row">
-                                    <button>Copy link</button>
-                                </div>
-                                <div className="metric-row">
-                                    <button>Email</button>
-                                </div>
-                                <div className="metric-row">
-                                    <button>Linkedin</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="sidebar-card">
-                            <h4 className="card-title related-title">RELATED ARTICLES</h4>
-                            <hr className="card-divider"></hr>
-                            <div className="related-list">
-                                <div className="related-item">
-                                    <span className="related-tag">AI & CLIMATE</span>
-                                    <a href="#" className="related-link">Energy-efficient neural networks for climate prediction</a>
-                                    <span className="related-date">May 2026</span>
-                                </div>
-
-                                <hr className="card-divider-light"></hr>
-                                <div className="related-item">
-                                    <span className="related-tag">AI & CLIMATE</span>
-                                    <a href="#" className="related-link">Spiking neural networks in atmospheric modeling</a>
-                                    <span className="related-date">May 2026</span>
-                                </div>
-
-                                <hr className="card-divider-light"></hr>
-                                <div className="related-item">
-                                    <span className="related-tag">ENV. & SCI.</span>
-                                    <a href="#" className="related-link">Deep Learning Emulators for Sub-Seasonal Precipitation Forecasting</a>
-                                    <span className="related-date">May 2026</span>
-                                </div>
-
-                                <hr className="card-divider-light"></hr>
-                                <div className="related-item">
-                                    <span className="related-tag">AI & CLIMATE</span>
-                                    <a href="#" className="related-link">Spiking neural networks in atmospheric modeling</a>
-                                    <span className="related-date">May 2026</span>
-                                </div>
-                            </div>
-                        </div>
-
-                    </aside>
+            <section id="latest-articles">
+                <div className="latest-articles-header">
+                    <h1>Latest Articles</h1>
                 </div>
 
+                <div className="articles-grid">
+                    {currentArticles.map((article) => (
+                        <Link to='/' key={article.id} className={`article-card ${article.highlighted ? 'highlighted' : ''}`}>
+                            <span className={`category-tag ${article.categoryClass}`}>{article.category}</span>
+                            <h3>{article.title}</h3>
+                            <p className="authors">{article.authors}</p>
+                            <div className="meta-row">
+                                <span>{article.date}</span>
+                                <span>👁️ {article.views} views</span>
+                                <span>📄 {article.pages} pages</span>
+                            </div>
+                        </Link>
+                    ))}
+                </div>
+
+                {/* Pagination Controls */}
+                <div style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    gap: '12px',
+                    marginTop: '50px',
+                    marginBottom: '30px',
+                    flexWrap: 'wrap'
+                }}>
+                    <button 
+                        onClick={handlePreviousPage}
+                        disabled={currentPage === 1}
+                        style={{
+                            padding: '10px 20px',
+                            backgroundColor: currentPage === 1 ? '#cbd5e1' : 'var(--primary)',
+                            color: '#ffffff',
+                            border: 'none',
+                            borderRadius: '8px',
+                            fontSize: '14px',
+                            fontWeight: '600',
+                            cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
+                            opacity: currentPage === 1 ? 0.6 : 1,
+                            transition: 'all 0.3s ease'
+                        }}
+                    >
+                        ← Previous
+                    </button>
+
+                    <div style={{
+                        display: 'flex',
+                        gap: '6px',
+                        flexWrap: 'wrap',
+                        justifyContent: 'center'
+                    }}>
+                        {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNumber) => (
+                            <button
+                                key={pageNumber}
+                                onClick={() => handlePageChange(pageNumber)}
+                                style={{
+                                    minWidth: '40px',
+                                    height: '40px',
+                                    padding: '0',
+                                    backgroundColor: currentPage === pageNumber ? 'var(--primary)' : '#ffffff',
+                                    color: currentPage === pageNumber ? '#ffffff' : 'var(--primary)',
+                                    border: `2px solid var(--primary)`,
+                                    borderRadius: '6px',
+                                    fontSize: '13px',
+                                    fontWeight: '600',
+                                    cursor: 'pointer',
+                                    transition: 'all 0.3s ease'
+                                }}
+                            >
+                                {pageNumber}
+                            </button>
+                        ))}
+                    </div>
+
+                    <button 
+                        onClick={handleNextPage}
+                        disabled={currentPage === totalPages}
+                        style={{
+                            padding: '10px 20px',
+                            backgroundColor: currentPage === totalPages ? '#cbd5e1' : 'var(--primary)',
+                            color: '#ffffff',
+                            border: 'none',
+                            borderRadius: '8px',
+                            fontSize: '14px',
+                            fontWeight: '600',
+                            cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
+                            opacity: currentPage === totalPages ? 0.6 : 1,
+                            transition: 'all 0.3s ease'
+                        }}
+                    >
+                        Next →
+                    </button>
+                </div>
+
+                <div style={{
+                    textAlign: 'center',
+                    fontSize: '13px',
+                    color: '#718096',
+                    marginTop: '16px',
+                    marginBottom: '30px'
+                }}>
+                    Page {currentPage} of {totalPages}
+                </div>
             </section>
 
             <Footer />
