@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "https://jsppharm.com/api/api/";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "https://jsppharm.com/api/api";
 
 export type ArticleStatus = "draft" | "review" | "published" | "archived";
 export type PageStatus = "draft" | "published";
@@ -117,37 +117,37 @@ export function toFormData<T extends object>(payload: T): FormData {
 }
 
 export const api = {
-  dashboard: () => request<DashboardSummary>("dashboard/"),
+  dashboard: () => request<DashboardSummary>("/dashboard/"),
 
-  listArticles: () => request<Article[]>("articles/"),
+  listArticles: () => request<Article[]>("/articles/"),
   createArticle: (payload: FormData) =>
-    request<Article>("articles/", { method: "POST", body: payload }),
+    request<Article>("/articles/", { method: "POST", body: payload }),
   updateArticle: (id: number, payload: FormData) =>
-    request<Article>(`articles/${id}/`, { method: "PATCH", body: payload }),
+    request<Article>(`/articles/${id}/`, { method: "PATCH", body: payload }),
   deleteArticle: (id: number) =>
-    request<void>(`articles/${id}/`, { method: "DELETE" }),
+    request<void>(`/articles/${id}/`, { method: "DELETE" }),
 
-  listVolumes: () => request<Volume[]>("volumes/"),
+  listVolumes: () => request<Volume[]>("/volumes/"),
   createVolume: (payload: FormData) =>
-    request<Volume>("volumes/", { method: "POST", body: payload }),
+    request<Volume>("/volumes/", { method: "POST", body: payload }),
   updateVolume: (id: number, payload: FormData) =>
-    request<Volume>(`volumes/${id}/`, { method: "PATCH", body: payload }),
+    request<Volume>(`/volumes/${id}/`, { method: "PATCH", body: payload }),
   deleteVolume: (id: number) =>
-    request<void>(`volumes/${id}/`, { method: "DELETE" }),
+    request<void>(`/volumes/${id}/`, { method: "DELETE" }),
 
-  listPages: () => request<StaticPage[]>("pages/"),
+  listPages: () => request<StaticPage[]>("/pages/"),
   createPage: (payload: Omit<StaticPage, "id" | "updated_at">) =>
-    request<StaticPage>("pages/", jsonInit("POST", payload)),
+    request<StaticPage>("/pages/", jsonInit("POST", payload)),
   updatePage: (id: number, payload: Partial<Omit<StaticPage, "id" | "updated_at">>) =>
-    request<StaticPage>(`pages/${id}/`, jsonInit("PATCH", payload)),
+    request<StaticPage>(`/pages/${id}/`, jsonInit("PATCH", payload)),
   deletePage: (id: number) =>
-    request<void>(`pages/${id}/`, { method: "DELETE" }),
+    request<void>(`/pages/${id}/`, { method: "DELETE" }),
 
-  listUploads: () => request<JournalUpload[]>("uploads/"),
+  listUploads: () => request<JournalUpload[]>("/uploads/"),
   createUpload: (payload: FormData) =>
-    request<JournalUpload>("uploads/", { method: "POST", body: payload }),
+    request<JournalUpload>("/uploads/", { method: "POST", body: payload }),
   updateUpload: (id: number, payload: FormData) =>
-    request<JournalUpload>(`uploads/${id}/`, { method: "PATCH", body: payload }),
+    request<JournalUpload>(`/uploads/${id}/`, { method: "PATCH", body: payload }),
   deleteUpload: (id: number) =>
-    request<void>(`uploads/${id}/`, { method: "DELETE" }),
+    request<void>(`/uploads/${id}/`, { method: "DELETE" }),
 };
