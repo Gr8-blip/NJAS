@@ -9,7 +9,6 @@ import {
   GridIcon,
   HorizontaLDots,
   ListIcon,
-  PageIcon,
   TableIcon,
 } from "../icons";
 import { useSidebar } from "../context/SidebarContext";

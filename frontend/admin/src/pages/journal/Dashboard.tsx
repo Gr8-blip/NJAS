@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import PageMeta from "../../components/common/PageMeta";
-import Badge from "../../components/ui/badge/Badge";
 import Button from "../../components/ui/button/Button";
 import { ArrowRightIcon, FileIcon, PageIcon, PlusIcon, TableIcon } from "../../icons";
 import { api, type DashboardSummary } from "../../services/api";
