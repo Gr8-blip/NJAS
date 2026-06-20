@@ -1,33 +1,167 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../Components/Article_page.css'
 import { Link } from 'react-router'
 import Footer from '../Components/Footer'
 
 const Single_Article = () => {
+    const [showShareMenu, setShowShareMenu] = useState(false);
+
+    // Article details for sharing
+    const articleTitle = "";
+    const articleUrl = window.location.href;
+    const shareText = `Check out this article: ${articleTitle}`;
+
+    // Handle share to different platforms
+    const handleShare = (platform) => {
+        let shareUrl = '';
+
+        switch (platform) {
+            case 'whatsapp':
+                shareUrl = `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + articleUrl)}`;
+                break;
+            case 'facebook':
+                shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(articleUrl)}`;
+                break;
+            case 'linkedin':
+                shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(articleUrl)}`;
+                break;
+            case 'twitter':
+                shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(articleUrl)}&text=${encodeURIComponent(shareText)}`;
+                break;
+            default:
+                break;
+        }
+
+        if (shareUrl) {
+            window.open(shareUrl, '_parent');
+        }
+        setShowShareMenu(false);
+    };
     return (
         <>
             <div className="breadcrumbs container">
-                <Link to="/">Home</Link> › <Link to="/articles/ai">Artificial Intelligence</Link> › Neuromorphic computing...
+                <Link to="/">Home</Link> › <Link to="/articles/ai">Article</Link>
             </div>
 
             <section id='article'>
                 <div className="article-top">
-                    <p style={{color: '#000'}}><span>ARTIFICIAL INTELLIGENCE</span> VOL. 14, ISSUE 3, pp. 214–231</p>
+                    <p style={{ color: '#000' }}><span>VOL. 13, ISSUE 1</span></p>
                 </div>
                 <h1>Neuromorphic Computing Architectures for Real-Time Climate Modelling at Scale</h1>
-                <ul className='author' style={{color: '#000'}}>
-                    <li><strong style={{color: '#000'}}>Authors:</strong> A. Okafor, J. Lindqvist, P. Sharma, M. Torres</li>
-                    <li>📅 Received 12 Jan 2026</li>
-                    <li>✓ Accepted 02 Apr 2026</li>
-                    <li>📤 Published 14 May 2026</li>
-                </ul>
+                <div className='author'>
+                    <span><strong style={{ color: '#000' }}>Authors: </strong> A. Okafor, J. Lindqvist, P. Sharma, M. Torres</span>
+                    <span><strong style={{ color: '#000' }}>Author affiliation: </strong>University of Lagos; KTH Stockholm; IIT Bombay; UNAM</span>
+                    <span><strong style={{ color: '#000' }}>Published: </strong>May 2026</span>
+                </div>
 
                 <div className="actions-bar">
-                    <button className="btn btn-primary" id="btn-download">⬇️ Download PDF</button>
-                    <button className="btn btn-secondary" id="btn-cite">📋 Cite article</button>
-                    <button className="btn btn-secondary" id="btn-share">🔗 Share</button>
-                    <button className="btn btn-secondary" id="btn-save">💾 Save</button>
-                    <button className="btn btn-secondary" id="btn-ai">✨ AI summary</button>
+                    <button className="btn btn-primary" id="btn-download">Download PDF</button>
+                    <button className="btn btn-secondary" id="btn-cite">Cite article</button>
+                    
+                    {/* Share Button with Dropdown Menu */}
+                    <div style={{ position: 'relative', display: 'inline-block' }}>
+                        <button 
+                            className="btn btn-secondary" 
+                            id="btn-share"
+                            onClick={() => setShowShareMenu(!showShareMenu)}
+                            style={{ cursor: 'pointer' }}
+                        >
+                            Share
+                        </button>
+                        
+                        {showShareMenu && (
+                            <div style={{
+                                position: 'absolute',
+                                top: '100%',
+                                left: '0',
+                                backgroundColor: '#ffffff',
+                                border: '1px solid #e2e8f0',
+                                borderRadius: '8px',
+                                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                                minWidth: '180px',
+                                zIndex: 1000,
+                                marginTop: '8px'
+                            }}>
+                                <button
+                                    onClick={() => handleShare('whatsapp')}
+                                    style={{
+                                        width: '100%',
+                                        padding: '12px 16px',
+                                        border: 'none',
+                                        backgroundColor: 'transparent',
+                                        textAlign: 'left',
+                                        cursor: 'pointer',
+                                        fontSize: '14px',
+                                        color: '#334155',
+                                        transition: 'background-color 0.2s ease',
+                                        borderBottom: '1px solid #f0f0f0'
+                                    }}
+                                    onMouseEnter={(e) => e.target.style.backgroundColor = '#f8fafc'}
+                                    onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
+                                >
+                                    WhatsApp
+                                </button>
+                                <button
+                                    onClick={() => handleShare('facebook')}
+                                    style={{
+                                        width: '100%',
+                                        padding: '12px 16px',
+                                        border: 'none',
+                                        backgroundColor: 'transparent',
+                                        textAlign: 'left',
+                                        cursor: 'pointer',
+                                        fontSize: '14px',
+                                        color: '#334155',
+                                        transition: 'background-color 0.2s ease',
+                                        borderBottom: '1px solid #f0f0f0'
+                                    }}
+                                    onMouseEnter={(e) => e.target.style.backgroundColor = '#f8fafc'}
+                                    onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
+                                >
+                                    Facebook
+                                </button>
+                                <button
+                                    onClick={() => handleShare('linkedin')}
+                                    style={{
+                                        width: '100%',
+                                        padding: '12px 16px',
+                                        border: 'none',
+                                        backgroundColor: 'transparent',
+                                        textAlign: 'left',
+                                        cursor: 'pointer',
+                                        fontSize: '14px',
+                                        color: '#334155',
+                                        transition: 'background-color 0.2s ease',
+                                        borderBottom: '1px solid #f0f0f0'
+                                    }}
+                                    onMouseEnter={(e) => e.target.style.backgroundColor = '#f8fafc'}
+                                    onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
+                                >
+                                    LinkedIn
+                                </button>
+                                <button
+                                    onClick={() => handleShare('twitter')}
+                                    style={{
+                                        width: '100%',
+                                        padding: '12px 16px',
+                                        border: 'none',
+                                        backgroundColor: 'transparent',
+                                        textAlign: 'left',
+                                        cursor: 'pointer',
+                                        fontSize: '14px',
+                                        color: '#334155',
+                                        transition: 'background-color 0.2s ease'
+                                    }}
+                                    onMouseEnter={(e) => e.target.style.backgroundColor = '#f8fafc'}
+                                    onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
+                                >
+                                    Twitter
+                                </button>
+                            </div>
+                        )}
+                    </div>
+
+                    <button className="btn btn-secondary" id="btn-ai">AI summary</button>
                 </div>
             </section>
 
@@ -47,35 +181,9 @@ const Single_Article = () => {
                                 <span className="keyword">ERA5</span>
                             </div>
                         </div>
-
-                        <h3>1. Introduction</h3>
-                        <p>The escalating computational demands of numerical weather prediction (NWP) have made energy
-                            consumption a critical bottleneck in climate science. Current GPU-based ensemble systems consume
-                            upward of 4 GWh per annum for a single national forecasting centre, a figure projected to double
-                            by 2030 as ensemble sizes grow to accommodate uncertainty quantification at higher resolutions.</p>
-                        <p>Neuromorphic processors, inspired by the sparse, event-driven computation of biological neural
-                            circuits, offer a fundamentally different energy profile. Unlike dense matrix operations on GPUs,
-                            spiking neural networks (SNNs) activate only when input signals exceed a threshold, yielding
-                            near-zero idle power.</p>
-
-                        <blockquote className="pull-quote">
-                            "Unlike dense matrix operations on conventional accelerators, event-driven spiking architectures activate only when signals exceed threshold — yielding near-zero idle power during quiescent atmospheric states."
-                        </blockquote>
-
-                        <h3>2. Methods</h3>
-                        <p>Our architecture, termed ClimatoCore-1, comprises 128 neuromorphic tiles arranged in a mesh topology, each tile housing 1,024 integrate-and-fire neurons with programmable synaptic delays. Input ERA5 reanalysis fields are encoded as Poisson spike trains at 10 ms temporal resolution and routed via on-chip mesh routing.</p>
-
-                        <h3>3. Results</h3>
-                        <p>ClimatoCore-1 achieved a global mean RMSE of 0.81 K for 2 m temperature at 5-day lead time, compared to 0.79 K for the GPU ensemble and 0.76 K for IFS — a 7% accuracy gap accompanied by an 88% reduction in energy usage. Skill scores over tropical regions exceeded those of the GPU ensemble, attributable to the SNN architecture's
-                            ability to capture sharp convective onset events.</p>
-
-                        <h3>References</h3>
-                        <ol className="references-list">
-                            <li>Krizhevsky, A., Sutskever, I., Hinton, G. E. (2012). Imagenet classification with deep convolutional neural networks. <em>Advances in Neural Information Processing Systems</em>, 25.</li>
-                            <li>LeCun, Y., Bengio, Y., Hinton, G. (2015). Deep learning. <em>Nature</em>, 521(7553), 436-444.</li>
-                            <li>Goodfellow, I., Pouget-Abadie, J., Mirza, M., et al. (2014). Generative adversarial networks. <em>Advances in Neural Information Processing Systems</em>, 27.</li>
-                        </ol>
                     </article>
+
+
                     <aside className="article-sidebar">
                         <div className="sidebar-card">
                             <h4 className="card-title">ARTICLE METRICS</h4>
@@ -91,10 +199,6 @@ const Single_Article = () => {
                                 <div className="metric-row">
                                     <span className="metric-label">Citations</span>
                                     <span className="metrics-value">23</span>
-                                </div>
-                                <div className="metric-row">
-                                    <span className="metric-label">Read time</span>
-                                    <span className="metrics-value">18 min</span>
                                 </div>
                             </div>
                         </div>
@@ -116,20 +220,39 @@ const Single_Article = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="sidebar-card">
-                            <h4 className="card-title">SEARCH THE ARTICLE</h4>
-                            <div className="metrics-list">
-                                <div className="metric-row">
-                                    <button>Copy link</button>
+
+                        <div className="widget">
+                            <h4 className="widget-title">QUICK LINKS</h4>
+                            <ul className="widget-list">
+                                <li><Link to="/submit">Submit a manuscript <span className="arrow">›</span></Link></li>
+                                <li><Link to="/author-guidelines">Author guidelines <span className="arrow">›</span></Link></li>
+                                <li><Link to="/contact">Contact us <span className="arrow">›</span></Link></li>
+                            </ul>
+                        </div>
+                        <div className="widget">
+                            <h4 className="widget-title">CONTACT</h4>
+                            <div className="contact-box">
+                                <div className="contact-item">
+                                    <span className="lbl">Email</span>
+                                    <a href="mailto:contact@mcgillard.com" className="val link">contact@mcgillard.com</a>
                                 </div>
-                                <div className="metric-row">
-                                    <button>Email</button>
+                                <div className="contact-item">
+                                    <span className="lbl">Phone</span>
+                                    <span className="val">+234 906 802 2212</span>
                                 </div>
-                                <div className="metric-row">
-                                    <button>Linkedin</button>
+                                <div className="contact-item">
+                                    <span className="lbl">Address</span>
+                                    <span className="val">Tantua Road, Amassoma, Wilberforce Island,</span>
+                                    <span className="val">Bayelsa State, Nigeria</span>
+                                </div>
+                                <div className="contact-item">
+                                    <span className="lbl">Office Hours</span>
+                                    <span className="val">Mon-Fri: 9am - 5pm EST</span>
+                                    <button className="btn-subscribe">Schedule a Meeting</button>
                                 </div>
                             </div>
                         </div>
+
                         <div className="sidebar-card">
                             <h4 className="card-title related-title">RELATED ARTICLES</h4>
                             <hr className="card-divider"></hr>
