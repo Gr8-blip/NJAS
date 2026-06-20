@@ -20,7 +20,7 @@ const Issues = () => {
 
                     <div className="hero-meta-details">
                         <span className="current-issue-badge">CURRENT ISSUE</span>
-                        <h1 className="main-issue-heading">Volume 14, Issue 3 — May 2026</h1>
+                        <h1 className="main-issue-heading">Volume 13, Issue 1 — May 2026</h1>
                         <p className="issue-abstract-summary">
                             Featuring original research in artificial intelligence, materials science, biotechnology, and environmental modelling. This issue includes a special section on neuromorphic computing for physical simulation.
                         </p>
@@ -30,7 +30,7 @@ const Issues = () => {
                             <span>🧬 ISSN 2398-4412</span>
                             <span>🔓 Open access</span>
                         </div>
-                        <Link to="#" className="download-pdf-link">📥 Full issue PDF</Link>
+                        <Link to="#" className="download-pdf-link">Download Full issue PDF</Link>
                     </div>
                 </div>
 
@@ -47,17 +47,17 @@ const Issues = () => {
                         <span className="metric-value color-purple">47,300</span>
                         <span className="metric-label">Downloads</span>
                     </div>
-                    <div className="metrics-card">
+                    {/* <div className="metrics-card">
                         <span className="metric-value color-slate">214</span>
                         <span className="metric-label">Citations</span>
-                    </div>
+                    </div> */}
                 </div>
 
-                <div className="action-buttons-group container">
+                {/* <div className="action-buttons-group container">
                     <Link to="#" className="btn btn-filled">Browse all articles</Link>
                     <Link to="#" className="btn btn-outline">Share issue</Link>
                     <Link to="#" className="btn btn-outline">AI overview ↗</Link>
-                </div>
+                </div> */}
             </section>
 
             <hr className='section-divider container' />
@@ -66,11 +66,11 @@ const Issues = () => {
 
                 <main className="primary-feed-pane">
 
-                    <div className="editorial-banner-card">
+                    {/* <div className="editorial-banner-card">
                         <span className="editorial-tag">🖋️ EDITORIAL</span>
                         <h3>Energy-efficient computation and the future of scientific infrastructure</h3>
                         <p className="editorial-byline">Prof. Elena Vasquez, Editor-in-Chief · pp. 189–192 · <a href="#">Read ➔</a></p>
-                    </div>
+                    </div> */}
 
                     <div className="shelf-controls-bar">
                         <div className="search-box-input">
