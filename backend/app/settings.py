@@ -28,6 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "jsppharm.com",
     "www.jsppharm.com",
+    "127.0.0.1",
+    "localhost",
 ]
 
 
