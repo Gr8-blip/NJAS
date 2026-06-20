@@ -31,8 +31,8 @@ class VolumeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Volume
         fields = [
-            'id', 'volume_number', 'year', 'title', 'description',
-            'publication_cycle', 'is_published', 'cover_image', 'cover_url',
+            'id', 'title', 'volume_number', 'issue_number', 'year',
+            'is_published', 'cover_image', 'cover_url',
             'published_at', 'article_count', 'upload_count', 'created_at',
         ]
 
@@ -58,8 +58,9 @@ class JournalUploadSerializer(serializers.ModelSerializer):
     class Meta:
         model = JournalUpload
         fields = [
-            'id', 'title', 'document_type', 'file', 'file_url', 'description',
-            'volume', 'volume_label', 'article', 'article_title', 'uploaded_at',
+            'id', 'title', 'volume', 'volume_label', 'article', 'article_title',
+            'abstract', 'authors', 'author_affiliations', 'keywords',
+            'file', 'file_url', 'uploaded_at',
         ]
 
     def get_file_url(self, obj):

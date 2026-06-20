@@ -16,7 +16,11 @@ class ArticleViewSet(viewsets.ModelViewSet):
     parser_classes = [MultiPartParser, FormParser]
 
     def get_queryset(self):
-        return Article.objects.select_related('volume').order_by('-created_at')
+        queryset = Article.objects.select_related('volume').order_by('-created_at')
+        volume_id = self.request.query_params.get('volume')
+        if volume_id:
+            queryset = queryset.filter(volume_id=volume_id)
+        return queryset
 
 
 class VolumeViewSet(viewsets.ModelViewSet):
@@ -24,7 +28,7 @@ class VolumeViewSet(viewsets.ModelViewSet):
     parser_classes = [MultiPartParser, FormParser]
 
     def get_queryset(self):
-        return Volume.objects.prefetch_related('articles', 'uploads').order_by('-year', '-volume_number')
+        return Volume.objects.prefetch_related('articles', 'uploads').order_by('-year', '-volume_number', '-issue_number')
 
 
 class StaticPageViewSet(viewsets.ModelViewSet):

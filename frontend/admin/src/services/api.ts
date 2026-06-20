@@ -2,19 +2,17 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "https://jsppharm.com/
 
 export type ArticleStatus = "draft" | "review" | "published" | "archived";
 export type PageStatus = "draft" | "published";
-export type UploadDocumentType = "pdf" | "cover" | "supplement";
 
 export interface Volume {
   id: number;
   volume_number: number;
+  issue_number: number;
   year: number;
   title: string;
-  description: string;
-  publication_cycle: string;
   is_published: boolean;
   cover_image?: string;
   cover_url: string;
-  published_at: string | null;
+  published_at: string;
   article_count: number;
   upload_count: number;
   created_at: string;
@@ -51,14 +49,16 @@ export interface StaticPage {
 export interface JournalUpload {
   id: number;
   title: string;
-  document_type: UploadDocumentType;
-  file?: string;
-  file_url: string;
-  description: string;
   volume: number | null;
   volume_label: string;
   article: number | null;
   article_title: string;
+  abstract: string;
+  authors: string;
+  author_affiliations: string;
+  keywords: string;
+  file?: string;
+  file_url: string;
   uploaded_at: string;
 }
 
@@ -119,7 +119,8 @@ export function toFormData<T extends object>(payload: T): FormData {
 export const api = {
   dashboard: () => request<DashboardSummary>("/dashboard/"),
 
-  listArticles: () => request<Article[]>("/articles/"),
+  listArticles: (volumeId?: number | string) =>
+    request<Article[]>(volumeId ? `/articles/?volume=${volumeId}` : "/articles/"),
   createArticle: (payload: FormData) =>
     request<Article>("/articles/", { method: "POST", body: payload }),
   updateArticle: (id: number, payload: FormData) =>

@@ -20,8 +20,8 @@ export default function Volumes() {
   useEffect(load, []);
 
   const publishVolume = async (volume: Volume) => {
-    const today = new Date().toISOString().slice(0, 10);
-    await api.updateVolume(volume.id, toFormData({ is_published: true, published_at: volume.published_at ?? today }));
+    const thisMonth = new Date().toISOString().slice(0, 7);
+    await api.updateVolume(volume.id, toFormData({ is_published: true, published_at: volume.published_at || thisMonth }));
     load();
   };
 
@@ -48,7 +48,8 @@ export default function Volumes() {
               <TableHeader className="border-b border-gray-100 dark:border-gray-800">
                 <TableRow>
                   <TableCell isHeader className="px-4 py-3 text-left text-xs font-medium text-gray-500">Volume</TableCell>
-                  <TableCell isHeader className="px-4 py-3 text-left text-xs font-medium text-gray-500">Cycle</TableCell>
+                  <TableCell isHeader className="px-4 py-3 text-left text-xs font-medium text-gray-500">Issue</TableCell>
+                  <TableCell isHeader className="px-4 py-3 text-left text-xs font-medium text-gray-500">Published</TableCell>
                   <TableCell isHeader className="px-4 py-3 text-left text-xs font-medium text-gray-500">Articles</TableCell>
                   <TableCell isHeader className="px-4 py-3 text-left text-xs font-medium text-gray-500">Files</TableCell>
                   <TableCell isHeader className="px-4 py-3 text-left text-xs font-medium text-gray-500">Status</TableCell>
@@ -64,7 +65,8 @@ export default function Volumes() {
                       </p>
                       <p className="text-sm text-gray-500">{volume.title || "Untitled issue"}</p>
                     </TableCell>
-                    <TableCell className="px-4 py-4 text-sm text-gray-500">{volume.publication_cycle || "-"}</TableCell>
+                    <TableCell className="px-4 py-4 text-sm text-gray-500">Issue {volume.issue_number}</TableCell>
+                    <TableCell className="px-4 py-4 text-sm text-gray-500">{volume.published_at || "-"}</TableCell>
                     <TableCell className="px-4 py-4 text-sm text-gray-500">{volume.article_count}</TableCell>
                     <TableCell className="px-4 py-4 text-sm text-gray-500">{volume.upload_count}</TableCell>
                     <TableCell className="px-4 py-4"><StatusBadge status={volume.is_published} /></TableCell>
@@ -87,7 +89,7 @@ export default function Volumes() {
             </Table>
           </div>
         ) : (
-          <EmptyState message="Create a volume to group articles by year or publication cycle." />
+          <EmptyState message="Create a volume to group articles by volume number, issue number, and publication month." />
         )}
       </div>
     </>

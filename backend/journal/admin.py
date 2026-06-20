@@ -3,9 +3,9 @@ from .models import Article, JournalUpload, StaticPage, Volume
 
 @admin.register(Volume)
 class VolumeAdmin(admin.ModelAdmin):
-    list_display = ('volume_number', 'year', 'title', 'is_published', 'published_at')
+    list_display = ('title', 'volume_number', 'issue_number', 'year', 'is_published', 'published_at')
     list_filter = ('year', 'is_published')
-    search_fields = ('title', 'description')
+    search_fields = ('title',)
 
 
 @admin.register(Article)
@@ -25,6 +25,6 @@ class StaticPageAdmin(admin.ModelAdmin):
 
 @admin.register(JournalUpload)
 class JournalUploadAdmin(admin.ModelAdmin):
-    list_display = ('title', 'document_type', 'volume', 'article', 'uploaded_at')
-    list_filter = ('document_type', 'volume')
-    search_fields = ('title', 'description')
+    list_display = ('title', 'volume', 'article', 'authors', 'uploaded_at')
+    list_filter = ('volume',)
+    search_fields = ('title', 'authors', 'keywords', 'abstract')

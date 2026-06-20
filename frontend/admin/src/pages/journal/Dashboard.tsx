@@ -29,19 +29,19 @@ export default function Dashboard() {
   return (
     <>
       <PageMeta
-        title="NJAS Dashboard"
-        description="Nigerian Journal of Applied Science management dashboard"
+        title="JSPP Pharm Dashboard"
+        description="Journal of Science and Practice of Pharmacy management dashboard"
       />
       <div className="space-y-6">
         <div className="flex flex-col justify-between gap-4 rounded-lg border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] sm:flex-row sm:items-center">
           <div>
-            <p className="text-sm font-medium text-brand-500">Nigerian Journal of Applied Science</p>
+            <p className="text-sm font-medium text-brand-500">Journal of Science and Practice of Pharmacy</p>
             <h1 className="mt-1 text-2xl font-semibold text-gray-900 dark:text-white">
               Editorial Control Center
             </h1>
           </div>
           <div className="flex flex-wrap gap-3">
-            <Link to="/articles">
+            <Link to="/upload-article">
               <Button size="sm" startIcon={<PlusIcon className="h-4 w-4" />}>
                 Article
               </Button>
@@ -120,9 +120,6 @@ export default function Dashboard() {
                 </Link>
               ))}
             </div>
-            <div className="mt-5">
-              <Badge color="info">Live API data</Badge>
-            </div>
           </div>
         </div>
 
@@ -144,7 +141,7 @@ export default function Dashboard() {
                   rel="noreferrer"
                 >
                   <p className="font-medium text-gray-900 dark:text-white">{upload.title}</p>
-                  <p className="mt-1 text-gray-500 dark:text-gray-400">{upload.volume_label || upload.document_type}</p>
+                  <p className="mt-1 text-gray-500 dark:text-gray-400">{upload.article_title || upload.volume_label || "Journal document"}</p>
                 </a>
               ))}
             </div>

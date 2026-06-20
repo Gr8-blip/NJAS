@@ -6,7 +6,9 @@ import AppLayout from "./layout/AppLayout";
 import { ScrollToTop } from "./components/common/ScrollToTop";
 import Dashboard from "./pages/journal/Dashboard";
 import Pages from "./pages/journal/Pages";
+import UploadPage from "./pages/journal/UploadPage";
 import Articles from "./pages/journal/Articles";
+import UploadArticle from "./pages/journal/UploadArticle";
 import UploadJournals from "./pages/journal/UploadJournals";
 import Volumes from "./pages/journal/Volumes";
 import UploadVolume from "./pages/journal/UploadVolume";
@@ -20,7 +22,9 @@ export default function App() {
           <Route element={<AppLayout />}>
             <Route index path="/" element={<Dashboard />} />
             <Route path="/pages" element={<Pages />} />
+            <Route path="/upload-page" element={<UploadPage />} />
             <Route path="/articles" element={<Articles />} />
+            <Route path="/upload-article" element={<UploadArticle />} />
             <Route path="/upload-journals" element={<UploadJournals />} />
             <Route path="/volumes" element={<Volumes />} />
             <Route path="/upload-volume" element={<UploadVolume />} />
