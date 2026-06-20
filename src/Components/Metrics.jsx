@@ -1,5 +1,6 @@
 import React from 'react'
 import './Metrics.css'
+import { Link } from 'react-router'
 
 const Metrics = () => {
     return (
@@ -38,10 +39,10 @@ const Metrics = () => {
                         <h2>Submit a Manuscript</h2>
                         <p>JAST welcomes original research, review articles, and letters in all areas of science and technology. Submissions must report novel, reproducible findings not under consideration elsewhere.</p>
                         <ul className="submit-links">
-                            <li><a href="#">➔ Author guidelines</a></li>
-                            <li><a href="#">➔ Editorial board</a></li>
+                            <li><Link to='/author-guildelines'>➔ Author guidelines</Link></li>
+                            <li><Link to='/editorial'>➔ Editorial board</Link></li>
                         </ul>
-                        <a href="#" className="submit-action-btn">Submit manuscript ➔</a>
+                        <Link to='/' className="submit-action-btn">Submit manuscript ➔</Link>
                     </div>
                 </div>
             </section>
