@@ -1,196 +1,409 @@
 import React from 'react'
-import '../Components/Single_Issues.css'
+import '../Components/Issues.css'
 import { Link } from 'react-router'
+import Footer from '../Components/Footer'
+
 
 const Single_Issues = () => {
     return (
         <>
-            <section className="hero-section">
-                <h2 className="hero-title">Volume</h2>
+            <section className="issue-hero container">
+                <div className="hero-flex-layout">
+                    <div className="journal-badge-cover">
+                        <div className="badge-top">JAST</div>
+                        <div className="badge-volume">14·3</div>
+                        <div className="badge-lines">
+                            <span></span><span></span><span></span><span></span>
+                        </div>
+                        <div className="badge-bottom">MAY 2026</div>
+                    </div>
+
+                    <div className="hero-meta-details">
+                        <span className="current-issue-badge">CURRENT ISSUE</span>
+                        <h1 className="main-issue-heading">Volume 13, Issue 1 — May 2026</h1>
+                        <p className="issue-abstract-summary">
+                            Featuring original research in artificial intelligence, materials science, biotechnology, and environmental modelling. This issue includes a special section on neuromorphic computing for physical simulation.
+                        </p>
+                        <div className="metadata-row">
+                            <span>📅 Published: 14 May 2026</span>
+                            <span>📄 Pages 189–340</span>
+                            <span>🧬 ISSN 2398-4412</span>
+                            <span>🔓 Open access</span>
+                        </div>
+                        <Link to="#" className="download-pdf-link">Download Full issue PDF</Link>
+                    </div>
+                </div>
+
+                <div className="metrics-row container">
+                    <div className="metrics-card">
+                        <span className="metric-value color-blue">18</span>
+                        <span className="metric-label">Articles</span>
+                    </div>
+                    <div className="metrics-card">
+                        <span className="metric-value color-indigo">152</span>
+                        <span className="metric-label">Pages</span>
+                    </div>
+                    <div className="metrics-card">
+                        <span className="metric-value color-purple">47,300</span>
+                        <span className="metric-label">Downloads</span>
+                    </div>
+                    {/* <div className="metrics-card">
+                        <span className="metric-value color-slate">214</span>
+                        <span className="metric-label">Citations</span>
+                    </div> */}
+                </div>
+
+                {/* <div className="action-buttons-group container">
+                    <Link to="#" className="btn btn-filled">Browse all articles</Link>
+                    <Link to="#" className="btn btn-outline">Share issue</Link>
+                    <Link to="#" className="btn btn-outline">AI overview ↗</Link>
+                </div> */}
             </section>
 
-            <section className="layout-grid">
+            <hr className='section-divider container' />
 
-                <main className="primary-content">
-                    <div className="issues-boxes">
-                        <div class="journal-grid">
-                            <Link to='/' class="journal-column">
-                                <div class="journal-card theme-current">
-                                    <div class="card-meta">
-                                        <span>REF: NJAS-2026-11</span>
-                                        <span>VOL 35 NO. 1</span>
-                                    </div>
-                                    <div class="card-header">
-                                        <h2>NIGERIAN JOURNAL OF APPLIED SCIENCE</h2>
-                                    </div>
-                                    <div class="card-icon">
-                                        <svg viewBox="0 0 24 24">
-                                            <circle cx="12" cy="12" r="3" />
-                                            <circle cx="12" cy="5" r="2" />
-                                            <circle cx="12" cy="19" r="2" />
-                                            <circle cx="5" cy="12" r="2" />
-                                            <circle cx="19" cy="12" r="2" />
-                                            <path d="M12 7v2M12 15v2M7 12h2M15 12h2" />
-                                        </svg>
-                                    </div>
+            <div className="container main-layout-split">
 
-                                    <div>
-                                        <div class="info-panel">
-                                            <div class="status-badge">Current Volume</div>
-                                            <div class="volume-title">Mesophilic Optimization & Computational Water Modelling</div>
-                                            <div class="publish-date">Published January 2026</div>
-                                        </div>
-                                        <div class="card-footer">ASAN Publication Series</div>
+                <main className="primary-feed-pane">
+
+                    {/* <div className="editorial-banner-card">
+                        <span className="editorial-tag">🖋️ EDITORIAL</span>
+                        <h3>Energy-efficient computation and the future of scientific infrastructure</h3>
+                        <p className="editorial-byline">Prof. Elena Vasquez, Editor-in-Chief · pp. 189–192 · <a href="#">Read ➔</a></p>
+                    </div> */}
+
+                    <div className="shelf-controls-bar">
+                        <div className="search-box-input">
+                            <input type="text" placeholder="🔍 Search this issue..." />
+                        </div>
+                        <select><option>All sections</option></select>
+                        <select><option>Sort: page order</option></select>
+                        <span className="count-badge">3 articles</span>
+                    </div>
+
+                    <section>
+                        <div className="articles-category-section">
+                            <div className="category-section-header">
+                                <h4 className="category-title">ARTIFICIAL INFERENCE & COMPUTING</h4>
+                                <span className="category-meta">6 ARTICLES · PP. 193–248</span>
+                            </div>
+                            <div className="article-row-card">
+                                <div className="article-left-sidebar">
+                                    <span className="page-stamp">p. 193</span>
+                                </div>
+                                <div className="article-main-body">
+                                    <div className="article-badge-row">
+                                        <span className="badge-pill bg-blue">Artificial Intelligence</span>
+                                    </div>
+                                    <h4 className="article-row-title">Neuromorphic computing architectures for real-time climate modelling at scale</h4>
+                                    <p className="article-row-authors">A. Okafor · J. Lindqvist · R. Sharma · M. Torres</p>
+                                    <p className="article-row-abstract">
+                                        We introduce a neuromorphic chip architecture optimised for sparse, event-driven simulation of atmospheric dynamics, reducing energy consumption by 78% while maintaining sub-1%...
+                                    </p>
+                                    <div className="article-row-metrics-footer">
+                                        <span>👁️ 12,847</span>
+                                        <span>⬇️ 4,312</span>
+                                        <span>📋 41 citations</span>
+                                        <span className="star-badge">⭐ Editor's choice</span>
                                     </div>
                                 </div>
-                                <h3>Volume 35</h3>
-                            </Link>
-
-                             <Link to='/' class="journal-column">
-                                <div class="journal-card theme-archived-white">
-                                    <div class="card-meta">
-                                        <span>REF: NJAS-2025-13</span>
-                                        <span>VOL 34 NO. 3</span>
+                                <div className="article-right-actions">
+                                    <Link to="#" className="btn-action-read">Read</Link>
+                                    <Link to="#" className="btn-action-pdf">PDF</Link>
+                                </div>
+                            </div>
+                            <div className="article-row-card">
+                                <div className="article-left-sidebar">
+                                    <span className="page-stamp">p. 232</span>
+                                </div>
+                                <div className="article-main-body">
+                                    <div className="article-badge-row">
+                                        <span className="badge-pill bg-blue">Artificial Intelligence</span>
                                     </div>
-                                    <div class="card-header">
-                                        <h2>NIGERIAN JOURNAL OF APPLIED SCIENCE</h2>
-                                    </div>
-                                    <div class="card-icon">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2" stroke-linecap="round">
-                                            <path d="M12 22V10M12 10c0-4 3-7 6-7M12 10c0-4-3-7-6-7M12 14c2-1 4-1 6-3M12 16c-2-1-4-1-6-3" />
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <div class="info-panel">
-                                            <div class="status-badge white-badge-color">Archived Volume</div>
-                                            <div class="volume-title">Botanical Extracts & Clinical Phytochemistry</div>
-                                            <div class="publish-date">Published September 2025</div>
-                                        </div>
-                                        <div class="card-footer white-footer-color">ASAN Publication Series</div>
+                                    <h4 className="article-row-title">Sparse attention transformers for long-horizon scientific time series forecasting</h4>
+                                    <p className="article-row-authors">Y. Chen · H. Balogun · F. Müller</p>
+                                    <p className="article-row-abstract">
+                                        A novel transformer variant leveraging structured sparsity patterns to achieve accurate multi-step forecasting on geophysical and astronomical time series with reduced memory footprint.
+                                    </p>
+                                    <div className="article-row-metrics-footer">
+                                        <span>👁️ 8,934</span>
+                                        <span>⬇️ 2,158</span>
+                                        <span>📋 23 citations</span>
                                     </div>
                                 </div>
-                             <h3>Volume 34</h3>
-                            </Link>
-
-                             <Link to='/' class="journal-column">
-                                <div class="journal-card theme-archived-green">
-                                    <div class="card-meta">
-                                        <span>REF: NJAS-2025-12</span>
-                                        <span>VOL 34 NO. 2</span>
+                                <div className="article-right-actions">
+                                    <Link to="#" className="btn-action-read">Read</Link>
+                                    <Link to="#" className="btn-action-pdf">PDF</Link>
+                                </div>
+                            </div>
+                            <div className="article-row-card">
+                                <div className="article-left-sidebar">
+                                    <span className="page-stamp">p. 248</span>
+                                </div>
+                                <div className="article-main-body">
+                                    <div className="article-badge-row">
+                                        <span className="badge-pill bg-blue">Artificial Intelligence</span>
                                     </div>
-                                    <div class="card-header">
-                                        <h2>NIGERIAN JOURNAL OF APPLIED SCIENCE</h2>
-                                    </div>
-                                    <div class="card-icon">
-                                        <svg viewBox="0 0 24 24">
-                                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <div class="info-panel">
-                                            <div class="status-badge">Archived Volume</div>
-                                            <div class="volume-title">Nitrogen-Doped Supercapacitor Electrolytes</div>
-                                            <div class="publish-date">Published May 2025</div>
-                                        </div>
-                                        <div class="card-footer">ASAN Publication Series</div>
+                                    <h4 className="article-row-title">Graph neural networks for molecular property prediction in drug discovery</h4>
+                                    <p className="article-row-authors">S. Patel · M. Zhang · K. O'Brien</p>
+                                    <p className="article-row-abstract">
+                                        We demonstrate that message-passing GNNs with attention mechanisms outperform traditional QSAR models on a curated dataset of 50,000 drug candidates, with 94% accuracy...
+                                    </p>
+                                    <div className="article-row-metrics-footer">
+                                        <span>👁️ 6,543</span>
+                                        <span>⬇️ 1,676</span>
+                                        <span>📋 15 citations</span>
                                     </div>
                                 </div>
-                             <h3>Volume 34</h3>
-                            </Link>
+                                <div className="article-right-actions">
+                                    <Link to="#" className="btn-action-read">Read</Link>
+                                    <Link to="#" className="btn-action-pdf">PDF</Link>
+                                </div>
+                            </div>
+                        </div>
 
-                             <Link to='/' class="journal-column">
-                                <div class="journal-card theme-legacy">
-                                    <div class="card-meta">
-                                        <span>REF: NJAS-2024-13</span>
-                                        <span>VOL 33 NO. 3</span>
+                        <div className="articles-category-section">
+                            <div className="category-section-header">
+                                <h4 className="category-title">BIOTECHNOLOGY & LIFE</h4>
+                                <span className="category-meta">5 ARTICLES · PP. 249–298</span>
+                            </div>
+                            <div className="article-row-card">
+                                <div className="article-left-sidebar">
+                                    <span className="page-stamp">p. 193</span>
+                                </div>
+                                <div className="article-main-body">
+                                    <div className="article-badge-row">
+                                        <span className="badge-pill bg-blue">Artificial Intelligence</span>
                                     </div>
-                                    <div class="card-header">
-                                        <h2>NIGERIAN JOURNAL OF APPLIED SCIENCE</h2>
-                                    </div>
-                                    <div class="card-icon">
-                                        <svg viewBox="0 0 24 24">
-                                            <path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l-.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3-1.57-3-3.5s1.07-3.5 3-3.5 3 1.57 3 3.5-1.07 3.5-3 3.5z" />
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <div class="info-panel">
-                                            <div class="status-badge">Legacy Archive</div>
-                                            <div class="volume-title">Hydrogeological Formations & Complex Geophysics</div>
-                                            <div class="publish-date">Published September 2024</div>
-                                        </div>
-                                        <div class="card-footer">ASAN Publication Series</div>
+                                    <h4 className="article-row-title">Neuromorphic computing architectures for real-time climate modelling at scale</h4>
+                                    <p className="article-row-authors">A. Okafor · J. Lindqvist · R. Sharma · M. Torres</p>
+                                    <p className="article-row-abstract">
+                                        We introduce a neuromorphic chip architecture optimised for sparse, event-driven simulation of atmospheric dynamics, reducing energy consumption by 78% while maintaining sub-1%...
+                                    </p>
+                                    <div className="article-row-metrics-footer">
+                                        <span>👁️ 12,847</span>
+                                        <span>⬇️ 4,312</span>
+                                        <span>📋 41 citations</span>
+                                        <span className="star-badge">⭐ Editor's choice</span>
                                     </div>
                                 </div>
-                             <h3>Volume 33</h3>
-                            </Link>
-
-                             <Link to='/' class="journal-column">
-                                <div class="journal-card theme-legacy">
-                                    <div class="card-meta">
-                                        <span>REF: NJAS-2024-13</span>
-                                        <span>VOL 33 NO. 3</span>
+                                <div className="article-right-actions">
+                                    <Link to="#" className="btn-action-read">Read</Link>
+                                    <Link to="#" className="btn-action-pdf">PDF</Link>
+                                </div>
+                            </div>
+                            <div className="article-row-card">
+                                <div className="article-left-sidebar">
+                                    <span className="page-stamp">p. 232</span>
+                                </div>
+                                <div className="article-main-body">
+                                    <div className="article-badge-row">
+                                        <span className="badge-pill bg-blue">Artificial Intelligence</span>
                                     </div>
-                                    <div class="card-header">
-                                        <h2>NIGERIAN JOURNAL OF APPLIED SCIENCE</h2>
-                                    </div>
-                                    <div class="card-icon">
-                                        <svg viewBox="0 0 24 24">
-                                            <path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l-.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3-1.57-3-3.5s1.07-3.5 3-3.5 3 1.57 3 3.5-1.07 3.5-3 3.5z" />
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <div class="info-panel">
-                                            <div class="status-badge">Legacy Archive</div>
-                                            <div class="volume-title">Hydrogeological Formations & Complex Geophysics</div>
-                                            <div class="publish-date">Published September 2024</div>
-                                        </div>
-                                        <div class="card-footer">ASAN Publication Series</div>
+                                    <h4 className="article-row-title">Sparse attention transformers for long-horizon scientific time series forecasting</h4>
+                                    <p className="article-row-authors">Y. Chen · H. Balogun · F. Müller</p>
+                                    <p className="article-row-abstract">
+                                        A novel transformer variant leveraging structured sparsity patterns to achieve accurate multi-step forecasting on geophysical and astronomical time series with reduced memory footprint.
+                                    </p>
+                                    <div className="article-row-metrics-footer">
+                                        <span>👁️ 8,934</span>
+                                        <span>⬇️ 2,158</span>
+                                        <span>📋 23 citations</span>
                                     </div>
                                 </div>
-                             <h3>Volume 35</h3>
-                            </Link>
-
-                             <Link to='/' class="journal-column">
-                                <div class="journal-card theme-archived-green">
-                                    <div class="card-meta">
-                                        <span>REF: NJAS-2025-12</span>
-                                        <span>VOL 34 NO. 2</span>
+                                <div className="article-right-actions">
+                                    <Link to="#" className="btn-action-read">Read</Link>
+                                    <Link to="#" className="btn-action-pdf">PDF</Link>
+                                </div>
+                            </div>
+                            <div className="article-row-card">
+                                <div className="article-left-sidebar">
+                                    <span className="page-stamp">p. 248</span>
+                                </div>
+                                <div className="article-main-body">
+                                    <div className="article-badge-row">
+                                        <span className="badge-pill bg-blue">Artificial Intelligence</span>
                                     </div>
-                                    <div class="card-header">
-                                        <h2>NIGERIAN JOURNAL OF APPLIED SCIENCE</h2>
-                                    </div>
-                                    <div class="card-icon">
-                                        <svg viewBox="0 0 24 24">
-                                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <div class="info-panel">
-                                            <div class="status-badge">Archived Volume</div>
-                                            <div class="volume-title">Nitrogen-Doped Supercapacitor Electrolytes</div>
-                                            <div class="publish-date">Published May 2025</div>
-                                        </div>
-                                        <div class="card-footer">ASAN Publication Series</div>
+                                    <h4 className="article-row-title">Graph neural networks for molecular property prediction in drug discovery</h4>
+                                    <p className="article-row-authors">S. Patel · M. Zhang · K. O'Brien</p>
+                                    <p className="article-row-abstract">
+                                        We demonstrate that message-passing GNNs with attention mechanisms outperform traditional QSAR models on a curated dataset of 50,000 drug candidates, with 94% accuracy...
+                                    </p>
+                                    <div className="article-row-metrics-footer">
+                                        <span>👁️ 6,543</span>
+                                        <span>⬇️ 1,676</span>
+                                        <span>📋 15 citations</span>
                                     </div>
                                 </div>
-                             <h3>Volume 35</h3>
-                            </Link>
+                                <div className="article-right-actions">
+                                    <Link to="#" className="btn-action-read">Read</Link>
+                                    <Link to="#" className="btn-action-pdf">PDF</Link>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div className="articles-category-section">
+                            <div className="category-section-header">
+                                <h4 className="category-title">MATERIALS SCIENCE & PHYSICS</h4>
+                                <span className="category-meta">6 ARTICLES · PP. 299–340</span>
+                            </div>
+                            <div className="article-row-card">
+                                <div className="article-left-sidebar">
+                                    <span className="page-stamp">p. 299</span>
+                                </div>
+                                <div className="article-main-body">
+                                    <div className="article-badge-row">
+                                        <span className="badge-pill bg-blue">Artificial Intelligence</span>
+                                    </div>
+                                    <h4 className="article-row-title">Neuromorphic computing architectures for real-time climate modelling at scale</h4>
+                                    <p className="article-row-authors">A. Okafor · J. Lindqvist · R. Sharma · M. Torres</p>
+                                    <p className="article-row-abstract">
+                                        We introduce a neuromorphic chip architecture optimised for sparse, event-driven simulation of atmospheric dynamics, reducing energy consumption by 78% while maintaining sub-1%...
+                                    </p>
+                                    <div className="article-row-metrics-footer">
+                                        <span>👁️ 12,847</span>
+                                        <span>⬇️ 4,312</span>
+                                        <span>📋 41 citations</span>
+                                        <span className="star-badge">⭐ Editor's choice</span>
+                                    </div>
+                                </div>
+                                <div className="article-right-actions">
+                                    <Link to="#" className="btn-action-read">Read</Link>
+                                    <Link to="#" className="btn-action-pdf">PDF</Link>
+                                </div>
+                            </div>
+                            <div className="article-row-card">
+                                <div className="article-left-sidebar">
+                                    <span className="page-stamp">p. 232</span>
+                                </div>
+                                <div className="article-main-body">
+                                    <div className="article-badge-row">
+                                        <span className="badge-pill bg-blue">Artificial Intelligence</span>
+                                    </div>
+                                    <h4 className="article-row-title">Sparse attention transformers for long-horizon scientific time series forecasting</h4>
+                                    <p className="article-row-authors">Y. Chen · H. Balogun · F. Müller</p>
+                                    <p className="article-row-abstract">
+                                        A novel transformer variant leveraging structured sparsity patterns to achieve accurate multi-step forecasting on geophysical and astronomical time series with reduced memory footprint.
+                                    </p>
+                                    <div className="article-row-metrics-footer">
+                                        <span>👁️ 8,934</span>
+                                        <span>⬇️ 2,158</span>
+                                        <span>📋 23 citations</span>
+                                    </div>
+                                </div>
+                                <div className="article-right-actions">
+                                    <Link to="#" className="btn-action-read">Read</Link>
+                                    <Link to="#" className="btn-action-pdf">PDF</Link>
+                                </div>
+                            </div>
+                            <div className="article-row-card">
+                                <div className="article-left-sidebar">
+                                    <span className="page-stamp">p. 248</span>
+                                </div>
+                                <div className="article-main-body">
+                                    <div className="article-badge-row">
+                                        <span className="badge-pill bg-blue">Artificial Intelligence</span>
+                                    </div>
+                                    <h4 className="article-row-title">Graph neural networks for molecular property prediction in drug discovery</h4>
+                                    <p className="article-row-authors">S. Patel · M. Zhang · K. O'Brien</p>
+                                    <p className="article-row-abstract">
+                                        We demonstrate that message-passing GNNs with attention mechanisms outperform traditional QSAR models on a curated dataset of 50,000 drug candidates, with 94% accuracy...
+                                    </p>
+                                    <div className="article-row-metrics-footer">
+                                        <span>👁️ 6,543</span>
+                                        <span>⬇️ 1,676</span>
+                                        <span>📋 15 citations</span>
+                                    </div>
+                                </div>
+                                <div className="article-right-actions">
+                                    <Link to="#" className="btn-action-read">Read</Link>
+                                    <Link to="#" className="btn-action-pdf">PDF</Link>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+
+                <aside className="sidebar-column-rail">
+
+                    <div className="sidebar-widget">
+                        <h4 className="widget-heading">RECENT ISSUES</h4>
+                        <div className="recent-issues-list">
+                            <div className="issue-row">
+                                <span className="vol-text">Vol. 14, Issue 3</span>
+                                <span className="date-text">May 2026</span>
+                            </div>
+                            <div className="issue-row">
+                                <span className="vol-text">Vol. 14, Issue 2</span>
+                                <span className="date-text">Feb 2026</span>
+                            </div>
+                            <div className="issue-row">
+                                <span className="vol-text">Vol. 14, Issue 1</span>
+                                <span className="date-text">Nov 2025</span>
+                            </div>
+                            <div className="issue-row">
+                                <span className="vol-text">Vol. 13, Issue 4</span>
+                                <span className="date-text">Aug 2025</span>
+                            </div>
+                            <div className="issue-row">
+                                <span className="vol-text">Vol. 14, Issue 3</span>
+                                <span className="date-text">May 2024</span>
+                            </div>
                         </div>
                     </div>
-                </main >
 
-                {/* <aside className="sidebar-rail">
-                    <div className="widget">
-                        <h4 className="widget-title">QUICK LINKS</h4>
-                        <ul className="widget-list">
-                            <li><Link to="/submit">Submit a manuscript <span className="arrow">›</span></Link></li>
-                            <li><Link to="/author-guidelines">Author guidelines <span className="arrow">›</span></Link></li>
-                            <li><Link to="/contact">Contact us <span className="arrow">›</span></Link></li>
-                        </ul>
+                    <div className="sidebar-widget">
+                        <h4 className="widget-heading">TOPICS</h4>
+                        <div className="topics-pills-cloud">
+                            <span className="topic-pill">Artificial Intelligence</span>
+                            <span className="topic-pill">Climate Science</span>
+                            <span className="topic-pill">Neuromorphic Computing</span>
+                            <span className="topic-pill">Materials Science</span>
+                            <span className="topic-pill">Biotechnology</span>
+                            <span className="topic-pill">Energy Efficiency</span>
+                        </div>
                     </div>
-                </aside> */}
-            </section >
+
+                    <div className="sidebar-widget">
+                        <h4 className="widget-heading">ISSUE EDITORS</h4>
+                        <div className="editors-vertical-stack">
+                            <div className="editor-profile-item">
+                                <div className="monogram-avatar bg-purple">DSC</div>
+                                <div className="editor-bio-meta">
+                                    <h5>Dr. Sarah Chen</h5>
+                                    <p>Editor-in-Chief</p>
+                                </div>
+                            </div>
+                            <div className="editor-profile-item">
+                                <div className="monogram-avatar bg-indigo">PJW</div>
+                                <div className="editor-bio-meta">
+                                    <h5>Prof. James Wilson</h5>
+                                    <p>Associate Editor</p>
+                                </div>
+                            </div>
+                            <div className="editor-profile-item">
+                                <div className="monogram-avatar bg-pink">DAO</div>
+                                <div className="editor-bio-meta">
+                                    <h5>Dr. Amara Okonkwo</h5>
+                                    <p>Associate Editor</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="sidebar-widget">
+                        <h4 className="widget-heading">STAY CURRENT</h4>
+                        <p className="widget-description">Get new issue alerts and table of contents emails.</p>
+                        <div className="subscription-form">
+                            <input type="email" placeholder="Enter your email" />
+                            <button className="btn-subscribe">Subscribe</button>
+                        </div>
+                    </div>
+
+                </aside>
+            </div>
+
+            <Footer />
         </>
     )
 }

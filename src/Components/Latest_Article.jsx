@@ -13,7 +13,6 @@ const Latest_Article = () => {
 
                 <div className="articles-grid">
                     <Link to='/' className="article-card highlighted">
-                        <span className="category-tag ai">ARTIFICIAL INTELLIGENCE</span>
                         <h3>Sparse Attention Transformers for Long-Horizon Scientific Time Series</h3>
                         <p className="authors">Y. Chen, R. Satapan, F. Müller</p>
                         <div className="meta-row">
@@ -24,7 +23,6 @@ const Latest_Article = () => {
                     </Link>
 
                     <Link to='/' className="article-card highlighted">
-                        <span className="category-tag biotech">BIOTECHNOLOGY</span>
                         <h3>Lipid Nanoparticle Formulation Optimisation for mRNA Delivery Across Tissue Barriers</h3>
                         <p className="authors">Adegoke, S. Park, L. Rousseau</p>
                         <div className="meta-row">
@@ -35,7 +33,6 @@ const Latest_Article = () => {
                     </Link>
 
                     <Link to='/' className="article-card">
-                        <span className="category-tag materials">MATERIALS SCIENCE</span>
                         <h3>Room-Temperature Superconductivity in Hydrogen-Rich Chalcides Under Moderate Pressure</h3>
                         <p className="authors">M. Isomura, T. Nakamura</p>
                         <div className="meta-row">
@@ -46,7 +43,6 @@ const Latest_Article = () => {
                     </Link>
 
                     <Link to='/' className="article-card">
-                        <span className="category-tag ai">ARTIFICIAL INTELLIGENCE</span>
                         <h3>Causal Discovery in Observational High-Dimensional Genomics Data</h3>
                         <p className="authors">D. Osei, W. Li, A. Bhatt</p>
                         <div className="meta-row">

@@ -1,4 +1,3 @@
-
 /* 2. Parent Wrapper Component (The Outer Box Container) */
 .issues-boxes {
     width: 100%;
@@ -59,7 +58,6 @@
 }
 
 .card-header h2 {
-    font-family: 'Cinzel', serif;
     font-size: 14px;
     line-height: 1.3;
     margin-top: 15px;
@@ -145,7 +143,8 @@
 /* 9. Visual Themes Configurations */
 /* THEME 1: CURRENT VOLUME (Deep Green) */
 .theme-current {
-    background: linear-gradient(135deg, #043927, #022318);
+    /* background: linear-gradient(135deg, var(--primary), var(--accent)); */
+    background: var(--primary);
     color: #ffffff;
 }
 .theme-current .card-meta { color: #a3b899; }
@@ -153,37 +152,3 @@
 .theme-current .info-panel { background: rgba(255, 255, 255, 0.05); }
 .theme-current .status-badge { color: #eab308; }
 .theme-current .card-icon svg { fill: #eab308; }
-
-/* THEME 2: ARCHIVED WHITE VOLUME */
-.theme-archived-white {
-    background: #ffffff;
-    color: #475569;
-    border: 1px solid #e2e8f0;
-}
-.theme-archived-white .card-meta { color: #94a3b8; }
-.theme-archived-white .card-header h2 { color: #f4f4f6; } 
-.theme-archived-white .info-panel { background: #cccccc; color: #ffffff; }
-.theme-archived-white .status-badge { color: #eab308; }
-.theme-archived-white .card-icon svg { stroke: #06b6d4; fill: none; stroke-width: 2; }
-
-/* THEME 3: ARCHIVED GRADIENT GREEN */
-.theme-archived-green {
-    background: linear-gradient(135deg, #022c22, #061913);
-    color: #ffffff;
-}
-.theme-archived-green .card-meta { color: #cca43b; }
-.theme-archived-green .card-header h2 { color: #ffffff; }
-.theme-archived-green .info-panel { background: rgba(255, 255, 255, 0.04); }
-.theme-archived-green .status-badge { color: #cca43b; }
-.theme-archived-green .card-icon svg { fill: #cca43b; }
-
-/* THEME 4: LEGACY ARCHIVE (Dark Slate Blue) */
-.theme-legacy {
-    background: linear-gradient(135deg, #0f172a, #1e293b);
-    color: #ffffff;
-}
-.theme-legacy .card-meta { color: #64748b; }
-.theme-legacy .card-header h2 { color: #ffffff; }
-.theme-legacy .info-panel { background: rgba(255, 255, 255, 0.03); }
-.theme-legacy .status-badge { color: #64748b; }
-.theme-legacy .card-icon svg { fill: #475569; }
