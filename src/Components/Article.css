@@ -110,6 +110,10 @@
     flex-direction: column;
 }
 
+#article .author ul li {
+   list-style-type: none;
+}
+
 #article .author strong {
     color: #fff;
 }

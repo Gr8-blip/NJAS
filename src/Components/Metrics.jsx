@@ -7,7 +7,7 @@ const Metrics = () => {
         <>
             <section id='metrics'>
                 <div className='metrics-container'>
-                    <div className="metrics-column">
+                    {/* <div className="metrics-column">
                         <h1>Journal Metrics</h1>
 
                         <div className="metric-card">
@@ -33,7 +33,7 @@ const Metrics = () => {
                             <div className="metric-value">312</div>
                             <p className="metric-sub">Across 4 issues</p>
                         </div>
-                    </div>
+                    </div> */}
 
                     <div className="submit-panel">
                         <h2>Submit a Manuscript</h2>

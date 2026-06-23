@@ -1,167 +1,60 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../Components/Article_page.css'
 import { Link } from 'react-router'
 import Footer from '../Components/Footer'
+import ShareBtn from '../Components/ShareBtn'
 
 const Single_Article = () => {
-    const [showShareMenu, setShowShareMenu] = useState(false);
+    const [articles, setArticles] = useState([]);
 
-    // Article details for sharing
-    const articleTitle = "";
-    const articleUrl = window.location.href;
-    const shareText = `Check out this article: ${articleTitle}`;
+    useEffect(() => {
+        const fetchArticle = async () => {
+            const response = await fetch("https://jsppharm.com/api/api/articles/");
 
-    // Handle share to different platforms
-    const handleShare = (platform) => {
-        let shareUrl = '';
+            // Always check if the response status is 200-299
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
 
-        switch (platform) {
-            case 'whatsapp':
-                shareUrl = `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + articleUrl)}`;
-                break;
-            case 'facebook':
-                shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(articleUrl)}`;
-                break;
-            case 'linkedin':
-                shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(articleUrl)}`;
-                break;
-            case 'twitter':
-                shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(articleUrl)}&text=${encodeURIComponent(shareText)}`;
-                break;
-            default:
-                break;
+            const data = await response.json();
+            setArticles(data)
         }
 
-        if (shareUrl) {
-            window.open(shareUrl, '_parent');
-        }
-        setShowShareMenu(false);
-    };
+        fetchArticle();
+
+    }, [])
+
     return (
         <>
             <div className="breadcrumbs container">
-                <Link to="/">Home</Link> › <Link to="/articles/ai">Article</Link>
+                <Link to="/">Home</Link> › <Link to="/article">Article</Link>
             </div>
 
             <section id='article'>
                 <div className="article-top">
-                    <p style={{ color: '#000' }}><span>VOL. 13, ISSUE 1</span></p>
+                    {articles.map((article) => (
+                        <p style={{ color: '#000' }}><span>{article.volume_label}</span></p>
+                    ))}
                 </div>
-                <h1>Neuromorphic Computing Architectures for Real-Time Climate Modelling at Scale</h1>
+                {articles.map((article) => (
+                    <h1>{article.title}</h1>
+                ))}
                 <div className='author'>
-                    <span><strong style={{ color: '#000' }}>Authors: </strong> A. Okafor, J. Lindqvist, P. Sharma, M. Torres</span>
-                    <span><strong style={{ color: '#000' }}>Author affiliation: </strong>University of Lagos; KTH Stockholm; IIT Bombay; UNAM</span>
-                    <span><strong style={{ color: '#000' }}>Published: </strong>May 2026</span>
+                    {articles.map((article) => (
+                        <span><strong style={{ color: '#000' }}>Authors: </strong>{article.authors}</span>
+                    ))}
+                    {articles.map((article) => (
+                        <span><strong style={{ color: '#000' }}>Author affiliation: </strong>{article.author_affiliations}</span>
+                    ))}
+                    {articles.map((article) => (
+                        <span><strong style={{ color: '#000' }}>Published: </strong>{article.date_approved}</span>
+                    ))}
                 </div>
 
                 <div className="actions-bar">
                     <button className="btn btn-primary" id="btn-download">Download PDF</button>
                     <button className="btn btn-secondary" id="btn-cite">Cite article</button>
-                    
-                    {/* Share Button with Dropdown Menu */}
-                    <div style={{ position: 'relative', display: 'inline-block' }}>
-                        <button 
-                            className="btn btn-secondary" 
-                            id="btn-share"
-                            onClick={() => setShowShareMenu(!showShareMenu)}
-                            style={{ cursor: 'pointer' }}
-                        >
-                            Share
-                        </button>
-                        
-                        {showShareMenu && (
-                            <div style={{
-                                position: 'absolute',
-                                top: '100%',
-                                left: '0',
-                                backgroundColor: '#ffffff',
-                                border: '1px solid #e2e8f0',
-                                borderRadius: '8px',
-                                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
-                                minWidth: '180px',
-                                zIndex: 1000,
-                                marginTop: '8px'
-                            }}>
-                                <button
-                                    onClick={() => handleShare('whatsapp')}
-                                    style={{
-                                        width: '100%',
-                                        padding: '12px 16px',
-                                        border: 'none',
-                                        backgroundColor: 'transparent',
-                                        textAlign: 'left',
-                                        cursor: 'pointer',
-                                        fontSize: '14px',
-                                        color: '#334155',
-                                        transition: 'background-color 0.2s ease',
-                                        borderBottom: '1px solid #f0f0f0'
-                                    }}
-                                    onMouseEnter={(e) => e.target.style.backgroundColor = '#f8fafc'}
-                                    onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
-                                >
-                                    WhatsApp
-                                </button>
-                                <button
-                                    onClick={() => handleShare('facebook')}
-                                    style={{
-                                        width: '100%',
-                                        padding: '12px 16px',
-                                        border: 'none',
-                                        backgroundColor: 'transparent',
-                                        textAlign: 'left',
-                                        cursor: 'pointer',
-                                        fontSize: '14px',
-                                        color: '#334155',
-                                        transition: 'background-color 0.2s ease',
-                                        borderBottom: '1px solid #f0f0f0'
-                                    }}
-                                    onMouseEnter={(e) => e.target.style.backgroundColor = '#f8fafc'}
-                                    onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
-                                >
-                                    Facebook
-                                </button>
-                                <button
-                                    onClick={() => handleShare('linkedin')}
-                                    style={{
-                                        width: '100%',
-                                        padding: '12px 16px',
-                                        border: 'none',
-                                        backgroundColor: 'transparent',
-                                        textAlign: 'left',
-                                        cursor: 'pointer',
-                                        fontSize: '14px',
-                                        color: '#334155',
-                                        transition: 'background-color 0.2s ease',
-                                        borderBottom: '1px solid #f0f0f0'
-                                    }}
-                                    onMouseEnter={(e) => e.target.style.backgroundColor = '#f8fafc'}
-                                    onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
-                                >
-                                    LinkedIn
-                                </button>
-                                <button
-                                    onClick={() => handleShare('twitter')}
-                                    style={{
-                                        width: '100%',
-                                        padding: '12px 16px',
-                                        border: 'none',
-                                        backgroundColor: 'transparent',
-                                        textAlign: 'left',
-                                        cursor: 'pointer',
-                                        fontSize: '14px',
-                                        color: '#334155',
-                                        transition: 'background-color 0.2s ease'
-                                    }}
-                                    onMouseEnter={(e) => e.target.style.backgroundColor = '#f8fafc'}
-                                    onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
-                                >
-                                    Twitter
-                                </button>
-                            </div>
-                        )}
-                    </div>
-
-                    <button className="btn btn-secondary" id="btn-ai">AI summary</button>
+                    <ShareBtn />
                 </div>
             </section>
 
@@ -170,15 +63,13 @@ const Single_Article = () => {
                     <article className="article-content-box">
                         <div className="abstract-box">
                             <h2>ABSTRACT</h2>
-                            <p>We introduce a neuromorphic chip architecture optimised for sparse, event-driven simulation of atmospheric dynamics. Benchmarked against GPU clusters across five continental climate zones, our approach reduces energy consumption by 78% while maintaining sub-1% RMSE against ERA5 reanalysis data. The architecture exploits temporal sparsity inherent in meteorological signals via asynchronous spiking neural networks (SNNs), enabling real-time planetary-scale climate prediction without sacrificing physical fidelity.</p>
-
+                            {articles.map((article) => (
+                                <p>{article.abstract}</p>
+                            ))}
                             <div className="keywords-row">
-                                <span className="keyword">neuromorphic computing</span>
-                                <span className="keyword">climate modelling</span>
-                                <span className="keyword">spiking neural networks</span>
-                                <span className="keyword">atmospheric simulation</span>
-                                <span className="keyword">energy-efficient AI</span>
-                                <span className="keyword">ERA5</span>
+                                {articles.map((article) => (
+                                <span className="keyword">{article.keywords}</span>
+                            ))}
                             </div>
                         </div>
                     </article>
@@ -202,7 +93,7 @@ const Single_Article = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="sidebar-card">
+                        {/* <div className="sidebar-card">
                             <h4 className="card-title">ARTICLE INFO</h4>
                             <div className="metrics-list">
                                 <div className="metric-row">
@@ -219,7 +110,7 @@ const Single_Article = () => {
                                     <Link to={'mailto:a.okafor@unilag.edu.ng'}>a.okafor@unilag.edu.ng</Link>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
 
                         <div className="widget">
                             <h4 className="widget-title">QUICK LINKS</h4>
