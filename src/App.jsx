@@ -5,8 +5,9 @@ import Header from './Components/Header'
 import Home from './Pages/Home'
 import About from './Pages/About'
 import Editorial_Board from './Pages/Editorial_Board'
-import Article from './Pages/Article'
-import Issues from './Pages/Issues'
+import ArticlePage from './Pages/ArticlePage'
+import Volume from './Pages/Volume'
+import Single_Issues from './Pages/Single_Issues'
 import Contact_Us from './Pages/Contact_Us'
 import Single_Article from './Pages/Single_Article'
 import Author_Guidelines from './Pages/Author_Guidelines'
@@ -31,8 +32,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/editorial" element={<Editorial_Board />} />
-        <Route path="/article" element={<Article />} />
-        <Route path="/issues" element={<Issues />} />
+        <Route path="/article" element={<ArticlePage />} />
+        <Route path="/volume" element={<Volume />} />
+        <Route path="/single-issues" element={<Single_Issues />} />
         <Route path="/contact" element={<Contact_Us />} />
         <Route path="/single-article" element={<Single_Article />} />
         <Route path="/author-guidelines" element={<Author_Guidelines />} />

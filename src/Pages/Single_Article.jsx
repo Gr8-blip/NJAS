@@ -1,33 +1,60 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../Components/Article_page.css'
 import { Link } from 'react-router'
 import Footer from '../Components/Footer'
+import ShareBtn from '../Components/ShareBtn'
 
 const Single_Article = () => {
+    const [articles, setArticles] = useState([]);
+
+    useEffect(() => {
+        const fetchArticle = async () => {
+            const response = await fetch("https://jsppharm.com/api/api/articles/");
+
+            // Always check if the response status is 200-299
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            setArticles(data)
+        }
+
+        fetchArticle();
+
+    }, [])
+
     return (
         <>
             <div className="breadcrumbs container">
-                <Link to="/">Home</Link> › <Link to="/articles/ai">Artificial Intelligence</Link> › Neuromorphic computing...
+                <Link to="/">Home</Link> › <Link to="/article">Article</Link>
             </div>
 
             <section id='article'>
                 <div className="article-top">
-                    <p style={{color: '#000'}}><span>ARTIFICIAL INTELLIGENCE</span> VOL. 14, ISSUE 3, pp. 214–231</p>
+                    {articles.map((article) => (
+                        <p style={{ color: '#000' }}><span>{article.volume_label}</span></p>
+                    ))}
                 </div>
-                <h1>Neuromorphic Computing Architectures for Real-Time Climate Modelling at Scale</h1>
-                <ul className='author' style={{color: '#000'}}>
-                    <li><strong style={{color: '#000'}}>Authors:</strong> A. Okafor, J. Lindqvist, P. Sharma, M. Torres</li>
-                    <li>📅 Received 12 Jan 2026</li>
-                    <li>✓ Accepted 02 Apr 2026</li>
-                    <li>📤 Published 14 May 2026</li>
-                </ul>
+                {articles.map((article) => (
+                    <h1>{article.title}</h1>
+                ))}
+                <div className='author'>
+                    {articles.map((article) => (
+                        <span><strong style={{ color: '#000' }}>Authors: </strong>{article.authors}</span>
+                    ))}
+                    {articles.map((article) => (
+                        <span><strong style={{ color: '#000' }}>Author affiliation: </strong>{article.author_affiliations}</span>
+                    ))}
+                    {articles.map((article) => (
+                        <span><strong style={{ color: '#000' }}>Published: </strong>{article.date_approved}</span>
+                    ))}
+                </div>
 
                 <div className="actions-bar">
-                    <button className="btn btn-primary" id="btn-download">⬇️ Download PDF</button>
-                    <button className="btn btn-secondary" id="btn-cite">📋 Cite article</button>
-                    <button className="btn btn-secondary" id="btn-share">🔗 Share</button>
-                    <button className="btn btn-secondary" id="btn-save">💾 Save</button>
-                    <button className="btn btn-secondary" id="btn-ai">✨ AI summary</button>
+                    <button className="btn btn-primary" id="btn-download">Download PDF</button>
+                    <button className="btn btn-secondary" id="btn-cite">Cite article</button>
+                    <ShareBtn />
                 </div>
             </section>
 
@@ -36,46 +63,18 @@ const Single_Article = () => {
                     <article className="article-content-box">
                         <div className="abstract-box">
                             <h2>ABSTRACT</h2>
-                            <p>We introduce a neuromorphic chip architecture optimised for sparse, event-driven simulation of atmospheric dynamics. Benchmarked against GPU clusters across five continental climate zones, our approach reduces energy consumption by 78% while maintaining sub-1% RMSE against ERA5 reanalysis data. The architecture exploits temporal sparsity inherent in meteorological signals via asynchronous spiking neural networks (SNNs), enabling real-time planetary-scale climate prediction without sacrificing physical fidelity.</p>
-
+                            {articles.map((article) => (
+                                <p>{article.abstract}</p>
+                            ))}
                             <div className="keywords-row">
-                                <span className="keyword">neuromorphic computing</span>
-                                <span className="keyword">climate modelling</span>
-                                <span className="keyword">spiking neural networks</span>
-                                <span className="keyword">atmospheric simulation</span>
-                                <span className="keyword">energy-efficient AI</span>
-                                <span className="keyword">ERA5</span>
+                                {articles.map((article) => (
+                                <span className="keyword">{article.keywords}</span>
+                            ))}
                             </div>
                         </div>
-
-                        <h3>1. Introduction</h3>
-                        <p>The escalating computational demands of numerical weather prediction (NWP) have made energy
-                            consumption a critical bottleneck in climate science. Current GPU-based ensemble systems consume
-                            upward of 4 GWh per annum for a single national forecasting centre, a figure projected to double
-                            by 2030 as ensemble sizes grow to accommodate uncertainty quantification at higher resolutions.</p>
-                        <p>Neuromorphic processors, inspired by the sparse, event-driven computation of biological neural
-                            circuits, offer a fundamentally different energy profile. Unlike dense matrix operations on GPUs,
-                            spiking neural networks (SNNs) activate only when input signals exceed a threshold, yielding
-                            near-zero idle power.</p>
-
-                        <blockquote className="pull-quote">
-                            "Unlike dense matrix operations on conventional accelerators, event-driven spiking architectures activate only when signals exceed threshold — yielding near-zero idle power during quiescent atmospheric states."
-                        </blockquote>
-
-                        <h3>2. Methods</h3>
-                        <p>Our architecture, termed ClimatoCore-1, comprises 128 neuromorphic tiles arranged in a mesh topology, each tile housing 1,024 integrate-and-fire neurons with programmable synaptic delays. Input ERA5 reanalysis fields are encoded as Poisson spike trains at 10 ms temporal resolution and routed via on-chip mesh routing.</p>
-
-                        <h3>3. Results</h3>
-                        <p>ClimatoCore-1 achieved a global mean RMSE of 0.81 K for 2 m temperature at 5-day lead time, compared to 0.79 K for the GPU ensemble and 0.76 K for IFS — a 7% accuracy gap accompanied by an 88% reduction in energy usage. Skill scores over tropical regions exceeded those of the GPU ensemble, attributable to the SNN architecture's
-                            ability to capture sharp convective onset events.</p>
-
-                        <h3>References</h3>
-                        <ol className="references-list">
-                            <li>Krizhevsky, A., Sutskever, I., Hinton, G. E. (2012). Imagenet classification with deep convolutional neural networks. <em>Advances in Neural Information Processing Systems</em>, 25.</li>
-                            <li>LeCun, Y., Bengio, Y., Hinton, G. (2015). Deep learning. <em>Nature</em>, 521(7553), 436-444.</li>
-                            <li>Goodfellow, I., Pouget-Abadie, J., Mirza, M., et al. (2014). Generative adversarial networks. <em>Advances in Neural Information Processing Systems</em>, 27.</li>
-                        </ol>
                     </article>
+
+
                     <aside className="article-sidebar">
                         <div className="sidebar-card">
                             <h4 className="card-title">ARTICLE METRICS</h4>
@@ -92,13 +91,9 @@ const Single_Article = () => {
                                     <span className="metric-label">Citations</span>
                                     <span className="metrics-value">23</span>
                                 </div>
-                                <div className="metric-row">
-                                    <span className="metric-label">Read time</span>
-                                    <span className="metrics-value">18 min</span>
-                                </div>
                             </div>
                         </div>
-                        <div className="sidebar-card">
+                        {/* <div className="sidebar-card">
                             <h4 className="card-title">ARTICLE INFO</h4>
                             <div className="metrics-list">
                                 <div className="metric-row">
@@ -115,21 +110,40 @@ const Single_Article = () => {
                                     <Link to={'mailto:a.okafor@unilag.edu.ng'}>a.okafor@unilag.edu.ng</Link>
                                 </div>
                             </div>
+                        </div> */}
+
+                        <div className="widget">
+                            <h4 className="widget-title">QUICK LINKS</h4>
+                            <ul className="widget-list">
+                                <li><Link to="/submit">Submit a manuscript <span className="arrow">›</span></Link></li>
+                                <li><Link to="/author-guidelines">Author guidelines <span className="arrow">›</span></Link></li>
+                                <li><Link to="/contact">Contact us <span className="arrow">›</span></Link></li>
+                            </ul>
                         </div>
-                        <div className="sidebar-card">
-                            <h4 className="card-title">SEARCH THE ARTICLE</h4>
-                            <div className="metrics-list">
-                                <div className="metric-row">
-                                    <button>Copy link</button>
+                        <div className="widget">
+                            <h4 className="widget-title">CONTACT</h4>
+                            <div className="contact-box">
+                                <div className="contact-item">
+                                    <span className="lbl">Email</span>
+                                    <a href="mailto:contact@mcgillard.com" className="val link">contact@mcgillard.com</a>
                                 </div>
-                                <div className="metric-row">
-                                    <button>Email</button>
+                                <div className="contact-item">
+                                    <span className="lbl">Phone</span>
+                                    <span className="val">+234 906 802 2212</span>
                                 </div>
-                                <div className="metric-row">
-                                    <button>Linkedin</button>
+                                <div className="contact-item">
+                                    <span className="lbl">Address</span>
+                                    <span className="val">Tantua Road, Amassoma, Wilberforce Island,</span>
+                                    <span className="val">Bayelsa State, Nigeria</span>
+                                </div>
+                                <div className="contact-item">
+                                    <span className="lbl">Office Hours</span>
+                                    <span className="val">Mon-Fri: 9am - 5pm EST</span>
+                                    <button className="btn-subscribe">Schedule a Meeting</button>
                                 </div>
                             </div>
                         </div>
+
                         <div className="sidebar-card">
                             <h4 className="card-title related-title">RELATED ARTICLES</h4>
                             <hr className="card-divider"></hr>

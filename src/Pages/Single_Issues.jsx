@@ -1,10 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../Components/Issues.css'
 import { Link } from 'react-router'
 import Footer from '../Components/Footer'
+import ShareBtn from '../Components/ShareBtn'
 
 
-const Issues = () => {
+const Single_Issues = () => {
+    const [volumes, setVolumes] = useState([]);
+
+    useEffect(() => {
+        const fetchVolume = async () => {
+            const response = await fetch("https://jsppharm.com/api/api/volumes/");
+
+            // Always check if the response status is 200-299
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            setVolumes(data)
+        }
+
+        fetchVolume();
+
+    }, [])
+
     return (
         <>
             <section className="issue-hero container">
@@ -19,8 +39,11 @@ const Issues = () => {
                     </div>
 
                     <div className="hero-meta-details">
-                        <span className="current-issue-badge">CURRENT ISSUE</span>
-                        <h1 className="main-issue-heading">Volume 14, Issue 3 — May 2026</h1>
+                        {/* <span className="current-issue-badge">CURRENT ISSUE</span> */}
+                        {volumes.map((volumes) => (
+                            <h1 className="main-issue-heading" key={volumes.id}>{volumes.title}, Issue {volumes.issue_number} {volumes.year}</h1>
+                        ))}
+                        <h1 className="main-issue-heading">Volume 13, Issue 1 — May 2026</h1>
                         <p className="issue-abstract-summary">
                             Featuring original research in artificial intelligence, materials science, biotechnology, and environmental modelling. This issue includes a special section on neuromorphic computing for physical simulation.
                         </p>
@@ -30,13 +53,15 @@ const Issues = () => {
                             <span>🧬 ISSN 2398-4412</span>
                             <span>🔓 Open access</span>
                         </div>
-                        <Link to="#" className="download-pdf-link">📥 Full issue PDF</Link>
+                        <Link to="#" className="download-pdf-link">Download Full issue PDF</Link>
                     </div>
                 </div>
 
                 <div className="metrics-row container">
                     <div className="metrics-card">
-                        <span className="metric-value color-blue">18</span>
+                        {volumes.map((volumes) => (
+                            <span className="metric-value color-blue">{volumes.article_count}</span>
+                        ))}
                         <span className="metric-label">Articles</span>
                     </div>
                     <div className="metrics-card">
@@ -47,16 +72,15 @@ const Issues = () => {
                         <span className="metric-value color-purple">47,300</span>
                         <span className="metric-label">Downloads</span>
                     </div>
-                    <div className="metrics-card">
+                    {/* <div className="metrics-card">
                         <span className="metric-value color-slate">214</span>
                         <span className="metric-label">Citations</span>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="action-buttons-group container">
-                    <Link to="#" className="btn btn-filled">Browse all articles</Link>
-                    <Link to="#" className="btn btn-outline">Share issue</Link>
-                    <Link to="#" className="btn btn-outline">AI overview ↗</Link>
+                    <Link to="/volume" className="btn btn-filled">Browse all Volume</Link>
+                    <ShareBtn />
                 </div>
             </section>
 
@@ -66,11 +90,11 @@ const Issues = () => {
 
                 <main className="primary-feed-pane">
 
-                    <div className="editorial-banner-card">
+                    {/* <div className="editorial-banner-card">
                         <span className="editorial-tag">🖋️ EDITORIAL</span>
                         <h3>Energy-efficient computation and the future of scientific infrastructure</h3>
                         <p className="editorial-byline">Prof. Elena Vasquez, Editor-in-Chief · pp. 189–192 · <a href="#">Read ➔</a></p>
-                    </div>
+                    </div> */}
 
                     <div className="shelf-controls-bar">
                         <div className="search-box-input">
@@ -84,12 +108,12 @@ const Issues = () => {
                     <section>
                         <div className="articles-category-section">
                             <div className="category-section-header">
-                                <h4 className="category-title">ARTIFICIAL INFERENCE & COMPUTING</h4>
-                                <span className="category-meta">6 ARTICLES · PP. 193–248</span>
+                                <h4 className="category-title">Journal of Science and Practice of Phamarcy</h4>
+                                {/* <span className="category-meta">6 ARTICLES · PP. 193–248</span> */}
                             </div>
                             <div className="article-row-card">
                                 <div className="article-left-sidebar">
-                                    <span className="page-stamp">p. 193</span>
+                                    {/* <span className="page-stamp">p. 193</span> */}
                                 </div>
                                 <div className="article-main-body">
                                     <div className="article-badge-row">
@@ -114,7 +138,7 @@ const Issues = () => {
                             </div>
                             <div className="article-row-card">
                                 <div className="article-left-sidebar">
-                                    <span className="page-stamp">p. 232</span>
+                                    {/* <span className="page-stamp">p. 232</span> */}
                                 </div>
                                 <div className="article-main-body">
                                     <div className="article-badge-row">
@@ -138,167 +162,7 @@ const Issues = () => {
                             </div>
                             <div className="article-row-card">
                                 <div className="article-left-sidebar">
-                                    <span className="page-stamp">p. 248</span>
-                                </div>
-                                <div className="article-main-body">
-                                    <div className="article-badge-row">
-                                        <span className="badge-pill bg-blue">Artificial Intelligence</span>
-                                    </div>
-                                    <h4 className="article-row-title">Graph neural networks for molecular property prediction in drug discovery</h4>
-                                    <p className="article-row-authors">S. Patel · M. Zhang · K. O'Brien</p>
-                                    <p className="article-row-abstract">
-                                        We demonstrate that message-passing GNNs with attention mechanisms outperform traditional QSAR models on a curated dataset of 50,000 drug candidates, with 94% accuracy...
-                                    </p>
-                                    <div className="article-row-metrics-footer">
-                                        <span>👁️ 6,543</span>
-                                        <span>⬇️ 1,676</span>
-                                        <span>📋 15 citations</span>
-                                    </div>
-                                </div>
-                                <div className="article-right-actions">
-                                    <Link to="#" className="btn-action-read">Read</Link>
-                                    <Link to="#" className="btn-action-pdf">PDF</Link>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="articles-category-section">
-                            <div className="category-section-header">
-                                <h4 className="category-title">BIOTECHNOLOGY & LIFE</h4>
-                                <span className="category-meta">5 ARTICLES · PP. 249–298</span>
-                            </div>
-                            <div className="article-row-card">
-                                <div className="article-left-sidebar">
-                                    <span className="page-stamp">p. 193</span>
-                                </div>
-                                <div className="article-main-body">
-                                    <div className="article-badge-row">
-                                        <span className="badge-pill bg-blue">Artificial Intelligence</span>
-                                    </div>
-                                    <h4 className="article-row-title">Neuromorphic computing architectures for real-time climate modelling at scale</h4>
-                                    <p className="article-row-authors">A. Okafor · J. Lindqvist · R. Sharma · M. Torres</p>
-                                    <p className="article-row-abstract">
-                                        We introduce a neuromorphic chip architecture optimised for sparse, event-driven simulation of atmospheric dynamics, reducing energy consumption by 78% while maintaining sub-1%...
-                                    </p>
-                                    <div className="article-row-metrics-footer">
-                                        <span>👁️ 12,847</span>
-                                        <span>⬇️ 4,312</span>
-                                        <span>📋 41 citations</span>
-                                        <span className="star-badge">⭐ Editor's choice</span>
-                                    </div>
-                                </div>
-                                <div className="article-right-actions">
-                                    <Link to="#" className="btn-action-read">Read</Link>
-                                    <Link to="#" className="btn-action-pdf">PDF</Link>
-                                </div>
-                            </div>
-                            <div className="article-row-card">
-                                <div className="article-left-sidebar">
-                                    <span className="page-stamp">p. 232</span>
-                                </div>
-                                <div className="article-main-body">
-                                    <div className="article-badge-row">
-                                        <span className="badge-pill bg-blue">Artificial Intelligence</span>
-                                    </div>
-                                    <h4 className="article-row-title">Sparse attention transformers for long-horizon scientific time series forecasting</h4>
-                                    <p className="article-row-authors">Y. Chen · H. Balogun · F. Müller</p>
-                                    <p className="article-row-abstract">
-                                        A novel transformer variant leveraging structured sparsity patterns to achieve accurate multi-step forecasting on geophysical and astronomical time series with reduced memory footprint.
-                                    </p>
-                                    <div className="article-row-metrics-footer">
-                                        <span>👁️ 8,934</span>
-                                        <span>⬇️ 2,158</span>
-                                        <span>📋 23 citations</span>
-                                    </div>
-                                </div>
-                                <div className="article-right-actions">
-                                    <Link to="#" className="btn-action-read">Read</Link>
-                                    <Link to="#" className="btn-action-pdf">PDF</Link>
-                                </div>
-                            </div>
-                            <div className="article-row-card">
-                                <div className="article-left-sidebar">
-                                    <span className="page-stamp">p. 248</span>
-                                </div>
-                                <div className="article-main-body">
-                                    <div className="article-badge-row">
-                                        <span className="badge-pill bg-blue">Artificial Intelligence</span>
-                                    </div>
-                                    <h4 className="article-row-title">Graph neural networks for molecular property prediction in drug discovery</h4>
-                                    <p className="article-row-authors">S. Patel · M. Zhang · K. O'Brien</p>
-                                    <p className="article-row-abstract">
-                                        We demonstrate that message-passing GNNs with attention mechanisms outperform traditional QSAR models on a curated dataset of 50,000 drug candidates, with 94% accuracy...
-                                    </p>
-                                    <div className="article-row-metrics-footer">
-                                        <span>👁️ 6,543</span>
-                                        <span>⬇️ 1,676</span>
-                                        <span>📋 15 citations</span>
-                                    </div>
-                                </div>
-                                <div className="article-right-actions">
-                                    <Link to="#" className="btn-action-read">Read</Link>
-                                    <Link to="#" className="btn-action-pdf">PDF</Link>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="articles-category-section">
-                            <div className="category-section-header">
-                                <h4 className="category-title">MATERIALS SCIENCE & PHYSICS</h4>
-                                <span className="category-meta">6 ARTICLES · PP. 299–340</span>
-                            </div>
-                            <div className="article-row-card">
-                                <div className="article-left-sidebar">
-                                    <span className="page-stamp">p. 299</span>
-                                </div>
-                                <div className="article-main-body">
-                                    <div className="article-badge-row">
-                                        <span className="badge-pill bg-blue">Artificial Intelligence</span>
-                                    </div>
-                                    <h4 className="article-row-title">Neuromorphic computing architectures for real-time climate modelling at scale</h4>
-                                    <p className="article-row-authors">A. Okafor · J. Lindqvist · R. Sharma · M. Torres</p>
-                                    <p className="article-row-abstract">
-                                        We introduce a neuromorphic chip architecture optimised for sparse, event-driven simulation of atmospheric dynamics, reducing energy consumption by 78% while maintaining sub-1%...
-                                    </p>
-                                    <div className="article-row-metrics-footer">
-                                        <span>👁️ 12,847</span>
-                                        <span>⬇️ 4,312</span>
-                                        <span>📋 41 citations</span>
-                                        <span className="star-badge">⭐ Editor's choice</span>
-                                    </div>
-                                </div>
-                                <div className="article-right-actions">
-                                    <Link to="#" className="btn-action-read">Read</Link>
-                                    <Link to="#" className="btn-action-pdf">PDF</Link>
-                                </div>
-                            </div>
-                            <div className="article-row-card">
-                                <div className="article-left-sidebar">
-                                    <span className="page-stamp">p. 232</span>
-                                </div>
-                                <div className="article-main-body">
-                                    <div className="article-badge-row">
-                                        <span className="badge-pill bg-blue">Artificial Intelligence</span>
-                                    </div>
-                                    <h4 className="article-row-title">Sparse attention transformers for long-horizon scientific time series forecasting</h4>
-                                    <p className="article-row-authors">Y. Chen · H. Balogun · F. Müller</p>
-                                    <p className="article-row-abstract">
-                                        A novel transformer variant leveraging structured sparsity patterns to achieve accurate multi-step forecasting on geophysical and astronomical time series with reduced memory footprint.
-                                    </p>
-                                    <div className="article-row-metrics-footer">
-                                        <span>👁️ 8,934</span>
-                                        <span>⬇️ 2,158</span>
-                                        <span>📋 23 citations</span>
-                                    </div>
-                                </div>
-                                <div className="article-right-actions">
-                                    <Link to="#" className="btn-action-read">Read</Link>
-                                    <Link to="#" className="btn-action-pdf">PDF</Link>
-                                </div>
-                            </div>
-                            <div className="article-row-card">
-                                <div className="article-left-sidebar">
-                                    <span className="page-stamp">p. 248</span>
+                                    {/* <span className="page-stamp">p. 248</span> */}
                                 </div>
                                 <div className="article-main-body">
                                     <div className="article-badge-row">
@@ -408,4 +272,4 @@ const Issues = () => {
     )
 }
 
-export default Issues
+export default Single_Issues
