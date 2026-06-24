@@ -31,8 +31,8 @@
     gap: 25px;
 }
 
-.articles-grid a{
-    text-decoration: none;
+.articles-grid a {
+    text-decoration: none !important;
 }
 
 .article-card {
@@ -42,8 +42,10 @@
     background-color: #fff;
     display: flex;
     flex-direction: column;
+    text-decoration: none !important;
     transition: .5s;
 }
+
 
 .article-card.highlighted {
     background-color: #f8fafc;
@@ -97,6 +99,7 @@
     box-shadow: 0 1px 10px var(--chart-1);
     transform: translateY(-10px);
 }
+
 .article-card:nth-child(9):hover {
     border: 2px solid var(--chart-3);
     box-shadow: 0 1px 10px var(--chart-3);
@@ -107,38 +110,6 @@
     border: 2px solid var(--chart-1);
     box-shadow: 0 1px 10px var(--chart-1);
     transform: translateY(-10px);
-}
-
-.category-tag {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    margin-bottom: 12px;
-    display: inline-block;
-}
-
-.category-tag.ai {
-    color: var(--primary);
-    background-color: #dbeafe;
-    margin-right: auto;
-    padding: 7px 10px;
-    border-radius: 20px;
-}
-
-.category-tag.biotech {
-    color: #319795;
-    background-color: #d4f9e1;
-    margin-right: auto;
-    padding: 7px 10px;
-    border-radius: 20px;
-}
-
-.category-tag.materials {
-    color: #dd6b20;
-    background-color: #fff3c5;
-    margin-right: auto;
-    padding: 7px 10px;
-    border-radius: 20px;
 }
 
 .article-card h3 {
