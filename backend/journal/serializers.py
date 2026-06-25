@@ -12,7 +12,7 @@ class ArticleSerializer(serializers.ModelSerializer):
             'id', 'title', 'citation', 'abstract', 'manuscript_file',
             'manuscript_url', 'pages', 'keywords', 'date_approved', 'authors',
             'author_affiliations', 'status', 'volume', 'volume_label',
-            'created_at', 'updated_at',
+            'view_count', 'created_at', 'updated_at',
         ]
 
     def get_manuscript_url(self, obj):
@@ -26,21 +26,21 @@ class ArticleSerializer(serializers.ModelSerializer):
 class VolumeSerializer(serializers.ModelSerializer):
     article_count = serializers.IntegerField(source='articles.count', read_only=True)
     upload_count = serializers.IntegerField(source='uploads.count', read_only=True)
-    cover_url = serializers.SerializerMethodField()
+    image_url = serializers.SerializerMethodField()
 
     class Meta:
         model = Volume
         fields = [
-            'id', 'title', 'volume_number', 'issue_number', 'year',
-            'is_published', 'cover_image', 'cover_url',
-            'published_at', 'article_count', 'upload_count', 'created_at',
+            'id', 'volume_number', 'issue_number', 'year',
+            'is_published', 'image', 'image_url', 'published_at',
+            'article_count', 'upload_count', 'view_count', 'created_at',
         ]
 
-    def get_cover_url(self, obj):
-        if not obj.cover_image:
+    def get_image_url(self, obj):
+        if not obj.image:
             return ''
         request = self.context.get('request')
-        url = obj.cover_image.url
+        url = obj.image.url
         return request.build_absolute_uri(url) if request else url
 
 

@@ -1,4 +1,5 @@
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "https://jsppharm.com/api/api";
+const AUTH_TOKEN_KEY = "jsppharm_admin_token";
 
 export type ArticleStatus = "draft" | "review" | "published" | "archived";
 export type PageStatus = "draft" | "published";
@@ -8,13 +9,13 @@ export interface Volume {
   volume_number: number;
   issue_number: number;
   year: number;
-  title: string;
   is_published: boolean;
-  cover_image?: string;
-  cover_url: string;
+  image?: string;
+  image_url: string;
   published_at: string;
   article_count: number;
   upload_count: number;
+  view_count: number;
   created_at: string;
 }
 
@@ -71,6 +72,8 @@ export interface DashboardSummary {
     published_volumes: number;
     uploads: number;
     submissions: number;
+    article_views: number;
+    volume_views: number;
   };
   recent_articles: Article[];
   recent_uploads: JournalUpload[];
@@ -78,12 +81,30 @@ export interface DashboardSummary {
 
 type FormValue = string | number | boolean | File | null | undefined;
 
-async function request<T>(path: string, init?: RequestInit): Promise<T> {
-  console.log("API_BASE_URL =", API_BASE_URL);
-  console.log("path =", path);
-  console.log("final =", `${API_BASE_URL}${path}`);
+export function getAuthToken() {
+  return localStorage.getItem(AUTH_TOKEN_KEY);
+}
 
-  const response = await fetch(`${API_BASE_URL}${path}`, init);
+export function setAuthToken(token: string) {
+  localStorage.setItem(AUTH_TOKEN_KEY, token);
+}
+
+export function clearAuthToken() {
+  localStorage.removeItem(AUTH_TOKEN_KEY);
+}
+
+export function isAuthenticated() {
+  return Boolean(getAuthToken());
+}
+
+async function request<T>(path: string, init?: RequestInit): Promise<T> {
+  const token = getAuthToken();
+  const headers = new Headers(init?.headers);
+  if (token) {
+    headers.set("Authorization", `Bearer ${token}`);
+  }
+
+  const response = await fetch(`${API_BASE_URL}${path}`, { ...init, headers });
 
   if (!response.ok) {
     const message = await response.text();
@@ -117,6 +138,17 @@ export function toFormData<T extends object>(payload: T): FormData {
 }
 
 export const api = {
+  login: async (payload: { username: string; password: string }) => {
+    const result = await request<{ token: string; user: { id: number; username: string; email: string } }>(
+      "/auth/login/",
+      jsonInit("POST", payload),
+    );
+    setAuthToken(result.token);
+    return result;
+  },
+  me: () => request<{ authenticated: boolean }>("/auth/me/"),
+  logout: clearAuthToken,
+
   dashboard: () => request<DashboardSummary>("/dashboard/"),
 
   listArticles: (volumeId?: number | string) =>

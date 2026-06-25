@@ -7,25 +7,25 @@ import { PlusIcon } from "../../icons";
 import { api, toFormData } from "../../services/api";
 
 interface VolumeForm {
-  title: string;
   volume_number: string;
   issue_number: string;
   published_at: string;
+  image?: File;
 }
 
 const emptyVolume: VolumeForm = {
-  title: "",
   volume_number: "",
   issue_number: "",
   published_at: "",
 };
 
 export default function UploadVolume() {
+  const [searchParams] = useSearchParams();
+  const editingId = Number(searchParams.get("id")) || null;
   const [form, setForm] = useState<VolumeForm>(emptyVolume);
   const [error, setError] = useState("");
-  const [searchParams] = useSearchParams();
+  const [isLoading, setIsLoading] = useState(Boolean(editingId));
   const navigate = useNavigate();
-  const editingId = Number(searchParams.get("id")) || null;
 
   useEffect(() => {
     if (!editingId) {
@@ -38,16 +38,16 @@ export default function UploadVolume() {
           return;
         }
         setForm({
-          title: volume.title,
           volume_number: String(volume.volume_number),
           issue_number: String(volume.issue_number),
           published_at: volume.published_at ?? "",
         });
       })
-      .catch((err: Error) => setError(err.message));
+      .catch((err: Error) => setError(err.message))
+      .finally(() => setIsLoading(false));
   }, [editingId]);
 
-  const updateForm = (field: keyof VolumeForm, value: string) => {
+  const updateForm = (field: keyof VolumeForm, value: string | File | undefined) => {
     setForm((current) => ({ ...current, [field]: value }));
   };
 
@@ -76,12 +76,16 @@ export default function UploadVolume() {
           {editingId ? "Edit Volume Details" : "Create New Volume"}
         </h2>
         {error && <p className="mb-4 rounded-lg bg-error-50 p-3 text-sm text-error-600">{error}</p>}
+        {isLoading ? (
+          <p className="text-sm text-gray-500 dark:text-gray-400">Loading volume...</p>
+        ) : (
         <div className="grid gap-4 sm:grid-cols-2">
-          <input className="h-11 rounded-lg border border-gray-300 bg-transparent px-4 text-sm dark:border-gray-700 dark:text-white sm:col-span-2" placeholder="Volume" value={form.title} onChange={(event) => updateForm("title", event.target.value)} required />
           <input className="h-11 rounded-lg border border-gray-300 bg-transparent px-4 text-sm dark:border-gray-700 dark:text-white" type="number" placeholder="Volume no" value={form.volume_number} onChange={(event) => updateForm("volume_number", event.target.value)} required />
           <input className="h-11 rounded-lg border border-gray-300 bg-transparent px-4 text-sm dark:border-gray-700 dark:text-white" type="number" placeholder="Issue no" value={form.issue_number} onChange={(event) => updateForm("issue_number", event.target.value)} required />
           <input className="h-11 rounded-lg border border-gray-300 bg-transparent px-4 text-sm dark:border-gray-700 dark:text-white sm:col-span-2" type="month" value={form.published_at} onChange={(event) => updateForm("published_at", event.target.value)} required />
+          <input className="h-11 rounded-lg border border-gray-300 bg-transparent text-sm file:mr-4 file:h-full file:border-0 file:bg-gray-100 file:px-4 dark:border-gray-700 dark:text-white sm:col-span-2" type="file" accept="image/*" onChange={(event) => updateForm("image", event.target.files?.[0])} />
         </div>
+        )}
         <div className="mt-5">
           <Button startIcon={<PlusIcon className="h-4 w-4" />}>{editingId ? "Save Volume" : "Create Volume"}</Button>
         </div>

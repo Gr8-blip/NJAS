@@ -3,14 +3,14 @@ from .models import Article, JournalUpload, StaticPage, Volume
 
 @admin.register(Volume)
 class VolumeAdmin(admin.ModelAdmin):
-    list_display = ('title', 'volume_number', 'issue_number', 'year', 'is_published', 'published_at')
+    list_display = ('volume_number', 'issue_number', 'year', 'is_published', 'published_at', 'view_count')
     list_filter = ('year', 'is_published')
-    search_fields = ('title',)
+    search_fields = ('volume_number', 'issue_number')
 
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('title', 'authors', 'status', 'volume', 'date_approved')
+    list_display = ('title', 'authors', 'status', 'volume', 'date_approved', 'view_count')
     list_filter = ('status', 'volume')
     search_fields = ('title', 'authors', 'keywords', 'abstract')
 

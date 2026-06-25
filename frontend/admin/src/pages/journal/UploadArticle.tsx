@@ -88,7 +88,7 @@ export default function UploadArticle() {
             <option value="">Volume</option>
             {volumes.map((volume) => (
               <option key={volume.id} value={volume.id}>
-                {volume.title} - Vol. {volume.volume_number}, Issue {volume.issue_number}
+                Vol. {volume.volume_number}, Issue {volume.issue_number}
               </option>
             ))}
           </select>

@@ -63,7 +63,6 @@ export default function Volumes() {
                       <p className="text-sm font-medium text-gray-900 dark:text-white">
                         Volume {volume.volume_number} ({volume.year})
                       </p>
-                      <p className="text-sm text-gray-500">{volume.title || "Untitled issue"}</p>
                     </TableCell>
                     <TableCell className="px-4 py-4 text-sm text-gray-500">Issue {volume.issue_number}</TableCell>
                     <TableCell className="px-4 py-4 text-sm text-gray-500">{volume.published_at || "-"}</TableCell>

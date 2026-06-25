@@ -2,17 +2,17 @@ from django.db import models
 
 
 class Volume(models.Model):
-    title = models.CharField(max_length=255)
     volume_number = models.IntegerField()
     issue_number = models.IntegerField()
     published_at = models.CharField(max_length=7, blank=True)
     year = models.IntegerField(blank=True, null=True)
     is_published = models.BooleanField(default=False)
-    cover_image = models.ImageField(upload_to='cover_images/', blank=True, null=True)
+    image = models.ImageField(upload_to='volume_images/', blank=True, null=True)
+    view_count = models.PositiveIntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.title} Vol. {self.volume_number}, Issue {self.issue_number}"
+        return f"Volume {self.volume_number}, Issue {self.issue_number}"
 
     def save(self, *args, **kwargs):
         if self.published_at and not self.year:
@@ -44,6 +44,7 @@ class Article(models.Model):
     author_affiliations = models.CharField(max_length=10000, blank=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default=STATUS_DRAFT)
     volume = models.ForeignKey(Volume, on_delete=models.SET_NULL, blank=True, null=True, related_name='articles')
+    view_count = models.PositiveIntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
