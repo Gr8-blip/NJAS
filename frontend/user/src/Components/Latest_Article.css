@@ -3,11 +3,11 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 40px;
+    margin-top: -50px;
 }
 
 .latest-articles-header h1 {
     font-size: 40px;
-    color: #1a202c;
 }
 
 .view-all-btn {
@@ -46,67 +46,7 @@
     transition: .5s;
 }
 
-
-.article-card.highlighted {
-    background-color: #f8fafc;
-    border-color: #cbd5e1;
-}
-
-.article-card:nth-child(1):hover {
-    border: 2px solid var(--chart-1);
-    box-shadow: 0 1px 10px var(--chart-1);
-    transform: translateY(-10px);
-}
-
-.article-card:nth-child(2):hover {
-    border: 2px solid var(--chart-4);
-    box-shadow: 0 1px 10px var(--chart-4);
-    transform: translateY(-10px);
-}
-
-.article-card:nth-child(3):hover {
-    border: 2px solid var(--chart-3);
-    box-shadow: 0 1px 10px var(--chart-3);
-    transform: translateY(-10px);
-}
-
-.article-card:nth-child(4):hover {
-    border: 2px solid var(--chart-1);
-    box-shadow: 0 1px 10px var(--chart-1);
-    transform: translateY(-10px);
-}
-
-.article-card:nth-child(5):hover {
-    border: 2px solid var(--chart-1);
-    box-shadow: 0 1px 10px var(--chart-1);
-    transform: translateY(-10px);
-}
-
-.article-card:nth-child(6):hover {
-    border: 2px solid var(--chart-4);
-    box-shadow: 0 1px 10px var(--chart-4);
-    transform: translateY(-10px);
-}
-
-.article-card:nth-child(7):hover {
-    border: 2px solid var(--chart-3);
-    box-shadow: 0 1px 10px var(--chart-3);
-    transform: translateY(-10px);
-}
-
-.article-card:nth-child(8):hover {
-    border: 2px solid var(--chart-1);
-    box-shadow: 0 1px 10px var(--chart-1);
-    transform: translateY(-10px);
-}
-
-.article-card:nth-child(9):hover {
-    border: 2px solid var(--chart-3);
-    box-shadow: 0 1px 10px var(--chart-3);
-    transform: translateY(-10px);
-}
-
-.article-card:nth-child(10):hover {
+.article-card:hover {
     border: 2px solid var(--chart-1);
     box-shadow: 0 1px 10px var(--chart-1);
     transform: translateY(-10px);

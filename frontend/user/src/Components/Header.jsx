@@ -38,7 +38,7 @@ const Header = () => {
                         <Link className='nav-link' to="/about" onClick={closeMenu}>About</Link>
                         <Link className='nav-link' to="/editorial" onClick={closeMenu}>Editorial Board</Link>
                         <Link className='nav-link' to="/article" onClick={closeMenu}>Articles</Link>
-                        <Link className='nav-link' to="/volume" onClick={closeMenu}>Volume</Link>
+                        <Link className='nav-link' to="/volume" onClick={closeMenu}>Volumes</Link>
                         <Link className='nav-link' to="/submit" onClick={closeMenu}>Submit</Link>
                         <Link className='nav-link' to="/contact" onClick={closeMenu}>Contact</Link>
                     </nav>

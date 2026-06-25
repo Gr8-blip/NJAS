@@ -7,7 +7,7 @@ const About = () => {
   return (
     <>
       <section className="hero-section">
-        <span className="hero-badge">ABOUT JAST</span>
+        <span className="hero-badge">ABOUT US</span>
         <h2 className="hero-title">Advancing the frontiers of science and <br /> technology since 2012</h2>
         <p className="hero-desc">The Journal of Advances in Science & Technology (JAST) is a peer-reviewed,
           open-access publication of the Institute for Scientific Research. We publish original research, reviews,

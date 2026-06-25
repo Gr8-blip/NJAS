@@ -36,10 +36,10 @@ const Volume = () => {
                 <main className="primary-content">
                     <div className="issues-boxes">
                         <div className="journal-grid">
-                            
+
                             {/* Map at the card/column level instead of inside the card */}
                             {volumes.map((volume) => (
-                                <Link to={`/volume/${volume.id}`} key={volume.id} className="journal-column">
+                                <Link to={`/volumes/${volume.id}`} key={volume.id} className="journal-column">
                                     <div className="journal-card theme-current">
                                         <div className="card-header">
                                             <h2>JOURNAL OF SCIENCE AND PRACTICE OF PHARMACY</h2>
