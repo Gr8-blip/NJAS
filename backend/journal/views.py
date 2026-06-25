@@ -13,6 +13,7 @@ from .serializers import (
     StaticPageSerializer,
     VolumeSerializer,
 )
+from rest_framework.permissions import SAFE_METHODS
 
 TOKEN_SALT = 'journal-admin-token'
 
@@ -35,15 +36,17 @@ def get_token_user_id(request):
         return None
 
 
-class IsAdminToken(BasePermission):
+class IsAdminOrReadOnly(BasePermission):
     def has_permission(self, request, view):
-        return bool(get_token_user_id(request))
+        if request.method in SAFE_METHODS:
+            return True
 
+        return bool(get_token_user_id(request))
 
 class ArticleViewSet(viewsets.ModelViewSet):
     serializer_class = ArticleSerializer
     parser_classes = [MultiPartParser, FormParser]
-    permission_classes = [IsAdminToken]
+    permission_classes = [IsAdminOrReadOnly]
 
     def get_queryset(self):
         queryset = Article.objects.select_related('volume').order_by('-created_at')
@@ -56,7 +59,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
 class VolumeViewSet(viewsets.ModelViewSet):
     serializer_class = VolumeSerializer
     parser_classes = [MultiPartParser, FormParser]
-    permission_classes = [IsAdminToken]
+    permission_classes = [IsAdminOrReadOnly]
 
     def get_queryset(self):
         return Volume.objects.prefetch_related('articles', 'uploads').order_by('-year', '-volume_number', '-issue_number')
@@ -64,7 +67,7 @@ class VolumeViewSet(viewsets.ModelViewSet):
 
 class StaticPageViewSet(viewsets.ModelViewSet):
     serializer_class = StaticPageSerializer
-    permission_classes = [IsAdminToken]
+    permission_classes = [IsAdminOrReadOnly]
 
     def get_queryset(self):
         return StaticPage.objects.order_by('title')
@@ -73,7 +76,7 @@ class StaticPageViewSet(viewsets.ModelViewSet):
 class JournalUploadViewSet(viewsets.ModelViewSet):
     serializer_class = JournalUploadSerializer
     parser_classes = [MultiPartParser, FormParser]
-    permission_classes = [IsAdminToken]
+    permission_classes = [IsAdminOrReadOnly]
 
     def get_queryset(self):
         return JournalUpload.objects.select_related('volume', 'article').order_by('-uploaded_at')
