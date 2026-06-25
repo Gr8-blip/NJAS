@@ -26,7 +26,7 @@ const Search = () => {
                     </select>
                 </div>
 
-                <div className="trending-row">
+                {/* <div className="trending-row">
                     <h3 className="trending-title">🔥 TRENDING NOW</h3>
                     <ul className="trending-list">
                         <li><a href="#">quantum error correction</a></li>
@@ -34,7 +34,7 @@ const Search = () => {
                         <li><a href="#">large language models</a></li>
                         <li><a href="#">photovoltaic efficiency</a></li>
                     </ul>
-                </div>
+                </div> */}
             </section>
         </>
     )

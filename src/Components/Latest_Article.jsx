@@ -28,73 +28,28 @@ const Latest_Article = () => {
             <section id="latest-articles">
                 <div className="latest-articles-header">
                     <h1>Latest Articles</h1>
-                    <Link to='/article' className="view-all-btn">View all issues ➔</Link>
+                    {/* <Link to='/article' className="view-all-btn">View all issues ➔</Link> */}
                 </div>
 
                 <div className="articles-grid">
-                    <Link to='/single-article' className="article-card">
-                        {articles.map((article) => (
-                            <h3>{article.title}</h3>
-                        ))}
-                        {articles.map((article) => (
-                            <p className="authors">{article.authors}</p>
-                        ))}
-                        <div className="meta-row">
-                            {articles.map((article) => (
-                            <p className="authors">{article.date_approved}</p>
-                        ))}
-                            <span>👁️ 2,201 views</span>
-                        </div>
-                    </Link>
-
-                    <Link to='/single-article' className="article-card">
-                        {articles.map((article) => (
-                            <h3>{article.title}</h3>
-                        ))}
-                        {articles.map((article) => (
-                            <p className="authors">{article.authors}</p>
-                        ))}
-                        <div className="meta-row">
-                            {articles.map((article) => (
-                            <p className="authors">{article.date_approved}</p>
-                        ))}
-                            <span>👁️ 2,201 views</span>
-                        </div>
-                    </Link>
-
-                    <Link to='/single-article' className="article-card">
-                        {articles.map((article) => (
-                            <h3>{article.title}</h3>
-                        ))}
-                        {articles.map((article) => (
-                            <p className="authors">{article.authors}</p>
-                        ))}
-                        <div className="meta-row">
-                            {articles.map((article) => (
-                            <p className="authors">{article.date_approved}</p>
-                        ))}
-                            <span>👁️ 2,201 views</span>
-                        </div>
-                    </Link>
-
-                    <Link to='/single-article' className="article-card">
-                        {articles.map((article) => (
-                            <h3>{article.title}</h3>
-                        ))}
-                        {articles.map((article) => (
-                            <p className="authors">{article.authors}</p>
-                        ))}
-                        <div className="meta-row">
-                            {articles.map((article) => (
-                            <p className="authors">{article.date_approved}</p>
-                        ))}
-                            <span>👁️ 2,201 views</span>
-                        </div>
-                    </Link>
+                    {articles.map((article) => (
+                        <Link to={`/articles/${article.id}`} key={article.id} className="articles-box">
+                            <div className="article-card">
+                                <h3>{article.title}</h3>
+                                <p className="authors">{article.authors}</p>
+                                <strong className="authors">{article.volume_label}</strong>      
+                          
+                                <div className="meta-row">
+                                    <p className="authors">{article.date_approved}</p>
+                                    <span>👁️ 5 views</span>
+                                </div>
+                            </div>
+                        </Link>
+                    ))}
                 </div>
-                
+
                 <PaginationBtn />
-            </section>
+            </section >
         </>
     )
 }

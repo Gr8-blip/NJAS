@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from "react-router";
 import '../Components/Issues.css'
 import { Link } from 'react-router'
 import Footer from '../Components/Footer'
@@ -6,62 +7,80 @@ import ShareBtn from '../Components/ShareBtn'
 
 
 const Single_Issues = () => {
-    const [volumes, setVolumes] = useState([]);
+    const { id } = useParams();
+
+    // Initialize state as null because it fetches a single volume object
+    const [volume, setVolume] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        const fetchVolume = async () => {
-            const response = await fetch("https://jsppharm.com/api/api/volumes/");
+        const fetchVolumeDataFromMasterList = async () => {
+            try {
+                setLoading(true);
+                setError(null);
 
-            // Always check if the response status is 200-299
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
+                // Fetch the full working list endpoint
+                const response = await fetch("https://jsppharm.com/api/api/volumes/");
+
+                if (!response.ok) {
+                    throw new Error(`HTTP Error Status: ${response.status}`);
+                }
+
+                const allVolumesList = await response.json();
+
+                // Extract ONLY the specific item matching our URL parameter ID
+                // Number(id) ensures we don't hit string/integer type check conflicts
+                const targetedVolume = allVolumesList.find(vol => Number(vol.id) === Number(id));
+
+                if (!targetedVolume) {
+                    throw new Error(`Volume with ID ${id} was not found in the list.`);
+                }
+
+                setVolume(targetedVolume);
+            } catch (err) {
+                console.error("Backup fetch failed:", err);
+                setError(err.message);
+            } finally {
+                setLoading(false);
             }
+        };
 
-            const data = await response.json();
-            setVolumes(data)
+        if (id) {
+            fetchVolumeDataFromMasterList();
         }
+    }, [id]);
 
-        fetchVolume();
 
-    }, [])
+    if (loading) return <p>Loading volume data...</p>;
+    if (error) return <p style={{ color: "red" }}>Error: {error}</p>;
+    if (!volume) return <p>No volume data available.</p>;
 
     return (
         <>
+            <div className="breadcrumbs container">
+                <Link to="/">Home</Link> › <Link to="/volume">Volumes</Link>
+            </div>
+
             <section className="issue-hero container">
                 <div className="hero-flex-layout">
                     <div className="journal-badge-cover">
-                        <div className="badge-top">JAST</div>
-                        <div className="badge-volume">14·3</div>
                         <div className="badge-lines">
                             <span></span><span></span><span></span><span></span>
                         </div>
                         <div className="badge-bottom">MAY 2026</div>
+                        <img src="" alt="volume-image" />
                     </div>
 
                     <div className="hero-meta-details">
-                        {/* <span className="current-issue-badge">CURRENT ISSUE</span> */}
-                        {volumes.map((volumes) => (
-                            <h1 className="main-issue-heading" key={volumes.id}>{volumes.title}, Issue {volumes.issue_number} {volumes.year}</h1>
-                        ))}
-                        <h1 className="main-issue-heading">Volume 13, Issue 1 — May 2026</h1>
-                        <p className="issue-abstract-summary">
-                            Featuring original research in artificial intelligence, materials science, biotechnology, and environmental modelling. This issue includes a special section on neuromorphic computing for physical simulation.
-                        </p>
-                        <div className="metadata-row">
-                            <span>📅 Published: 14 May 2026</span>
-                            <span>📄 Pages 189–340</span>
-                            <span>🧬 ISSN 2398-4412</span>
-                            <span>🔓 Open access</span>
-                        </div>
+                        <h1 className="main-issue-heading">Volume {volume.title}</h1>
                         <Link to="#" className="download-pdf-link">Download Full issue PDF</Link>
                     </div>
                 </div>
 
                 <div className="metrics-row container">
                     <div className="metrics-card">
-                        {volumes.map((volumes) => (
-                            <span className="metric-value color-blue">{volumes.article_count}</span>
-                        ))}
+                        <span className="metric-value color-blue">{volume.article_count}</span>
                         <span className="metric-label">Articles</span>
                     </div>
                     <div className="metrics-card">
@@ -69,121 +88,98 @@ const Single_Issues = () => {
                         <span className="metric-label">Pages</span>
                     </div>
                     <div className="metrics-card">
-                        <span className="metric-value color-purple">47,300</span>
-                        <span className="metric-label">Downloads</span>
+                        <span className="metric-value color-purple">{volume.upload_count}</span>
+                        <span className="metric-label">Upload</span>
                     </div>
-                    {/* <div className="metrics-card">
-                        <span className="metric-value color-slate">214</span>
-                        <span className="metric-label">Citations</span>
-                    </div> */}
                 </div>
 
                 <div className="action-buttons-group container">
                     <Link to="/volume" className="btn btn-filled">Browse all Volume</Link>
                     <ShareBtn />
                 </div>
-            </section>
+            </section >
 
             <hr className='section-divider container' />
 
             <div className="container main-layout-split">
 
                 <main className="primary-feed-pane">
-
-                    {/* <div className="editorial-banner-card">
-                        <span className="editorial-tag">🖋️ EDITORIAL</span>
-                        <h3>Energy-efficient computation and the future of scientific infrastructure</h3>
-                        <p className="editorial-byline">Prof. Elena Vasquez, Editor-in-Chief · pp. 189–192 · <a href="#">Read ➔</a></p>
-                    </div> */}
-
                     <div className="shelf-controls-bar">
                         <div className="search-box-input">
                             <input type="text" placeholder="🔍 Search this issue..." />
                         </div>
                         <select><option>All sections</option></select>
                         <select><option>Sort: page order</option></select>
-                        <span className="count-badge">3 articles</span>
+                        <span className="count-badge">{volume.article_count} articles</span>
                     </div>
 
                     <section>
                         <div className="articles-category-section">
                             <div className="category-section-header">
-                                <h4 className="category-title">Journal of Science and Practice of Phamarcy</h4>
-                                {/* <span className="category-meta">6 ARTICLES · PP. 193–248</span> */}
+                                <h4 className="category-title">Journal for Science and Practice of Phamarcy</h4>
                             </div>
-                            <div className="article-row-card">
-                                <div className="article-left-sidebar">
-                                    {/* <span className="page-stamp">p. 193</span> */}
-                                </div>
-                                <div className="article-main-body">
-                                    <div className="article-badge-row">
-                                        <span className="badge-pill bg-blue">Artificial Intelligence</span>
+
+                            <Link to={`/volumes/${volume.id}`} key={volume.id} className="journal-column">
+                                <div className="article-row-card">
+                                    <div className="article-main-body">
+                                        <h4 className="article-row-title">Volume {volume.title}</h4>
+                                        <h4 className="article-row-title">{volume.authors}</h4>
+                                        <p className="article-row-authors"></p>
+                                        <p className="article-row-abstract">
+                                            We introduce a neuromorphic chip architecture optimised for sparse, event-driven simulation of atmospheric dynamics, reducing energy consumption by 78% while maintaining sub-1%...
+                                        </p>
+                                        <div className="article-row-metrics-footer">
+                                            <span>👁️ 12,847</span>
+                                            <span>⬇️ 4,312</span>
+                                            <span>📋 41 citations</span>
+                                        </div>
                                     </div>
-                                    <h4 className="article-row-title">Neuromorphic computing architectures for real-time climate modelling at scale</h4>
-                                    <p className="article-row-authors">A. Okafor · J. Lindqvist · R. Sharma · M. Torres</p>
-                                    <p className="article-row-abstract">
-                                        We introduce a neuromorphic chip architecture optimised for sparse, event-driven simulation of atmospheric dynamics, reducing energy consumption by 78% while maintaining sub-1%...
-                                    </p>
-                                    <div className="article-row-metrics-footer">
-                                        <span>👁️ 12,847</span>
-                                        <span>⬇️ 4,312</span>
-                                        <span>📋 41 citations</span>
-                                        <span className="star-badge">⭐ Editor's choice</span>
-                                    </div>
-                                </div>
-                                <div className="article-right-actions">
-                                    <Link to="#" className="btn-action-read">Read</Link>
-                                    <Link to="#" className="btn-action-pdf">PDF</Link>
-                                </div>
-                            </div>
-                            <div className="article-row-card">
-                                <div className="article-left-sidebar">
-                                    {/* <span className="page-stamp">p. 232</span> */}
-                                </div>
-                                <div className="article-main-body">
-                                    <div className="article-badge-row">
-                                        <span className="badge-pill bg-blue">Artificial Intelligence</span>
-                                    </div>
-                                    <h4 className="article-row-title">Sparse attention transformers for long-horizon scientific time series forecasting</h4>
-                                    <p className="article-row-authors">Y. Chen · H. Balogun · F. Müller</p>
-                                    <p className="article-row-abstract">
-                                        A novel transformer variant leveraging structured sparsity patterns to achieve accurate multi-step forecasting on geophysical and astronomical time series with reduced memory footprint.
-                                    </p>
-                                    <div className="article-row-metrics-footer">
-                                        <span>👁️ 8,934</span>
-                                        <span>⬇️ 2,158</span>
-                                        <span>📋 23 citations</span>
+                                    <div className="article-right-actions">
+                                        <Link to="#" className="btn-action-read">Read</Link>
+                                        <Link to="#" className="btn-action-pdf">PDF</Link>
                                     </div>
                                 </div>
-                                <div className="article-right-actions">
-                                    <Link to="#" className="btn-action-read">Read</Link>
-                                    <Link to="#" className="btn-action-pdf">PDF</Link>
-                                </div>
-                            </div>
-                            <div className="article-row-card">
-                                <div className="article-left-sidebar">
-                                    {/* <span className="page-stamp">p. 248</span> */}
-                                </div>
-                                <div className="article-main-body">
-                                    <div className="article-badge-row">
-                                        <span className="badge-pill bg-blue">Artificial Intelligence</span>
+                            </Link>
+
+
+                            {volume.articles && volume.articles.length > 0 ? (
+                                volume.articles.map((article) => (
+                                    // FIX 1: Wrap your card block layout in a standard div instead of a parent Link
+                                    <div key={article.id} className="journal-column">
+                                        <div className="article-row-card">
+                                            <div className="article-main-body">
+                                                FIX 2: Turn only the specific title text into the redirect link to the individual article view page
+                                                <Link to={`/articles/${article.id}`} className="article-title-link">
+                                                    <h4 className="article-row-title">Volume {article.title}</h4>
+                                                </Link>
+
+                                                Render authors correctly (make sure your backend uses the string property "authors" vs "author")
+                                                <h5 className="article-row-authors-heading">{article.authors}</h5>
+                                                <p className="article-row-authors"></p>
+
+                                                Render dynamic abstracts if your API has them, or keep your template fallback text
+                                                <p className="article-row-abstract">
+                                                    {article.abstract || "We introduce a neuromorphic chip architecture optimised for sparse, event-driven simulation of atmospheric dynamics, reducing energy consumption by 78% while maintaining sub-1%..."}
+                                                </p>
+
+                                                <div className="article-row-metrics-footer">
+                                                    <span>👁️ {article.views || "12,847"}</span>
+                                                    <span>⬇️ {article.downloads || "4,312"}</span>
+                                                    <span>📋 {article.citations || "41"} citations</span>
+                                                </div>
+                                            </div>
+
+                                            <div className="article-right-actions">
+                                                FIX 3: Target the specific article detail dynamic routing configurations cleanly
+                                                <Link to={`/articles/${article.id}`} className="btn-action-read">Read</Link>
+                                                <Link to={article.pdf_url || "#"} className="btn-action-pdf" target="_blank" rel="noreferrer">PDF</Link>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <h4 className="article-row-title">Graph neural networks for molecular property prediction in drug discovery</h4>
-                                    <p className="article-row-authors">S. Patel · M. Zhang · K. O'Brien</p>
-                                    <p className="article-row-abstract">
-                                        We demonstrate that message-passing GNNs with attention mechanisms outperform traditional QSAR models on a curated dataset of 50,000 drug candidates, with 94% accuracy...
-                                    </p>
-                                    <div className="article-row-metrics-footer">
-                                        <span>👁️ 6,543</span>
-                                        <span>⬇️ 1,676</span>
-                                        <span>📋 15 citations</span>
-                                    </div>
-                                </div>
-                                <div className="article-right-actions">
-                                    <Link to="#" className="btn-action-read">Read</Link>
-                                    <Link to="#" className="btn-action-pdf">PDF</Link>
-                                </div>
-                            </div>
+                                ))
+                            ) : (
+                                <p>No articles found for this volume.</p>
+                            )}
                         </div>
                     </section>
                 </main>
@@ -213,18 +209,6 @@ const Single_Issues = () => {
                                 <span className="vol-text">Vol. 14, Issue 3</span>
                                 <span className="date-text">May 2024</span>
                             </div>
-                        </div>
-                    </div>
-
-                    <div className="sidebar-widget">
-                        <h4 className="widget-heading">TOPICS</h4>
-                        <div className="topics-pills-cloud">
-                            <span className="topic-pill">Artificial Intelligence</span>
-                            <span className="topic-pill">Climate Science</span>
-                            <span className="topic-pill">Neuromorphic Computing</span>
-                            <span className="topic-pill">Materials Science</span>
-                            <span className="topic-pill">Biotechnology</span>
-                            <span className="topic-pill">Energy Efficiency</span>
                         </div>
                     </div>
 

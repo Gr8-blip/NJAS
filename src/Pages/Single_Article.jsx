@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from "react-router";
 import '../Components/Article_page.css'
 import { Link } from 'react-router'
 import Footer from '../Components/Footer'
 import ShareBtn from '../Components/ShareBtn'
 
 const Single_Article = () => {
-    const [articles, setArticles] = useState([]);
 
     useEffect(() => {
         const fetchArticle = async () => {
@@ -24,6 +24,56 @@ const Single_Article = () => {
 
     }, [])
 
+
+    const { id } = useParams();
+
+    // Initialize state as null because it fetches a single volume object
+    const [articles, setArticles] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchArticleDataFromMasterList = async () => {
+            try {
+                setLoading(true);
+                setError(null);
+
+                // Fetch the full working list endpoint
+                const response = await fetch("https://jsppharm.com/api/api/articles/");
+
+                if (!response.ok) {
+                    throw new Error(`HTTP Error Status: ${response.status}`);
+                }
+
+                const allArticleList = await response.json();
+
+                // Extract ONLY the specific item matching our URL parameter ID
+                // Number(id) ensures we don't hit string/integer type check conflicts
+                const targetedArticles = allArticleList.find(art => Number(art.id) === Number(id));
+
+                if (!targetedArticles) {
+                    throw new Error(`Articles with ID ${id} was not found in the list.`);
+                }
+
+                setArticles(targetedArticles);
+            } catch (err) {
+                console.error("Backup fetch failed:", err);
+                setError(err.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        if (id) {
+            fetchArticleDataFromMasterList();
+        }
+    }, [id]);
+
+
+    if (loading) return <p>Loading article data...</p>;
+    if (error) return <p style={{ color: "red" }}>Error: {error}</p>;
+    if (!articles) return <p>No article data available.</p>;
+
     return (
         <>
             <div className="breadcrumbs container">
@@ -32,23 +82,13 @@ const Single_Article = () => {
 
             <section id='article'>
                 <div className="article-top">
-                    {articles.map((article) => (
-                        <p style={{ color: '#000' }}><span>{article.volume_label}</span></p>
-                    ))}
+                    <p style={{ color: '#000' }}><span>{articles.volume_label}</span></p>
                 </div>
-                {articles.map((article) => (
-                    <h1>{article.title}</h1>
-                ))}
+                <h1>{articles.title}</h1>
                 <div className='author'>
-                    {articles.map((article) => (
-                        <span><strong style={{ color: '#000' }}>Authors: </strong>{article.authors}</span>
-                    ))}
-                    {articles.map((article) => (
-                        <span><strong style={{ color: '#000' }}>Author affiliation: </strong>{article.author_affiliations}</span>
-                    ))}
-                    {articles.map((article) => (
-                        <span><strong style={{ color: '#000' }}>Published: </strong>{article.date_approved}</span>
-                    ))}
+                    <span><strong style={{ color: '#000' }}>Authors: </strong>{articles.authors}</span>
+                    <span><strong style={{ color: '#000' }}>Author affiliation: </strong>{articles.author_affiliations}</span>
+                    <span><strong style={{ color: '#000' }}>Published: </strong>{articles.date_approved}</span>
                 </div>
 
                 <div className="actions-bar">
@@ -63,13 +103,9 @@ const Single_Article = () => {
                     <article className="article-content-box">
                         <div className="abstract-box">
                             <h2>ABSTRACT</h2>
-                            {articles.map((article) => (
-                                <p>{article.abstract}</p>
-                            ))}
+                            <p>{articles.abstract}</p>
                             <div className="keywords-row">
-                                {articles.map((article) => (
-                                <span className="keyword">{article.keywords}</span>
-                            ))}
+                                <span className="keyword">{articles.keywords}</span>
                             </div>
                         </div>
                     </article>
@@ -93,24 +129,6 @@ const Single_Article = () => {
                                 </div>
                             </div>
                         </div>
-                        {/* <div className="sidebar-card">
-                            <h4 className="card-title">ARTICLE INFO</h4>
-                            <div className="metrics-list">
-                                <div className="metric-row">
-                                    <p className="doi-text"><b>DOI:</b> 10.1038/s41586-026-00847-x</p>
-                                </div>
-                                <div className="metric-row">
-                                    <span className="license-badge">CC BY</span>
-                                    <span className="license-text">Open access free to reuse</span>
-                                </div>
-                                <div className="metric-row">
-                                    <span>University of Lagos; KTH Stockholm; IIT Bombay; UNAM</span>
-                                </div>
-                                <div className="metric-row">
-                                    <Link to={'mailto:a.okafor@unilag.edu.ng'}>a.okafor@unilag.edu.ng</Link>
-                                </div>
-                            </div>
-                        </div> */}
 
                         <div className="widget">
                             <h4 className="widget-title">QUICK LINKS</h4>

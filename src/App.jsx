@@ -34,16 +34,16 @@ function App() {
         <Route path="/editorial" element={<Editorial_Board />} />
         <Route path="/article" element={<ArticlePage />} />
         <Route path="/volume" element={<Volume />} />
-        <Route path="/single-issues" element={<Single_Issues />} />
         <Route path="/contact" element={<Contact_Us />} />
-        <Route path="/single-article" element={<Single_Article />} />
+        <Route path="/volumes/:id" element={<Single_Issues />} />
+        <Route path="/articles/:id" element={<Single_Article />} />
         <Route path="/author-guidelines" element={<Author_Guidelines />} />
         <Route path="/editorial-policies" element={<Editorial_Policies />} />
-        <Route path="/copyright" element={<Copyright /> } />
+        <Route path="/copyright" element={<Copyright />} />
         <Route path="/open-access-policy" element={<Open_Access_Policy />} />
-        <Route path="/reviewer-form" element={<Reviewer_Form/>} />
+        <Route path="/reviewer-form" element={<Reviewer_Form />} />
         <Route path="/publication-ethics" element={<Publication_Ethics />} />
-        <Route path="/terms" element={<Terms/>} />
+        <Route path="/terms" element={<Terms />} />
         <Route path="/privacy-policy" element={<Privacy_Policy />} />
         <Route path="/products-payment" element={<Products_Payment />} />
         <Route path="/advertising" element={<Advertising />} />

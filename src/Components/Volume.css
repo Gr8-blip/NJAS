@@ -2,9 +2,12 @@
 .issues-boxes {
     width: 100%;
     display: flex !important;
-    justify-content: center !important;   /* Centering horizontally */
-    align-items: center !important;       /* Centering vertically */
-    padding: 40px 20px !important;        /* Safety boundary space around layout */
+    justify-content: center !important;
+    /* Centering horizontally */
+    align-items: center !important;
+    /* Centering vertically */
+    padding: 40px 20px !important;
+    /* Safety boundary space around layout */
 }
 
 /* 3. Grid Layout Architecture */
@@ -14,10 +17,12 @@
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 24px;
     width: 100%;
-    max-width: 1100px;  
-    margin-top: -40px;       /* Stops cards from over-stretching on wide monitors */
+    max-width: 1100px;
+    margin-top: -40px;
+    /* Stops cards from over-stretching on wide monitors */
 }
-.journal-grid a{
+
+.journal-grid a {
     text-decoration: none;
 }
 
@@ -27,12 +32,15 @@
     flex-direction: column;
     gap: 12px;
     margin-bottom: 40px;
+    text-decoration: none;
+
 }
 
-.journal-column h3{
+.journal-column h3 {
     text-align: center;
     color: var(--primary);
 }
+
 
 /* 5. Base Card System */
 .journal-card {
@@ -43,7 +51,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     overflow: hidden;
     text-align: center;
 }
@@ -123,7 +131,7 @@
     text-align: center;
     cursor: pointer;
     transition: all 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
 }
 
 .toc-trigger:hover {
@@ -147,8 +155,23 @@
     background: var(--primary);
     color: #ffffff;
 }
-.theme-current .card-meta { color: #a3b899; }
-.theme-current .card-header h2 { color: #ffffff; }
-.theme-current .info-panel { background: rgba(255, 255, 255, 0.05); }
-.theme-current .status-badge { color: #eab308; }
-.theme-current .card-icon svg { fill: #eab308; }
+
+.theme-current .card-meta {
+    color: #a3b899;
+}
+
+.theme-current .card-header h2 {
+    color: #ffffff;
+}
+
+.theme-current .info-panel {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.theme-current .status-badge {
+    color: #eab308;
+}
+
+.theme-current .card-icon svg {
+    fill: #eab308;
+}
