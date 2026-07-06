@@ -1,12 +1,11 @@
 import React from 'react'
 import Footer from '../Components/Footer'
 
-const Privacy_Policy = () => {
+const Legal_Info = () => {
     return (
         <>
             <section className="hero-section editorial-hero-section">
                 <h2 className="hero-title">Privacy Policy</h2>
-                {/* <p className="hero-desc"></p> */}
             </section>
 
             <section className="layout-grid editorial-layout-grid">
@@ -140,4 +139,4 @@ const Privacy_Policy = () => {
     )
 }
 
-export default Privacy_Policy
+export default Legal_Info

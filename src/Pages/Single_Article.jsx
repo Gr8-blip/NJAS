@@ -80,23 +80,23 @@ const Single_Article = () => {
                 <Link to="/">Home</Link> › <Link to="/article">Article</Link>
             </div>
 
-            <section id='article'>
-                <div className="article-top">
-                    <p style={{ color: '#000' }}><span>{articles.volume_label}</span></p>
-                </div>
-                <h1>{articles.title}</h1>
-                <div className='author'>
-                    <span><strong style={{ color: '#000' }}>Authors: </strong>{articles.authors}</span>
-                    <span><strong style={{ color: '#000' }}>Author affiliation: </strong>{articles.author_affiliations}</span>
-                    <span><strong style={{ color: '#000' }}>Published: </strong>{articles.date_approved}</span>
-                </div>
+            <div className='article-section'>
+                <section id='article'>
+                    <div className="article-top">
+                        <span className='article-volume-label'>{articles.volume_label}</span>
 
-                <div className="actions-bar">
-                    <button className="btn btn-primary" id="btn-download">Download PDF</button>
-                    <button className="btn btn-secondary" id="btn-cite">Cite article</button>
-                    <ShareBtn />
-                </div>
-            </section>
+                    </div>
+                    <h1>{articles.title}</h1>
+                    <div className='author'>
+                        <span><strong>Authors: </strong>{articles.authors}</span>
+                    </div>
+
+                    <div className="actions-bar">
+                        <button className="btn btn-secondary" id="btn-cite">Cite article</button>
+                        <ShareBtn />
+                    </div>
+                </section>
+            </div>
 
             <section id='article-content'>
                 <div className="content-container">
@@ -117,7 +117,7 @@ const Single_Article = () => {
                             <div className="metrics-list">
                                 <div className="metric-row">
                                     <span className="metric-label">Views</span>
-                                    <span className="metrics-value">1,247</span>
+                                    <span className="metrics-value">{articles.view_count}</span>
                                 </div>
                                 <div className="metric-row">
                                     <span className="metric-label">Downloads</span>
@@ -126,38 +126,6 @@ const Single_Article = () => {
                                 <div className="metric-row">
                                     <span className="metric-label">Citations</span>
                                     <span className="metrics-value">23</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="widget">
-                            <h4 className="widget-title">QUICK LINKS</h4>
-                            <ul className="widget-list">
-                                <li><Link to="/submit">Submit a manuscript <span className="arrow">›</span></Link></li>
-                                <li><Link to="/author-guidelines">Author guidelines <span className="arrow">›</span></Link></li>
-                                <li><Link to="/contact">Contact us <span className="arrow">›</span></Link></li>
-                            </ul>
-                        </div>
-                        <div className="widget">
-                            <h4 className="widget-title">CONTACT</h4>
-                            <div className="contact-box">
-                                <div className="contact-item">
-                                    <span className="lbl">Email</span>
-                                    <a href="mailto:contact@mcgillard.com" className="val link">contact@mcgillard.com</a>
-                                </div>
-                                <div className="contact-item">
-                                    <span className="lbl">Phone</span>
-                                    <span className="val">+234 906 802 2212</span>
-                                </div>
-                                <div className="contact-item">
-                                    <span className="lbl">Address</span>
-                                    <span className="val">Tantua Road, Amassoma, Wilberforce Island,</span>
-                                    <span className="val">Bayelsa State, Nigeria</span>
-                                </div>
-                                <div className="contact-item">
-                                    <span className="lbl">Office Hours</span>
-                                    <span className="val">Mon-Fri: 9am - 5pm EST</span>
-                                    <button className="btn-subscribe">Schedule a Meeting</button>
                                 </div>
                             </div>
                         </div>
@@ -195,6 +163,37 @@ const Single_Article = () => {
                             </div>
                         </div>
 
+                        <div className="widget">
+                            <h4 className="widget-title">QUICK LINKS</h4>
+                            <ul className="widget-list">
+                                <li><Link to="/submit">Submit a manuscript <span className="arrow">›</span></Link></li>
+                                <li><Link to="/author-guidelines">Author guidelines <span className="arrow">›</span></Link></li>
+                                <li><Link to="/contact">Contact us <span className="arrow">›</span></Link></li>
+                            </ul>
+                        </div>
+                        <div className="widget">
+                            <h4 className="widget-title">CONTACT</h4>
+                            <div className="contact-box">
+                                <div className="contact-item">
+                                    <span className="lbl">Email</span>
+                                    <a href="mailto:contact@mcgillard.com" className="val link">contact@mcgillard.com</a>
+                                </div>
+                                <div className="contact-item">
+                                    <span className="lbl">Phone</span>
+                                    <span className="val">+234 906 802 2212</span>
+                                </div>
+                                <div className="contact-item">
+                                    <span className="lbl">Address</span>
+                                    <span className="val">Tantua Road, Amassoma, Wilberforce Island,</span>
+                                    <span className="val">Bayelsa State, Nigeria</span>
+                                </div>
+                                <div className="contact-item">
+                                    <span className="lbl">Office Hours</span>
+                                    <span className="val">Mon-Fri: 9am - 5pm EST</span>
+                                    <button className="btn-subscribe">Schedule a Meeting</button>
+                                </div>
+                            </div>
+                        </div>
                     </aside>
                 </div>
 

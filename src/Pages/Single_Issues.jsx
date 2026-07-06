@@ -73,7 +73,7 @@ const Single_Issues = () => {
                     </div>
 
                     <div className="hero-meta-details">
-                        <h1 className="main-issue-heading">Volume {volume.title}</h1>
+                        <h1 className="main-issue-heading">Volume {volume.volume_number}</h1>
                         <Link to="#" className="download-pdf-link">Download Full issue PDF</Link>
                     </div>
                 </div>
@@ -122,7 +122,7 @@ const Single_Issues = () => {
                             <Link to={`/volumes/${volume.id}`} key={volume.id} className="journal-column">
                                 <div className="article-row-card">
                                     <div className="article-main-body">
-                                        <h4 className="article-row-title">Volume {volume.title}</h4>
+                                        <h4 className="article-row-title">Volume {volume.volume_number}</h4>
                                         <h4 className="article-row-title">{volume.authors}</h4>
                                         <p className="article-row-authors"></p>
                                         <p className="article-row-abstract">

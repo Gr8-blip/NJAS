@@ -59,7 +59,7 @@ const Volume = () => {
                                             <div className="info-panel">
                                                 <div className="status-badge">Volume</div>
                                                 {/* Displays only this specific card's data */}
-                                                <div className='volume-title'>{volume.title}</div>
+                                                <div className='volume-title'>{volume.volume_number}</div>
                                                 <div className='publish-date'>{volume.published_at}</div>
                                             </div>
                                         </div>

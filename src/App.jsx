@@ -17,7 +17,7 @@ import Open_Access_Policy from './Pages/Open_Access_Policy'
 import Reviewer_Form from './Pages/Reviewer_Form'
 import Publication_Ethics from './Pages/Publication_Ethics'
 import Terms from './Pages/Terms'
-import Privacy_Policy from './Pages/Privacy_Policy'
+import Legal_Info from './Pages/Legal_Info'
 import Products_Payment from './Pages/Products_Payment'
 import Advertising from './Pages/Advertising'
 import Page_404 from './Pages/Page_404'
@@ -44,7 +44,7 @@ function App() {
         <Route path="/reviewer-form" element={<Reviewer_Form />} />
         <Route path="/publication-ethics" element={<Publication_Ethics />} />
         <Route path="/terms" element={<Terms />} />
-        <Route path="/privacy-policy" element={<Privacy_Policy />} />
+        <Route path="/" element={<Legal_Info />} />
         <Route path="/products-payment" element={<Products_Payment />} />
         <Route path="/advertising" element={<Advertising />} />
         <Route path="*" element={<Page_404 />} />

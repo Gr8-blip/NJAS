@@ -66,16 +66,16 @@ const ShareBtn = () => {
                                 width: '100%',
                                 padding: '12px 16px',
                                 border: 'none',
-                                backgroundColor: 'transparent',
+                                backgroundColor: '#25D366',
                                 textAlign: 'left',
                                 cursor: 'pointer',
                                 fontSize: '14px',
-                                color: '#334155',
+                                color: '#ffffff',
                                 transition: 'background-color 0.2s ease',
-                                borderBottom: '1px solid #f0f0f0'
+                                // borderBottom: '1px solid #f0f0f0'
                             }}
-                            onMouseEnter={(e) => e.target.style.backgroundColor = '#f8fafc'}
-                            onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
+                            onMouseEnter={(e) => e.target.style.backgroundColor = '#25D366 '}
+                            onMouseLeave={(e) => e.target.style.backgroundColor = '#25D366'}
                         >
                             WhatsApp
                         </button>
@@ -85,16 +85,16 @@ const ShareBtn = () => {
                                 width: '100%',
                                 padding: '12px 16px',
                                 border: 'none',
-                                backgroundColor: 'transparent',
+                                backgroundColor: '#1877F2',
                                 textAlign: 'left',
                                 cursor: 'pointer',
                                 fontSize: '14px',
-                                color: '#334155',
+                                color: '#ffffff',
                                 transition: 'background-color 0.2s ease',
-                                borderBottom: '1px solid #f0f0f0'
+                                // borderBottom: '1px solid #f0f0f0'
                             }}
-                            onMouseEnter={(e) => e.target.style.backgroundColor = '#f8fafc'}
-                            onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
+                            onMouseEnter={(e) => e.target.style.backgroundColor = '#1877F2'}
+                            onMouseLeave={(e) => e.target.style.backgroundColor = '#1877F2'}
                         >
                             Facebook
                         </button>
@@ -104,16 +104,16 @@ const ShareBtn = () => {
                                 width: '100%',
                                 padding: '12px 16px',
                                 border: 'none',
-                                backgroundColor: 'transparent',
+                                backgroundColor: '#0a66c2',
                                 textAlign: 'left',
                                 cursor: 'pointer',
                                 fontSize: '14px',
-                                color: '#334155',
+                                color: '#ffffff',
                                 transition: 'background-color 0.2s ease',
-                                borderBottom: '1px solid #f0f0f0'
+                                // borderBottom: '1px solid #f0f0f0'
                             }}
-                            onMouseEnter={(e) => e.target.style.backgroundColor = '#f8fafc'}
-                            onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
+                            onMouseEnter={(e) => e.target.style.backgroundColor = '#0a66c2'}
+                            onMouseLeave={(e) => e.target.style.backgroundColor = '#0a66c2'}
                         >
                             LinkedIn
                         </button>
@@ -123,15 +123,15 @@ const ShareBtn = () => {
                                 width: '100%',
                                 padding: '12px 16px',
                                 border: 'none',
-                                backgroundColor: 'transparent',
+                                backgroundColor: '#1da1f2',
                                 textAlign: 'left',
                                 cursor: 'pointer',
                                 fontSize: '14px',
-                                color: '#334155',
+                                color: '#ffffff',
                                 transition: 'background-color 0.2s ease'
                             }}
-                            onMouseEnter={(e) => e.target.style.backgroundColor = '#f8fafc'}
-                            onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
+                            onMouseEnter={(e) => e.target.style.backgroundColor = '#1da1f2'}
+                            onMouseLeave={(e) => e.target.style.backgroundColor = '#1da1f2'}
                         >
                             Twitter
                         </button>
