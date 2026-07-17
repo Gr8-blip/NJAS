@@ -42,6 +42,15 @@ class VolumeSerializer(serializers.ModelSerializer):
         request = self.context.get('request')
         url = obj.image.url
         return request.build_absolute_uri(url) if request else url
+    
+
+class VolumeDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Volume
+        fields = ['id', 'title', 'articles']
+
+
+    articles = ArticleSerializer(read_only=True, many=True)
 
 
 class StaticPageSerializer(serializers.ModelSerializer):

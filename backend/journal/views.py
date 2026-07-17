@@ -3,6 +3,7 @@ from django.core import signing
 from django.db.models import F
 from rest_framework import status, viewsets
 from rest_framework.decorators import api_view
+from rest_framework.generics import RetrieveAPIView
 from rest_framework.permissions import BasePermission
 from rest_framework.parsers import FormParser, MultiPartParser
 from rest_framework.response import Response
@@ -12,6 +13,7 @@ from .serializers import (
     JournalUploadSerializer,
     StaticPageSerializer,
     VolumeSerializer,
+    VolumeDetailSerializer
 )
 from rest_framework.permissions import SAFE_METHODS
 
@@ -49,7 +51,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAdminOrReadOnly]
 
     def get_queryset(self):
-        queryset = Article.objects.select_related('volume').order_by('-created_at')
+        queryset = Article.objects.select_related('volume').order_by('-created_at')[:10]
         volume_id = self.request.query_params.get('volume')
         if volume_id:
             queryset = queryset.filter(volume_id=volume_id)
@@ -64,6 +66,9 @@ class VolumeViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         return Volume.objects.prefetch_related('articles', 'uploads').order_by('-year', '-volume_number', '-issue_number')
 
+class VolumeDetailView(RetrieveAPIView):
+    queryset = Volume.objects.prefetch_related('articles').all()
+    serializer_class = VolumeDetailSerializer
 
 class StaticPageViewSet(viewsets.ModelViewSet):
     serializer_class = StaticPageSerializer
