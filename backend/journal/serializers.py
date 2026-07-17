@@ -47,7 +47,7 @@ class VolumeSerializer(serializers.ModelSerializer):
 class VolumeDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Volume
-        fields = ['id', 'title', 'articles']
+        fields = ['id', 'volume_number', 'articles']
 
 
     articles = ArticleSerializer(read_only=True, many=True)
