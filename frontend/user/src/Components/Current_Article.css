@@ -1,0 +1,114 @@
+/* Section Base Styling */
+.journal-recognition {
+  padding: 60px 20px;
+  background-color: #6366f1;
+  color: #ffffff;
+}
+
+/* Flexbox Layout Container */
+/* .recognition-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5rem; 
+} */
+
+/* Left Content Column */
+/*.recognition-text {
+  flex: 1;
+  max-width: 500px; 
+} */
+
+/* .recognition-text h2 {
+  font-size: 2rem;
+  color: #1a202c;
+  margin-bottom: 15px;
+}
+
+.recognition-text p {
+  font-size: 1rem;
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 25px;
+} */
+
+.recognition-text h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  margin-top: -30px !important;
+  font-weight: 700;
+}
+
+.recognition-text .article-volume-label {
+  font-size: 16px;
+  font-weight: 600 !important;
+  border-radius: 50px;
+  color: #ff609e;
+}
+
+.recognition-text .author {
+  display: flex;
+  flex-direction: column;
+}
+
+.recognition-text ul li {
+  list-style-type: none;
+}
+
+.recognition-text p {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  width: 80%;
+}
+
+/* Right Grid Column for Logos */
+.recognition-logos {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 20px;
+}
+
+/* Individual Logo Cards */
+.logo-card {
+  background-color: #ffffff;
+  padding: 12px;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.145);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.logo-card:hover {
+  transform: translateY(-10px);
+}
+
+.logo-card img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive Design for Mobile Devices */
+@media (max-width: 768px) {
+  .recognition-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .recognition-text {
+    max-width: 100%;
+  }
+
+  .recognition-logos {
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

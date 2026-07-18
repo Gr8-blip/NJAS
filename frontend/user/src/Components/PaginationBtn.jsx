@@ -1,37 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
-const PaginationBtn = () => {
-    const [articles, setArticles] = useState([]);
-
-    useEffect(() => {
-        const fetchArticle = async () => {
-            const response = await fetch("https://jsppharm.com/api/api/articles/");
-
-            // Always check if the response status is 200-299
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-
-            const data = await response.json();
-            setArticles(data)
-        }
-
-        fetchArticle();
-
-    }, [])
-
-    const [currentPage, setCurrentPage] = useState(1);
-    const articlesPerPage = 8;
-
-    // Calculate pagination
-    const totalPages = Math.ceil(articles.length / articlesPerPage);
-    const startIndex = (currentPage - 1) * articlesPerPage;
-    const endIndex = startIndex + articlesPerPage;
-    const currentArticles = articles.slice(startIndex, endIndex);
-
-    // Handle page changes
+const PaginationBtn = ({ currentPage = 1, totalPages = 1, onPageChange = () => {} }) => {
     const handlePageChange = (pageNumber) => {
-        setCurrentPage(pageNumber);
+        onPageChange(pageNumber);
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
@@ -47,35 +18,38 @@ const PaginationBtn = () => {
         }
     };
 
+    if (totalPages <= 1) {
+        return null;
+    }
+
     return (
         <>
-            {/* Pagination Controls */}
             <div style={{
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                gap: '12px',
+                gap: '10px',
                 marginTop: '50px',
-                marginBottom: '30px',
+                marginBottom: '20px',
                 flexWrap: 'wrap'
             }}>
                 <button
                     onClick={handlePreviousPage}
                     disabled={currentPage === 1}
                     style={{
-                        padding: '10px 20px',
-                        backgroundColor: currentPage === 1 ? '#cbd5e1' : 'var(--primary)',
-                        color: '#ffffff',
-                        border: 'none',
-                        borderRadius: '8px',
+                        padding: '8px 14px',
+                        backgroundColor: currentPage === 1 ? '#f1f5f9' : '#ffffff',
+                        color: currentPage === 1 ? '#94a3b8' : 'var(--primary)',
+                        border: '1px solid #dbe4f0',
+                        borderRadius: '999px',
                         fontSize: '14px',
                         fontWeight: '600',
                         cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
-                        opacity: currentPage === 1 ? 0.6 : 1,
+                        boxShadow: currentPage === 1 ? 'none' : '0 4px 12px rgba(0,0,0,0.06)',
                         transition: 'all 0.3s ease'
                     }}
                 >
-                    ← Previous
+                    ← Prev
                 </button>
 
                 <div style={{
@@ -84,42 +58,47 @@ const PaginationBtn = () => {
                     flexWrap: 'wrap',
                     justifyContent: 'center'
                 }}>
-                    {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNumber) => (
-                        <button
-                            key={pageNumber}
-                            onClick={() => handlePageChange(pageNumber)}
-                            style={{
-                                minWidth: '40px',
-                                height: '40px',
-                                padding: '0',
-                                backgroundColor: currentPage === pageNumber ? 'var(--primary)' : '#ffffff',
-                                color: currentPage === pageNumber ? '#ffffff' : 'var(--primary)',
-                                border: `2px solid var(--primary)`,
-                                borderRadius: '6px',
-                                fontSize: '13px',
-                                fontWeight: '600',
-                                cursor: 'pointer',
-                                transition: 'all 0.3s ease'
-                            }}
-                        >
-                            {pageNumber}
-                        </button>
-                    ))}
+                    {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNumber) => {
+                        const isActive = currentPage === pageNumber;
+
+                        return (
+                            <button
+                                key={pageNumber}
+                                onClick={() => handlePageChange(pageNumber)}
+                                style={{
+                                    minWidth: '42px',
+                                    height: '42px',
+                                    padding: '0',
+                                    backgroundColor: isActive ? 'var(--primary)' : '#ffffff',
+                                    color: isActive ? '#ffffff' : '#334155',
+                                    border: isActive ? '1px solid var(--primary)' : '1px solid #dbe4f0',
+                                    borderRadius: '999px',
+                                    fontSize: '13px',
+                                    fontWeight: '700',
+                                    cursor: 'pointer',
+                                    boxShadow: isActive ? '0 6px 16px rgba(0,0,0,0.12)' : '0 2px 8px rgba(0,0,0,0.04)',
+                                    transition: 'all 0.3s ease'
+                                }}
+                            >
+                                {pageNumber}
+                            </button>
+                        );
+                    })}
                 </div>
 
                 <button
                     onClick={handleNextPage}
                     disabled={currentPage === totalPages}
                     style={{
-                        padding: '10px 20px',
-                        backgroundColor: currentPage === totalPages ? '#cbd5e1' : 'var(--primary)',
-                        color: '#ffffff',
-                        border: 'none',
-                        borderRadius: '8px',
+                        padding: '8px 14px',
+                        backgroundColor: currentPage === totalPages ? '#f1f5f9' : '#ffffff',
+                        color: currentPage === totalPages ? '#94a3b8' : 'var(--primary)',
+                        border: '1px solid #dbe4f0',
+                        borderRadius: '999px',
                         fontSize: '14px',
                         fontWeight: '600',
                         cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
-                        opacity: currentPage === totalPages ? 0.6 : 1,
+                        boxShadow: currentPage === totalPages ? 'none' : '0 4px 12px rgba(0,0,0,0.06)',
                         transition: 'all 0.3s ease'
                     }}
                 >
@@ -130,11 +109,10 @@ const PaginationBtn = () => {
             <div style={{
                 textAlign: 'center',
                 fontSize: '13px',
-                color: '#718096',
-                marginTop: '16px',
+                color: '#64748b',
                 marginBottom: '30px'
             }}>
-                Page {currentPage} of {totalPages}
+                Showing page {currentPage} of {totalPages}
             </div>
         </>
     )

@@ -9,13 +9,14 @@ const Footer = () => {
                 <div className="container footer-grid">
                     <div>
                         <h4>Journal of Science and Practice of Phamarcy</h4>
-                        <p>Official Journal of the Nigerian Association of Pharmacists in Academia, 
+                        <p>Official Journal of the Nigerian Association of Pharmacists in Academia,
                             University of Benin Branch, Benin City, Nigeria</p>
                     </div>
                     <div>
                         <h4>QUICK LINKS</h4>
                         <ul>
                             <li><Link to="/about">About Us</Link></li>
+                            <li><Link to="/editorial">Editorial Board</Link></li>
                             <li><Link to="/contact">Contact</Link></li>
                             <li><Link to="/advertise">Advertise</Link></li>
                         </ul>
@@ -25,7 +26,7 @@ const Footer = () => {
                         <ul>
                             <li><Link to="/author-guidelines">Author Guidelines</Link></li>
                             <li><Link to="/submit-manuscript">Submit Manuscript</Link></li>
-                            <li><Link to="/faq">FAQ</Link></li>
+                            <li><Link to="/open-access-policy">Open Access Policy</Link></li>
                         </ul>
                     </div>
                     <div>

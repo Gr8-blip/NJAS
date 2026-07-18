@@ -7,23 +7,23 @@ import './Article.css'
 
 const Article = () => {
     const [articles, setArticles] = useState([]);
-    
-        useEffect(() => {
-            const fetchArticle = async () => {
-                const response = await fetch("https://jsppharm.com/api/api/articles/");
-    
-                // Always check if the response status is 200-299
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-    
-                const data = await response.json();
-                setArticles(data)
+
+    useEffect(() => {
+        const fetchArticle = async () => {
+            const response = await fetch("https://jsppharm.com/api/api/articles/");
+
+            // Always check if the response status is 200-299
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
             }
-    
-            fetchArticle();
-    
-        }, [])
+
+            const data = await response.json();
+            setArticles(data)
+        }
+
+        fetchArticle();
+
+    }, [])
 
     return (
         <>
@@ -47,27 +47,23 @@ const Article = () => {
                                         <h1 className='article-heading'>{article.title}</h1>
                                         <ul className='author'>
                                             <li><strong>Authors:</strong> {article.authors}</li>
-                                            <li><strong>Published:</strong>{article.date_approved}</li>
                                         </ul>
                                         <p>{article.description}</p>
-                                        <div className="article-btn">
-                                            <button>Read full article</button>
-                                            <button>Download PDF</button>
-                                            <button>Cite</button>
+                                        <div className="actions-bar">
+                                            <button className="btn btn-secondary" id="btn-cite">Read full article</button>
+                                            <button className="btn btn-secondary" id="btn-cite">Cite article</button>
                                         </div>
                                     </div>
 
                                     <div className="article-sidebar">
                                         <div className="stat-box">
                                             <p className="stat-label">VIEWS</p>
-                                            {/* <p className="stat-number">{article.views}</p> */}
-                                            <p className="stat-number">13</p>
+                                            <p className="stat-number">{article.view_count}</p>
                                         </div>
-                                        <div className="stat-box">
+                                        {/* <div className="stat-box">
                                             <p className="stat-label">CITATIONS</p>
-                                            {/* <p className="stat-number">{article.citations}</p> */}
-                                            <p className="stat-number">5,000</p>
-                                        </div>
+                                            <p className="stat-number">{article.citation}</p>
+                                        </div> */}
                                     </div>
                                 </div>
                             </SwiperSlide>

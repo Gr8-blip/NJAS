@@ -93,7 +93,7 @@
 }
 
 .status-badge {
-    font-size: 9px;
+    font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -101,23 +101,16 @@
 }
 
 .volume-title {
-    font-size: 12px;
+    font-size: 18px;
     font-weight: 600;
     line-height: 1.4;
     margin-bottom: 6px;
 }
 
 .publish-date {
-    font-size: 9px;
-    opacity: 0.8;
+    font-size: 12px;
 }
 
-.card-footer {
-    font-size: 9px;
-    text-align: right;
-    font-weight: 500;
-    opacity: 0.7;
-}
 
 /* 7. Action Button Overrides */
 .toc-trigger {

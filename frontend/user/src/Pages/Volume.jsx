@@ -28,9 +28,7 @@ const Volume = () => {
 
     return (
         <>
-            <section className="hero-section">
-                <h2 className="hero-title">Latest Volume</h2>
-            </section>
+            <Search />
 
             <section className="layout-grid">
                 <main className="primary-content">
@@ -59,7 +57,7 @@ const Volume = () => {
                                             <div className="info-panel">
                                                 <div className="status-badge">Volume</div>
                                                 {/* Displays only this specific card's data */}
-                                                <div className='volume-title'>{volume.title}</div>
+                                                <div className='volume-title'>{volume.volume_number}</div>
                                                 <div className='publish-date'>{volume.published_at}</div>
                                             </div>
                                         </div>

@@ -9,9 +9,12 @@ const About = () => {
       <section className="hero-section">
         <span className="hero-badge">ABOUT US</span>
         <h2 className="hero-title">Advancing the frontiers of science and <br /> technology since 2012</h2>
-        <p className="hero-desc">The Journal of Advances in Science & Technology (JAST) is a peer-reviewed,
-          open-access publication of the Institute for Scientific Research. We publish original research, reviews,
-          and letters across all disciplines of the natural sciences and engineering.</p>
+        <p className="hero-desc">The Journal of Science and Practice of Pharmacy is an online international journal allowing free unlimited access to abstract and full-text of published articles.
+          The journal is devoted to the promotion of health sciences and related disciplines (including medicine, pharmacy, nursing, biotechnology, cell and molecular biology, and related engineering
+          and social sciences fields).</p>
+        <p className="hero-desc">It seeks particularly (but not exclusively) to encourage multidisciplinary research and collaboration among scientists, the industry and the healthcare professionals. 
+        It also provides an international forum for the communication and evaluation of data, methods and findings in health sciences and related disciplines. The journal welcomes original research papers, 
+        reviews and case reports on current topics of special interest and relevance.</p>
         <div className="features-banner">
           <div className="feature-card">
             <div className="feature-icon">🔒</div>
@@ -76,7 +79,7 @@ const About = () => {
             </div>
           </section>
 
-          <section className="content-block">
+          {/* <section className="content-block">
             <h3 className="block-heading">RESEARCH SCOPE</h3>
             <div className="scope-grid">
               <div className="scope-box">
@@ -104,7 +107,7 @@ const About = () => {
                 <p>Medical devices, imaging, neural interfaces, biomaterials.</p>
               </div>
             </div>
-          </section>
+          </section> */}
 
           <section className="content-block">
             <h3 className="block-heading">PEER REVIEW PROCESS</h3>
@@ -196,13 +199,28 @@ const About = () => {
             <p className="ethics-intro-text">
               JAST adheres to the Principles of Transparency and Best Practice in Scholarly Publishing (COPE). All research involving human subjects or animals must include ethics approval documentation. The journal is indexed in Scopus, Web of Science, PubMed, DOAJ, and other major academic databases.
             </p>
-            <div className="indexing-logos-grid">
-              <div className="logo-box">Scopus</div>
-              <div className="logo-box">Web of Science</div>
-              <div className="logo-box">PubMed</div>
-              <div className="logo-box">DOAJ</div>
-              <div className="logo-box">EBSCO</div>
-              <div className="logo-box">Google Scholar</div>
+            <div className="recognition-logos">
+              <div class="logo-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL124Owc4i1hOGUNyR0xk6Mu0FBEoIxiOlO6u90-sNDQ&s=10" alt="Web of Science Clarivate Logo" />
+              </div>
+              <div class="logo-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-K_LNb2-xAFiU2QGl2S66CPyEpIVNhbcNUo88-lN6Hg&s" alt="Google Scholar Logo" />
+              </div>
+              <div class="logo-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3xLgyMZf8NBYAFLi1k1nQFs3ZIZ4Wu1k0jL2ARv8tRA&s=10" alt="Crossref Logo" />
+              </div>
+              <div class="logo-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl1eTsSmlfl63CnFPyT5mI9tfWHuMaFvbupuR3ZVsU1g&s=10" alt="Directory of Open Access Journals Logo" />
+              </div>
+              <div class="logo-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTOg_LQerbtIWbgGeiT8QKo9bPmd6l7cU6kgORXxfFvQ&s=10" alt="PubMed Logo" />
+              </div>
+              <div className="logo-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzojgPi8EsWxJTVBjAno1nZA8Z3JwYyL841_SR0CzOAQ&s=10" alt="Scopus Logo" />
+              </div>
+              <div class="logo-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLTau3dMSRxQmurYEAZpP47_6pLHmr6blwZMNaDGmONw&s=10" alt="EBSCO Host Logo" />
+              </div>
             </div>
           </section>
         </main>
@@ -211,9 +229,13 @@ const About = () => {
           <div className="widget">
             <h4 className="widget-title">QUICK LINKS</h4>
             <ul className="widget-list">
-              <li><Link to="/submit">Submit a manuscript <span className="arrow">›</span></Link></li>
+              <li><Link to="/submit-manuscript">Submit a manuscript <span className="arrow">›</span></Link></li>
               <li><Link to="/author-guidelines">Author guidelines <span className="arrow">›</span></Link></li>
-              <li><Link to="/contact">Contact us <span className="arrow">›</span></Link></li>
+              <li><Link to="/editorial-policies">Editorial policies <span className="arrow">›</span></Link></li>
+              <li><Link to="/products-payment">Product Payment <span className="arrow">›</span></Link></li>
+              <li><Link to='/publication-ethics'>Publication Ethics <span className="arrow">›</span></Link></li>
+              <li><Link to='/privacy-policy'>Privacy Policy <span className="arrow">›</span></Link></li>
+              <li><Link to='/reviewer-form'>Reviewer Form <span className="arrow">›</span></Link></li>
             </ul>
           </div>
           <div className="widget">
@@ -221,21 +243,21 @@ const About = () => {
             <div className="contact-box">
               <div className="contact-item">
                 <span className="lbl">Email</span>
-                <a href="mailto:contact@mcgillard.com" className="val link">contact@mcgillard.com</a>
+                <a href="mailto:jsppharm@uniben.edu" className="val link">jsppharm@uniben.edu</a>
               </div>
               <div className="contact-item">
                 <span className="lbl">Phone</span>
-                <span className="val">+234 906 802 2212</span>
+                <span className="val">+234 807 804 4144</span>
               </div>
               <div className="contact-item">
                 <span className="lbl">Address</span>
-                <span className="val">Tantua Road, Amassoma, Wilberforce Island,</span>
-                <span className="val">Bayelsa State, Nigeria</span>
+                <span className="val">Faculty of Pharmacy, <br /> University of Benin,</span>
+                <span className="val">Edo State, Nigeria</span>
               </div>
               <div className="contact-item">
                 <span className="lbl">Office Hours</span>
                 <span className="val">Mon-Fri: 9am - 5pm EST</span>
-                <button className="btn-subscribe">Schedule a Meeting</button>
+                {/* <button className="btn-subscribe">Schedule a Meeting</button> */}
               </div>
             </div>
           </div>
