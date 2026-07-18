@@ -3,7 +3,7 @@ from django.core import signing
 from django.db.models import F
 from rest_framework import status, viewsets
 from rest_framework.decorators import api_view
-from rest_framework.generics import RetrieveAPIView, ListAPIView
+from rest_framework.generics import RetrieveAPIView
 from rest_framework.permissions import BasePermission
 from rest_framework.parsers import FormParser, MultiPartParser
 from rest_framework.response import Response
@@ -87,9 +87,11 @@ class JournalUploadViewSet(viewsets.ModelViewSet):
         return JournalUpload.objects.select_related('volume', 'article').order_by('-uploaded_at')
 
 
-class LatestArticleView(ListAPIView):
-    queryset = Article.objects.latest('created_at')
+class LatestArticleView(RetrieveAPIView):
     serializer_class = ArticleSerializer
+
+    def get_object(self):
+        return Article.objects.latest('created_at')
 
 @api_view(['GET'])
 def dashboard_summary(request):
