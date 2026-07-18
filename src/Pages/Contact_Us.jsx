@@ -7,8 +7,9 @@ const Contact_Us = () => {
         <>
             <section className="hero-section editorial-hero-section">
                 <h2 className="hero-title">Contact Us</h2>
-                <p className="hero-desc">An official journal of the Nigerian Association of Pharmacists in Academia,
-                    University of Benin Branch, Journal of Science and Practice of Pharmacy (JSPP) is published by <b>McGillard Publishing</b></p>
+                <p className="hero-desc">An official journal of the Nigerian Association of Pharmacists in Academia (NAPA),
+                    University of Benin Branch, Journal of Science and Practice of Pharmacy (JSPP) is published by <b>NAPA</b>,
+                    Faculty of Pharmacy, University of Benin, Benin City, Edo State, Nigeria</p>
             </section>
 
             <section className="layout-grid editorial-layout-grid">
@@ -18,18 +19,20 @@ const Contact_Us = () => {
                             <div className='member-card'>
                                 <h4>Location</h4>
                                 <address>
-                                    Tantua Road, Amassoma, <br /> Wilberforce Island <br /> Bayelsa State, Nigeria
+                                    Faculty of Pharmacy, University of Benin, Edo State, Nigeria<br />
+                                    {/* Tantua Road, Amassoma, <br /> Wilberforce Island <br /> Bayelsa State, Nigeria */}
                                 </address>
                             </div>
                             <div className='member-card'>
                                 <h4>Email</h4>
                                 <b>
-                                    <Link to="mailto:contact@mcgillard.com">contact@mcgillard.com</Link>
+                                    <Link to="mailto:jsppharm@uniben.edu">jsppharm@uniben.edu</Link>
                                 </b>
                             </div>
                             <div className='member-card'>
                                 <h4>Phone</h4>
-                                <Link to="tel:+2349068022212"> +234 906 802 2212</Link>
+                                {/* <Link to="tel:+2349068022212"> +234 906 802 2212</Link> */}
+                                <Link to="tel:+2348078044144"> +234 807 804 4144</Link>
                             </div>
                         </div>
                     </section>
@@ -40,15 +43,19 @@ const Contact_Us = () => {
                     <div className="widget">
                         <h4 className="widget-title">QUICK LINKS</h4>
                         <ul className="widget-list">
-                            <li><a href="/submit">Submit a manuscript <span className="arrow">›</span></a></li>
-                            <li><a href="/author-guidelines">Author guidelines <span className="arrow">›</span></a></li>
-                            <li><a href="/contact">Contact us <span className="arrow">›</span></a></li>
+                            <li><Link to="/submit-manuscript">Submit a manuscript <span className="arrow">›</span></Link></li>
+                            <li><Link to="/author-guidelines">Author guidelines <span className="arrow">›</span></Link></li>
+                            <li><Link to="/editorial-policies">Editorial policies <span className="arrow">›</span></Link></li>
+                            <li><Link to="/products-payment">Product Payment <span className="arrow">›</span></Link></li>
+                            <li><Link to='/publication-ethics'>Publication Ethics <span className="arrow">›</span></Link></li>
+                            <li><Link to='/privacy-policy'>Privacy Policy <span className="arrow">›</span></Link></li>
+                            <li><Link to='/reviewer-form'>Reviewer Form <span className="arrow">›</span></Link></li>
                         </ul>
                     </div>
                 </aside>
             </section>
 
-            
+
             <Footer />
         </>
     )

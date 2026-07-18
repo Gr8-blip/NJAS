@@ -4,6 +4,7 @@ import '../Components/Issues.css'
 import { Link } from 'react-router'
 import Footer from '../Components/Footer'
 import ShareBtn from '../Components/ShareBtn'
+import PdfDownloadButton from '../Components/PdfDownloadButton';
 
 
 const Single_Issues = () => {
@@ -15,31 +16,21 @@ const Single_Issues = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const fetchVolumeDataFromMasterList = async () => {
+        const fetchVolumeData = async () => {
             try {
                 setLoading(true);
                 setError(null);
 
-                // Fetch the full working list endpoint
-                const response = await fetch("https://jsppharm.com/api/api/volumes/");
+                const response = await fetch(`https://jsppharm.com/api/api/volumes/${id}/`);
 
                 if (!response.ok) {
                     throw new Error(`HTTP Error Status: ${response.status}`);
                 }
 
-                const allVolumesList = await response.json();
-
-                // Extract ONLY the specific item matching our URL parameter ID
-                // Number(id) ensures we don't hit string/integer type check conflicts
-                const targetedVolume = allVolumesList.find(vol => Number(vol.id) === Number(id));
-
-                if (!targetedVolume) {
-                    throw new Error(`Volume with ID ${id} was not found in the list.`);
-                }
-
-                setVolume(targetedVolume);
+                const data = await response.json();
+                setVolume(data);
             } catch (err) {
-                console.error("Backup fetch failed:", err);
+                console.error("Failed to fetch volume details:", err);
                 setError(err.message);
             } finally {
                 setLoading(false);
@@ -47,10 +38,18 @@ const Single_Issues = () => {
         };
 
         if (id) {
-            fetchVolumeDataFromMasterList();
+            fetchVolumeData();
         }
     }, [id]);
 
+    const articleList = Array.isArray(volume?.articles)
+        ? volume.articles
+        : Array.isArray(volume?.article_set)
+            ? volume.article_set
+            : [];
+
+    const articleCount = volume?.article_count ?? volume?.articles_count ?? volume?.articleCount ?? articleList.length ?? 0;
+    const uploadCount = volume?.upload_count ?? volume?.uploads_count ?? volume?.uploadCount ?? volume?.upload_count ?? 0;
 
     if (loading) return <p>Loading volume data...</p>;
     if (error) return <p style={{ color: "red" }}>Error: {error}</p>;
@@ -69,7 +68,7 @@ const Single_Issues = () => {
                             <span></span><span></span><span></span><span></span>
                         </div>
                         <div className="badge-bottom">MAY 2026</div>
-                        <img src="" alt="volume-image" />
+                        {/* <img src="" alt="volume-image" /> */}
                     </div>
 
                     <div className="hero-meta-details">
@@ -80,15 +79,11 @@ const Single_Issues = () => {
 
                 <div className="metrics-row container">
                     <div className="metrics-card">
-                        <span className="metric-value color-blue">{volume.article_count}</span>
+                        <span className="metric-value color-blue">{articleCount}</span>
                         <span className="metric-label">Articles</span>
                     </div>
                     <div className="metrics-card">
-                        <span className="metric-value color-indigo">152</span>
-                        <span className="metric-label">Pages</span>
-                    </div>
-                    <div className="metrics-card">
-                        <span className="metric-value color-purple">{volume.upload_count}</span>
+                        <span className="metric-value color-purple">{uploadCount}</span>
                         <span className="metric-label">Upload</span>
                     </div>
                 </div>
@@ -110,69 +105,41 @@ const Single_Issues = () => {
                         </div>
                         <select><option>All sections</option></select>
                         <select><option>Sort: page order</option></select>
-                        <span className="count-badge">{volume.article_count} articles</span>
+                        <span className="count-badge">{articleCount} articles</span>
                     </div>
 
                     <section>
                         <div className="articles-category-section">
                             <div className="category-section-header">
-                                <h4 className="category-title">Journal for Science and Practice of Phamarcy</h4>
+                                <h4 className="category-title">Related Issues</h4>
                             </div>
 
-                            <Link to={`/volumes/${volume.id}`} key={volume.id} className="journal-column">
-                                <div className="article-row-card">
-                                    <div className="article-main-body">
-                                        <h4 className="article-row-title">Volume {volume.volume_number}</h4>
-                                        <h4 className="article-row-title">{volume.authors}</h4>
-                                        <p className="article-row-authors"></p>
-                                        <p className="article-row-abstract">
-                                            We introduce a neuromorphic chip architecture optimised for sparse, event-driven simulation of atmospheric dynamics, reducing energy consumption by 78% while maintaining sub-1%...
-                                        </p>
-                                        <div className="article-row-metrics-footer">
-                                            <span>👁️ 12,847</span>
-                                            <span>⬇️ 4,312</span>
-                                            <span>📋 41 citations</span>
-                                        </div>
-                                    </div>
-                                    <div className="article-right-actions">
-                                        <Link to="#" className="btn-action-read">Read</Link>
-                                        <Link to="#" className="btn-action-pdf">PDF</Link>
-                                    </div>
-                                </div>
-                            </Link>
-
-
-                            {volume.articles && volume.articles.length > 0 ? (
-                                volume.articles.map((article) => (
-                                    // FIX 1: Wrap your card block layout in a standard div instead of a parent Link
+                            {articleList.length > 0 ? (
+                                articleList.map((article) => (
                                     <div key={article.id} className="journal-column">
                                         <div className="article-row-card">
                                             <div className="article-main-body">
-                                                FIX 2: Turn only the specific title text into the redirect link to the individual article view page
                                                 <Link to={`/articles/${article.id}`} className="article-title-link">
-                                                    <h4 className="article-row-title">Volume {article.title}</h4>
+                                                    <h4 className="article-row-title">{article.title}</h4>
                                                 </Link>
 
-                                                Render authors correctly (make sure your backend uses the string property "authors" vs "author")
-                                                <h5 className="article-row-authors-heading">{article.authors}</h5>
-                                                <p className="article-row-authors"></p>
-
-                                                Render dynamic abstracts if your API has them, or keep your template fallback text
-                                                <p className="article-row-abstract">
-                                                    {article.abstract || "We introduce a neuromorphic chip architecture optimised for sparse, event-driven simulation of atmospheric dynamics, reducing energy consumption by 78% while maintaining sub-1%..."}
-                                                </p>
+                                                <h5 className="article-row-authors-heading">{article.authors || "Authors not available"}</h5>
 
                                                 <div className="article-row-metrics-footer">
-                                                    <span>👁️ {article.views || "12,847"}</span>
-                                                    <span>⬇️ {article.downloads || "4,312"}</span>
-                                                    <span>📋 {article.citations || "41"} citations</span>
+                                                    <span>👁️ {article.view_count || article.views || 0}</span>
+                                                    <span>⬇️ {article.download_count || article.downloads || 0}</span>
+                                                    <span>📋 {article.citation_count || article.citations || 0} citations</span>
                                                 </div>
                                             </div>
 
                                             <div className="article-right-actions">
-                                                FIX 3: Target the specific article detail dynamic routing configurations cleanly
                                                 <Link to={`/articles/${article.id}`} className="btn-action-read">Read</Link>
-                                                <Link to={article.pdf_url || "#"} className="btn-action-pdf" target="_blank" rel="noreferrer">PDF</Link>
+                                                <PdfDownloadButton article={article} />
+                                                {/* <a href="https://jsppharm.com/media/manuscripts/jsppharm.v13i1.7.pdf" download="Custom_Filename.pdf" className="btn">
+                                                    Download PDF
+                                                </a> */}
+                                                {/* <a href={article.manuscript_file} className="btn-action-pdf" target="_blank" rel="noreferrer" download="https://jsppharm.com/media/manuscripts/jsppharm.v13i1.7.pdf">PDF</a> */}
+                                                {/* <Link to={article.manuscript_file || "https://jsppharm.com/media/manuscripts/jsppharm.v13i1.7.pdf"} className="btn-action-pdf" target="_blank" rel="noreferrer">PDF</Link> */}
                                             </div>
                                         </div>
                                     </div>
@@ -185,32 +152,6 @@ const Single_Issues = () => {
                 </main>
 
                 <aside className="sidebar-column-rail">
-
-                    <div className="sidebar-widget">
-                        <h4 className="widget-heading">RECENT ISSUES</h4>
-                        <div className="recent-issues-list">
-                            <div className="issue-row">
-                                <span className="vol-text">Vol. 14, Issue 3</span>
-                                <span className="date-text">May 2026</span>
-                            </div>
-                            <div className="issue-row">
-                                <span className="vol-text">Vol. 14, Issue 2</span>
-                                <span className="date-text">Feb 2026</span>
-                            </div>
-                            <div className="issue-row">
-                                <span className="vol-text">Vol. 14, Issue 1</span>
-                                <span className="date-text">Nov 2025</span>
-                            </div>
-                            <div className="issue-row">
-                                <span className="vol-text">Vol. 13, Issue 4</span>
-                                <span className="date-text">Aug 2025</span>
-                            </div>
-                            <div className="issue-row">
-                                <span className="vol-text">Vol. 14, Issue 3</span>
-                                <span className="date-text">May 2024</span>
-                            </div>
-                        </div>
-                    </div>
 
                     <div className="sidebar-widget">
                         <h4 className="widget-heading">ISSUE EDITORS</h4>

@@ -277,9 +277,12 @@ const Products_Payment = () => {
                     <div className="widget">
                         <h4 className="widget-title">QUICK LINKS</h4>
                         <ul className="widget-list">
-                            <li><Link to="/submit">Submit a manuscript <span className="arrow">›</span></Link></li>
+                            <li><Link to="/submit-manuscript">Submit a manuscript <span className="arrow">›</span></Link></li>
                             <li><Link to="/author-guidelines">Author guidelines <span className="arrow">›</span></Link></li>
-                            <li><Link to="/contact">Contact us <span className="arrow">›</span></Link></li>
+                            <li><Link to="/editorial-policies">Editorial policies <span className="arrow">›</span></Link></li>
+                            <li><Link to='/publication-ethics'>Publication Ethics <span className="arrow">›</span></Link></li>
+                            <li><Link to='/privacy-policy'>Privacy Policy <span className="arrow">›</span></Link></li>
+                            <li><Link to='/reviewer-form'>Reviewer Form <span className="arrow">›</span></Link></li>
                         </ul>
                     </div>
                     <div className="widget">
@@ -287,21 +290,21 @@ const Products_Payment = () => {
                         <div className="contact-box">
                             <div className="contact-item">
                                 <span className="lbl">Email</span>
-                                <a href="mailto:contact@mcgillard.com" className="val link">contact@mcgillard.com</a>
+                                <a href="mailto:jsppharm@uniben.edu" className="val link">jsppharm@uniben.edu</a>
                             </div>
                             <div className="contact-item">
                                 <span className="lbl">Phone</span>
-                                <span className="val">+234 906 802 2212</span>
+                                <span className="val">+234 807 804 4144</span>
                             </div>
                             <div className="contact-item">
                                 <span className="lbl">Address</span>
-                                <span className="val">Tantua Road, Amassoma, Wilberforce Island,</span>
-                                <span className="val">Bayelsa State, Nigeria</span>
+                                <span className="val">Faculty of Pharmacy, <br /> University of Benin,</span>
+                                <span className="val">Edo State, Nigeria</span>
                             </div>
                             <div className="contact-item">
                                 <span className="lbl">Office Hours</span>
                                 <span className="val">Mon-Fri: 9am - 5pm EST</span>
-                                <button className="btn-subscribe">Schedule a Meeting</button>
+                                {/* <button className="btn-subscribe">Schedule a Meeting</button> */}
                             </div>
                         </div>
                     </div>

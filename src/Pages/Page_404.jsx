@@ -25,10 +25,10 @@ const Page_404 = () => {
                 Go to Homepage
               </Link>
 
-              <Link to='/article' class="btn-404 btn-secondary-404">
+              {/* <Link to='/article' class="btn-404 btn-secondary-404">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                 Search Articles
-              </Link>
+              </Link> */}
             </div>
 
             <div class="divider-404">Or Explore</div>
@@ -40,11 +40,13 @@ const Page_404 = () => {
             </div>
             <div class="grid-links-404">
               <Link to='/products-payment' class="grid-item-404">Product Payment <span class="arrow">➔</span></Link>
-              <Link to='/article' class="grid-item-404">Articles <span class="arrow">➔</span></Link>
-              <Link to='/issues' class="grid-item-404">Issues <span class="arrow">➔</span></Link>
-              <Link to='/about' class="grid-item-404">About <span class="arrow">➔</span></Link>
+              <Link to='/article' class="grid-item-404">Current Articles <span class="arrow">➔</span></Link>
+              <Link to='/advertising' class="grid-item-404">Advertising <span class="arrow">➔</span></Link>
               <Link to='/author-guidelines' class="grid-item-404">Author Guidelines <span class="arrow">➔</span></Link>
-              <Link to='/editorial' class="grid-item-404">Editorial Board <span class="arrow">➔</span></Link>
+              <Link to='/editorial-policies' class="grid-item-404">Editorial Policies <span class="arrow">➔</span></Link>
+              <Link to='/publication-ethics' class="grid-item-404">Publication Ethics <span class="arrow">➔</span></Link>
+              <Link to='/privacy-policy' class="grid-item-404">Privacy Policy <span class="arrow">➔</span></Link>
+              <Link to='/reviewer-form' class="grid-item-404">Reviewer Form <span class="arrow">➔</span></Link>
             </div>
           </div>
 

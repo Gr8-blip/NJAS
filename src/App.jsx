@@ -7,6 +7,7 @@ import About from './Pages/About'
 import Editorial_Board from './Pages/Editorial_Board'
 import ArticlePage from './Pages/ArticlePage'
 import Volume from './Pages/Volume'
+import Napa from './Pages/Napa'
 import Single_Issues from './Pages/Single_Issues'
 import Contact_Us from './Pages/Contact_Us'
 import Single_Article from './Pages/Single_Article'
@@ -20,6 +21,7 @@ import Terms from './Pages/Terms'
 import Legal_Info from './Pages/Legal_Info'
 import Products_Payment from './Pages/Products_Payment'
 import Advertising from './Pages/Advertising'
+import Submit_Manuscript from './Pages/Submit_Manuscript'
 import Page_404 from './Pages/Page_404'
 
 function App() {
@@ -34,6 +36,7 @@ function App() {
         <Route path="/editorial" element={<Editorial_Board />} />
         <Route path="/article" element={<ArticlePage />} />
         <Route path="/volume" element={<Volume />} />
+        <Route path="/napa" element={<Napa />} />
         <Route path="/contact" element={<Contact_Us />} />
         <Route path="/volumes/:id" element={<Single_Issues />} />
         <Route path="/articles/:id" element={<Single_Article />} />
@@ -44,9 +47,10 @@ function App() {
         <Route path="/reviewer-form" element={<Reviewer_Form />} />
         <Route path="/publication-ethics" element={<Publication_Ethics />} />
         <Route path="/terms" element={<Terms />} />
-        <Route path="/" element={<Legal_Info />} />
+        <Route path="/privacy-policy" element={<Legal_Info />} />
         <Route path="/products-payment" element={<Products_Payment />} />
         <Route path="/advertising" element={<Advertising />} />
+        <Route path="/submit-manuscript" element={<Submit_Manuscript />} />
         <Route path="*" element={<Page_404 />} />
       </Routes>
 

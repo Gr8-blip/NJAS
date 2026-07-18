@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import './Latest_Article.css'
-import { Link } from 'react-router'
+import { Link, useLocation } from 'react-router'
 import PaginationBtn from './PaginationBtn';
 
 const Latest_Article = () => {
     const [articles, setArticles] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const articlesPerPage = 8;
+    const location = useLocation();
+    const isArticlePage = location.pathname === '/article';
+    const articlesPerPage = isArticlePage ? 8 : 4;
 
     useEffect(() => {
         const fetchArticle = async () => {
@@ -32,6 +34,8 @@ const Latest_Article = () => {
     const startIndex = (currentPage - 1) * articlesPerPage;
     const endIndex = startIndex + articlesPerPage;
     const visibleArticles = articles.slice(startIndex, endIndex);
+    const shouldShowPagination = isArticlePage && articles.length > articlesPerPage;
+    const shouldShowViewAllButton = !isArticlePage;
 
     useEffect(() => {
         if (currentPage > totalPages) {
@@ -44,7 +48,9 @@ const Latest_Article = () => {
             <section id="latest-articles">
                 <div className="latest-articles-header">
                     <h1>Latest Articles</h1>
-                    {/* <Link to='/article' className="view-all-btn">View all issues ➔</Link> */}
+                    {shouldShowViewAllButton && (
+                        <Link to='/article' className="view-all-btn">View all issues ➔</Link>
+                    )}
                 </div>
 
                 <div className="articles-grid">
@@ -54,17 +60,20 @@ const Latest_Article = () => {
                                 <h3>{article.title}</h3>
                                 <p className="authors">{article.authors}</p>
                                 <strong className="authors">{article.volume_label}</strong>
+                                <p className="authors">DOI: {article.doi}</p>
 
                                 <div className="meta-row">
-                                    <p className="authors">{article.date_approved}</p>
+                                    <span>Page 101 {article.pages}</span>
                                     <span>👁️ {article.view_count} views</span>
+                                    <p className="authors">{article.date_approved}</p>
+
                                 </div>
                             </div>
                         </Link>
                     ))}
                 </div>
 
-                {articles.length > articlesPerPage && (
+                {shouldShowPagination && (
                     <PaginationBtn
                         currentPage={currentPage}
                         totalPages={totalPages}

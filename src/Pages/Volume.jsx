@@ -28,9 +28,7 @@ const Volume = () => {
 
     return (
         <>
-            <section className="hero-section">
-                <h2 className="hero-title">Latest Volume</h2>
-            </section>
+            <Search />
 
             <section className="layout-grid">
                 <main className="primary-content">

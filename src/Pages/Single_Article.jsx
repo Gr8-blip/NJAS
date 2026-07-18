@@ -4,41 +4,22 @@ import '../Components/Article_page.css'
 import { Link } from 'react-router'
 import Footer from '../Components/Footer'
 import ShareBtn from '../Components/ShareBtn'
+import PdfDownloadButton from '../Components/PdfDownloadButton'
 
 const Single_Article = () => {
-
-    useEffect(() => {
-        const fetchArticle = async () => {
-            const response = await fetch("https://jsppharm.com/api/api/articles/");
-
-            // Always check if the response status is 200-299
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-
-            const data = await response.json();
-            setArticles(data)
-        }
-
-        fetchArticle();
-
-    }, [])
-
-
     const { id } = useParams();
 
-    // Initialize state as null because it fetches a single volume object
-    const [articles, setArticles] = useState(null);
+    const [allArticles, setAllArticles] = useState([]);
+    const [article, setArticle] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const fetchArticleDataFromMasterList = async () => {
+        const fetchArticleData = async () => {
             try {
                 setLoading(true);
                 setError(null);
 
-                // Fetch the full working list endpoint
                 const response = await fetch("https://jsppharm.com/api/api/articles/");
 
                 if (!response.ok) {
@@ -46,18 +27,19 @@ const Single_Article = () => {
                 }
 
                 const allArticleList = await response.json();
+                const articleList = Array.isArray(allArticleList) ? allArticleList : [];
 
-                // Extract ONLY the specific item matching our URL parameter ID
-                // Number(id) ensures we don't hit string/integer type check conflicts
-                const targetedArticles = allArticleList.find(art => Number(art.id) === Number(id));
+                setAllArticles(articleList);
 
-                if (!targetedArticles) {
+                const targetedArticle = articleList.find(art => Number(art.id) === Number(id));
+
+                if (!targetedArticle) {
                     throw new Error(`Articles with ID ${id} was not found in the list.`);
                 }
 
-                setArticles(targetedArticles);
+                setArticle(targetedArticle);
             } catch (err) {
-                console.error("Backup fetch failed:", err);
+                console.error("Failed to fetch article data:", err);
                 setError(err.message);
             } finally {
                 setLoading(false);
@@ -65,14 +47,25 @@ const Single_Article = () => {
         };
 
         if (id) {
-            fetchArticleDataFromMasterList();
+            fetchArticleData();
         }
     }, [id]);
 
+    const relatedArticles = article
+        ? allArticles.filter((item) => Number(item.id) !== Number(article.id)).filter((item) => {
+            if (article.volume_label && item.volume_label) {
+                return item.volume_label === article.volume_label;
+            }
+            if (article.authors && item.authors) {
+                return item.authors === article.authors;
+            }
+            return true;
+        }).slice(0, 4)
+        : [];
 
     if (loading) return <p>Loading article data...</p>;
     if (error) return <p style={{ color: "red" }}>Error: {error}</p>;
-    if (!articles) return <p>No article data available.</p>;
+    if (!article) return <p>No article data available.</p>;
 
     return (
         <>
@@ -83,17 +76,18 @@ const Single_Article = () => {
             <div className='article-section'>
                 <section id='article'>
                     <div className="article-top">
-                        <span className='article-volume-label'>{articles.volume_label}</span>
+                        <span className='article-volume-label'>{article.volume_label}</span>
 
                     </div>
-                    <h1>{articles.title}</h1>
+                    <h1>{article.title}</h1>
                     <div className='author'>
-                        <span><strong>Authors: </strong>{articles.authors}</span>
+                        <span><strong>Authors: </strong>{article.authors}</span>
                     </div>
 
                     <div className="actions-bar">
                         <button className="btn btn-secondary" id="btn-cite">Cite article</button>
                         <ShareBtn />
+                        <PdfDownloadButton article={article} />
                     </div>
                 </section>
             </div>
@@ -103,9 +97,9 @@ const Single_Article = () => {
                     <article className="article-content-box">
                         <div className="abstract-box">
                             <h2>ABSTRACT</h2>
-                            <p>{articles.abstract}</p>
+                            <p>{article.abstract}</p>
                             <div className="keywords-row">
-                                <span className="keyword">{articles.keywords}</span>
+                                <span className="keyword">{article.keywords}</span>
                             </div>
                         </div>
                     </article>
@@ -117,15 +111,15 @@ const Single_Article = () => {
                             <div className="metrics-list">
                                 <div className="metric-row">
                                     <span className="metric-label">Views</span>
-                                    <span className="metrics-value">{articles.view_count}</span>
+                                    <span className="metrics-value">{article.view_count || article.views || 0}</span>
                                 </div>
                                 <div className="metric-row">
                                     <span className="metric-label">Downloads</span>
-                                    <span className="metrics-value">156</span>
+                                    <span className="metrics-value">{article.download_count || article.downloads || 0}</span>
                                 </div>
                                 <div className="metric-row">
                                     <span className="metric-label">Citations</span>
-                                    <span className="metrics-value">23</span>
+                                    <span className="metrics-value">{article.citation_count || article.citations || 0}</span>
                                 </div>
                             </div>
                         </div>
@@ -134,41 +128,32 @@ const Single_Article = () => {
                             <h4 className="card-title related-title">RELATED ARTICLES</h4>
                             <hr className="card-divider"></hr>
                             <div className="related-list">
-                                <div className="related-item">
-                                    <span className="related-tag">AI & CLIMATE</span>
-                                    <a href="#" className="related-link">Energy-efficient neural networks for climate prediction</a>
-                                    <span className="related-date">May 2026</span>
-                                </div>
-
-                                <hr className="card-divider-light"></hr>
-                                <div className="related-item">
-                                    <span className="related-tag">AI & CLIMATE</span>
-                                    <a href="#" className="related-link">Spiking neural networks in atmospheric modeling</a>
-                                    <span className="related-date">May 2026</span>
-                                </div>
-
-                                <hr className="card-divider-light"></hr>
-                                <div className="related-item">
-                                    <span className="related-tag">ENV. & SCI.</span>
-                                    <a href="#" className="related-link">Deep Learning Emulators for Sub-Seasonal Precipitation Forecasting</a>
-                                    <span className="related-date">May 2026</span>
-                                </div>
-
-                                <hr className="card-divider-light"></hr>
-                                <div className="related-item">
-                                    <span className="related-tag">AI & CLIMATE</span>
-                                    <a href="#" className="related-link">Spiking neural networks in atmospheric modeling</a>
-                                    <span className="related-date">May 2026</span>
-                                </div>
+                                {relatedArticles.length > 0 ? (
+                                    relatedArticles.map((item) => (
+                                        <div key={item.id} className="related-item">
+                                            <span className="related-tag">{item.volume_label || 'ARTICLE'}</span>
+                                            <Link to={`/articles/${item.id}`} className="related-link">
+                                                {item.title}
+                                            </Link>
+                                            <span className="related-date">{item.date_approved || item.published_at || 'Recent'}</span>
+                                        </div>
+                                    ))
+                                ) : (
+                                    <p className="related-link">No related articles available.</p>
+                                )}
                             </div>
                         </div>
 
                         <div className="widget">
                             <h4 className="widget-title">QUICK LINKS</h4>
                             <ul className="widget-list">
-                                <li><Link to="/submit">Submit a manuscript <span className="arrow">›</span></Link></li>
+                                <li><Link to="/submit-manuscript">Submit a manuscript <span className="arrow">›</span></Link></li>
                                 <li><Link to="/author-guidelines">Author guidelines <span className="arrow">›</span></Link></li>
-                                <li><Link to="/contact">Contact us <span className="arrow">›</span></Link></li>
+                                <li><Link to="/editorial-policies">Editorial policies <span className="arrow">›</span></Link></li>
+                                <li><Link to="/products-payment">Product Payment <span className="arrow">›</span></Link></li>
+                                <li><Link to='/publication-ethics'>Publication Ethics <span className="arrow">›</span></Link></li>
+                                <li><Link to='/privacy-policy'>Privacy Policy <span className="arrow">›</span></Link></li>
+                                <li><Link to='/reviewer-form'>Reviewer Form <span className="arrow">›</span></Link></li>
                             </ul>
                         </div>
                         <div className="widget">
@@ -176,21 +161,21 @@ const Single_Article = () => {
                             <div className="contact-box">
                                 <div className="contact-item">
                                     <span className="lbl">Email</span>
-                                    <a href="mailto:contact@mcgillard.com" className="val link">contact@mcgillard.com</a>
+                                    <a href="mailto:jsppharm@uniben.edu" className="val link">jsppharm@uniben.edu</a>
                                 </div>
                                 <div className="contact-item">
                                     <span className="lbl">Phone</span>
-                                    <span className="val">+234 906 802 2212</span>
+                                    <span className="val">+234 807 804 4144</span>
                                 </div>
                                 <div className="contact-item">
                                     <span className="lbl">Address</span>
-                                    <span className="val">Tantua Road, Amassoma, Wilberforce Island,</span>
-                                    <span className="val">Bayelsa State, Nigeria</span>
+                                    <span className="val">Faculty of Pharmacy, <br /> University of Benin,</span>
+                                    <span className="val">Edo State, Nigeria</span>
                                 </div>
                                 <div className="contact-item">
                                     <span className="lbl">Office Hours</span>
                                     <span className="val">Mon-Fri: 9am - 5pm EST</span>
-                                    <button className="btn-subscribe">Schedule a Meeting</button>
+                                    {/* <button className="btn-subscribe">Schedule a Meeting</button> */}
                                 </div>
                             </div>
                         </div>
