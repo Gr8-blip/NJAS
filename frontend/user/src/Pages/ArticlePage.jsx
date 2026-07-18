@@ -8,11 +8,11 @@ import Latest_Article from '../Components/Latest_Article'
 
 
 const ArticlePage = () => {
-    const [articles, setArticles] = useState([]);
+    const [currentArticles, setArticles] = useState([]);
 
     useEffect(() => {
         const fetchArticle = async () => {
-            const response = await fetch("https://jsppharm.com/api/api/articles/");
+            const response = await fetch("https://jsppharm.com/api/api/articles/current");
 
             // Always check if the response status is 200-299
             if (!response.ok) {
@@ -30,12 +30,21 @@ const ArticlePage = () => {
     return (
         <>
             
-            <section className="hero-section">
-                <h2 className="hero-title">Current Article</h2>
-                <p className="hero-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Nullam auctor, nisl eget ultricies aliquam, nunc nisl aliquam nunc, vitae aliquet 
-                nunc nisl eget nunc.</p>
-            </section>
+            <div class="" key={currentArticles.id}>
+                <section class="recognition-text">
+                    <div className="article-top">
+                        <p>Current Article <span className='article-volume-label'>{currentArticles.volume_label}</span></p>
+                    </div>
+                    <h1 className='article-heading'>{currentArticles.title}</h1>
+                    <ul className='author'>
+                        <li><strong>Authors:</strong> {currentArticles.authors}</li>
+                    </ul>
+                    <div className="actions-bar">
+                        <button><Link to={`/articles/${currentArticles.id}`}>Read</Link></button>
+                        <button className="btn btn-secondary" id="btn-cite">Cite article</button>
+                    </div>
+                </section>
+            </div>
 
             <Latest_Article />
 

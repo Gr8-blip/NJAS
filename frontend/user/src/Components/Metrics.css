@@ -138,16 +138,74 @@
 
 /* Responsive Design */
 
-/* Large Tablets and Small Desktops (1024px) */
-@media (max-width: 1024px) {
+/* Mobile (up to 575px) */
+@media (max-width: 575px) {
     .metrics-container {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-columns: auto;
-        gap: 30px;
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .metrics-column h1 {
-        font-size: 34px;
+        font-size: 26px;
+        margin-bottom: 18px;
+    }
+
+    .metric-card {
+        padding: 14px;
+        margin-bottom: 10px;
+    }
+
+    .metric-label {
+        font-size: 10px;
+    }
+
+    .metric-value {
+        font-size: 22px !important;
+    }
+
+    .metric-sub {
+        font-size: 11px;
+    }
+
+    .submit-panel {
+        padding: 20px;
+        height: auto;
+        margin-top: 40px;
+    }
+
+    .submit-panel h2 {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    .submit-panel p {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+
+    .submit-links li {
+        margin-bottom: 8px;
+    }
+
+    .submit-links a {
+        font-size: 14px;
+    }
+
+    .submit-action-btn {
+        padding: 10px;
+        font-size: 13px;
+    }
+}
+
+/* Tablet (576px - 768px) */
+@media (min-width: 576px) and (max-width: 768px) {
+    .metrics-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .metrics-column h1 {
+        font-size: 32px;
         margin-bottom: 20px;
     }
 
@@ -169,13 +227,13 @@
     }
 
     .submit-panel {
-        padding: 35px;
+        padding: 30px;
         height: auto;
-        margin-top: 60px;
+        margin-top: 50px;
     }
 
     .submit-panel h2 {
-        font-size: 26px;
+        font-size: 25px;
         margin-bottom: 18px;
     }
 
@@ -195,6 +253,76 @@
     .submit-action-btn {
         padding: 12px;
         font-size: 14px;
+    }
+}
+
+/* Tablet to Small Desktop (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .metrics-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .metrics-column h1 {
+        font-size: 36px;
+        margin-bottom: 22px;
+    }
+
+    .metric-card {
+        padding: 18px;
+        margin-bottom: 13px;
+    }
+
+    .metric-label {
+        font-size: 11px;
+    }
+
+    .metric-value {
+        font-size: 28px !important;
+    }
+
+    .metric-sub {
+        font-size: 12px;
+    }
+
+    .submit-panel {
+        padding: 35px;
+        height: auto;
+        margin-top: 60px;
+    }
+
+    .submit-panel h2 {
+        font-size: 27px;
+        margin-bottom: 18px;
+    }
+
+    .submit-panel p {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+
+    .submit-links li {
+        margin-bottom: 10px;
+    }
+
+    .submit-links a {
+        font-size: 15px;
+    }
+
+    .submit-action-btn {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
+
+/* Large Desktop (1025px and up) */
+@media (min-width: 1025px) {
+    .metrics-container {
+        gap: 40px;
+    }
+
+    .submit-panel {
+        height: 78vh;
     }
 }
 

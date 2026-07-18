@@ -96,8 +96,18 @@
   height: auto;
 }
 
+.actions-bar button a {
+  text-decoration: none;
+  color: var(--white);
+}
+
 /* Responsive Design for Mobile Devices */
-@media (max-width: 768px) {
+/* Mobile (up to 576px) */
+@media (max-width: 575px) {
+  .journal-recognition {
+    padding: 40px 15px;
+  }
+
   .recognition-container {
     flex-direction: column;
     text-align: center;
@@ -107,8 +117,100 @@
     max-width: 100%;
   }
 
+  .recognition-text h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    margin-top: -15px !important;
+  }
+
+  .recognition-text .article-volume-label {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .recognition-text p {
+    font-size: 14px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
   .recognition-logos {
     width: 100%;
     grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .logo-card {
+    padding: 8px;
+  }
+
+  .logo-card img {
+    width: 60%;
+  }
+
+  .actions-bar {
+    flex-direction: column;
+  }
+
+  .actions-bar button {
+    width: 100%;
+  }
+}
+
+/* Tablet (576px - 768px) */
+@media (min-width: 576px) and (max-width: 768px) {
+  .journal-recognition {
+    padding: 50px 18px;
+  }
+
+  .recognition-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .recognition-text h1 {
+    font-size: 30px;
+    margin-bottom: 18px;
+  }
+
+  .recognition-text .article-volume-label {
+    font-size: 14px;
+  }
+
+  .recognition-text p {
+    font-size: 15px;
+    width: 100%;
+  }
+
+  .recognition-logos {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+}
+
+/* Tablet and up (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .journal-recognition {
+    padding: 55px 20px;
+  }
+
+  .recognition-text h1 {
+    font-size: 36px;
+  }
+
+  .recognition-text p {
+    font-size: 16px;
+    width: 90%;
+  }
+
+  .recognition-logos {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+}
+
+/* Large Desktop (1025px and up) */
+@media (min-width: 1025px) {
+  .journal-recognition {
+    padding: 60px 20px;
   }
 }

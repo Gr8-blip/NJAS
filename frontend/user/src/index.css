@@ -51,3 +51,72 @@ section {
   width: 90%;
   margin: 0 auto;
 }
+
+body {
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive Typography Base Styles */
+html {
+  font-size: 16px;
+}
+
+/* Mobile First Approach - Tablet and up (768px) */
+@media (max-width: 767px) {
+  section {
+    padding: 35px 0;
+    width: 95%;
+  }
+
+  html {
+    font-size: 14px;
+  }
+
+  body {
+    line-height: 1.5;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+  }
+
+  p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  button, a {
+    font-size: 0.95rem;
+  }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  section {
+    padding: 45px 0;
+    width: 92%;
+  }
+
+  html {
+    font-size: 15px;
+  }
+}
+
+/* Desktop (1024px and up) */
+@media (min-width: 1024px) {
+  section {
+    padding: 50px 0;
+    width: 90%;
+  }
+
+  html {
+    font-size: 16px;
+  }
+}
