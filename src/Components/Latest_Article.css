@@ -29,8 +29,8 @@
 
 .articles-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(48%, 1fr));
-    gap: 25px;
+    /* grid-template-columns: repeat(auto-fit, minmax(48%, 1fr)); */
+    /* gap: 25px; */
 }
 
 .articles-grid a {
@@ -38,9 +38,10 @@
 }
 
 .article-card {
-    border: 2px solid var(--border);
+    /* border: 2px solid var(--border); */
     border-radius: 8px;
     padding: 24px;
+    margin-bottom: -45px;
     background-color: #fff;
     display: flex;
     flex-direction: column;
@@ -48,11 +49,11 @@
     transition: .5s;
 }
 
-.article-card:hover {
+/* .article-card:hover {
     border: 2px solid var(--chart-1);
     box-shadow: 0 1px 10px var(--chart-1);
     transform: translateY(-10px);
-}
+} */
 
 .article-card h3 {
     font-size: 18px;
@@ -62,7 +63,7 @@
 }
 
 .authors {
-    font-size: 14px;
+    font-size: 15px;
     color: #718096;
     margin-bottom: auto;
     padding-bottom: 15px;

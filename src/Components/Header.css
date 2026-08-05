@@ -109,14 +109,15 @@ header{
     padding: 5px;
     margin-top: 10px;
     list-style-type: none;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+    /* border-top: 1px solid var(--border); */
+    /* border-bottom: 1px solid var(--border); */
+    background-color: var(--primary);
     flex-wrap: wrap;
 }
 
 .main-nav .nav-link {
     text-decoration: none;
-    color: var(--foreground);
+    color: var(--white);
     font-size: 14px;
     font-weight: 500;
     padding: 10px 15px;
@@ -125,10 +126,10 @@ header{
     white-space: nowrap;
 }
 
-.main-nav .nav-link:hover {
+/* .main-nav .nav-link:hover {
     background-color: var(--primary);
-    color: var(--accent-foreground);
-}
+    color: var(--accent);
+} */
 
 /* Responsive Design */
 @media (max-width: 1024px) {

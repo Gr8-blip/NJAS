@@ -60,13 +60,11 @@ const Latest_Article = () => {
                                 <h3>{article.title}</h3>
                                 <p className="authors">{article.authors}</p>
                                 <strong className="authors">{article.volume_label}</strong>
-                                <p className="authors">DOI: {article.doi}</p>
 
                                 <div className="meta-row">
-                                    <span>Page 101 {article.pages}</span>
-                                    <span>👁️ {article.view_count} views</span>
-                                    <p className="authors">{article.date_approved}</p>
-
+                                    <p className="authors">DOI: {article.doi}</p>
+                                    <p className="authors">{article.pages || "Page 101"}</p>
+                                    <p className="authors">👁️ {article.view_count || "views"}</p>
                                 </div>
                             </div>
                         </Link>
