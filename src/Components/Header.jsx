@@ -22,7 +22,7 @@ const Header = () => {
                             <h1><Link to='/'>Journal of Science and Practice of Phamarcy</Link></h1>
                         </div>
                         <div className='header-actions'>
-                            <button className='sign-in-btn'><Link to='https://jsppharm.com/admin/signin'>Sign In</Link></button>
+                            <button className='sign-in-btn'><Link to='https://jsppharm.com/admin'>Sign In</Link></button>
                             <button className={`hamburger ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu} aria-label="Toggle menu">
                                 <span></span>
                                 <span></span>
