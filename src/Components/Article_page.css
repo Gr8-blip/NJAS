@@ -4,24 +4,6 @@
   margin-top: 30px;
 }
 
-/* --- BREADCRUMBS --- */
-.breadcrumbs {
-  font-size: 13px;
-  color: #a0aec0;
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
-
-.breadcrumbs a {
-  color: #718096;
-  text-decoration: none;
-}
-
-.breadcrumbs a:hover {
-  color: var(--primary);
-  text-decoration: underline;
-}
-
 /* --- ARTICLE --- */
 #article h1 {
   font-size: 35px;
@@ -47,6 +29,11 @@
   padding-top: 30px;
 }
 
+.actions-bar button a {
+  text-decoration: none;
+  color: var(--white);
+}
+
 .actions-bar button {
   border: 2px solid #f3ecff !important;
   color: var(--primary);
@@ -57,7 +44,6 @@
   cursor: pointer;
   transition: 0.5s;
 }
-
 
 .actions-bar button:hover {
   box-shadow: 0 1px 10px var(--primary);
@@ -72,6 +58,12 @@
   color: var(--accent-foreground);
   border: 2px solid var(--primary);
 }
+
+.actions-bar .btn-action-pdf{
+    color: #ffffff !important;
+}
+
+
 
 /* --- ABSTRACT BOX --- */
 .abstract-box {

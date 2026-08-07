@@ -5,35 +5,6 @@
   color: #ffffff;
 }
 
-/* Flexbox Layout Container */
-/* .recognition-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 5rem; 
-} */
-
-/* Left Content Column */
-/*.recognition-text {
-  flex: 1;
-  max-width: 500px; 
-} */
-
-/* .recognition-text h2 {
-  font-size: 2rem;
-  color: #1a202c;
-  margin-bottom: 15px;
-}
-
-.recognition-text p {
-  font-size: 1rem;
-  color: #4a5568;
-  line-height: 1.6;
-  margin-bottom: 25px;
-} */
-
 .recognition-text h1 {
   font-size: 40px;
   margin-bottom: 20px;

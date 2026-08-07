@@ -361,7 +361,6 @@ const Editorial_Board = () => {
                             <div className="contact-item">
                                 <span className="lbl">Office Hours</span>
                                 <span className="val">Mon-Fri: 9am - 5pm EST</span>
-                                {/* <button className="btn-subscribe">Schedule a Meeting</button> */}
                             </div>
                         </div>
                     </div>

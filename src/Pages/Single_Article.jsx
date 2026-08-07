@@ -69,10 +69,6 @@ const Single_Article = () => {
 
     return (
         <>
-            <div className="breadcrumbs container">
-                <Link to="/">Home</Link> › <Link to="/article">Article</Link>
-            </div>
-
             <div className='article-section'>
                 <section id='article'>
                     <div className="article-top">

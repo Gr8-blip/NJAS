@@ -15,61 +15,6 @@
     align-items: center;
 }
 
-/* Graphic Cover Badge Block styling */
-.journal-badge-cover {
-    background: linear-gradient(135deg, var(--primary) 0%, #a855f7 100%);
-    color: #ffffff;
-    width: 130px;
-    height: 180px;
-    border-radius: 10px;
-    padding: 18px 14px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
-    flex-shrink: 0;
-}
-
-.badge-top {
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    opacity: 0.85;
-}
-
-.badge-volume {
-    font-size: 30px;
-    font-weight: 800;
-    line-height: 1;
-}
-
-.badge-lines {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.badge-lines span {
-    height: 2px;
-    background: rgba(255, 255, 255, 0.35);
-    display: block;
-    width: 100%;
-}
-
-.badge-lines span:nth-child(3) {
-    width: 75%;
-}
-
-.badge-lines span:nth-child(4) {
-    width: 45%;
-}
-
-.badge-bottom {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-}
-
 /* Metadata Text Information Block */
 .current-issue-badge {
     background-color: #e0e7ff;
@@ -87,8 +32,43 @@
     font-size: 30px;
     font-weight: 800;
     color: #0f172a;
-    margin-bottom: 10px;
+    margin-bottom: 0;
     letter-spacing: -0.5px;
+}
+
+.hero-meta-details {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 18px;
+}
+
+.hero-meta-details .main-issue-heading,
+.hero-meta-details .issue-list {
+    order: 1;
+}
+
+.hero-meta-details .download-pdf-link {
+    order: 2;
+    margin-left: auto;
+}
+
+.issue-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    align-items: center;
+}
+
+.issue-list li {
+    margin: 0;
+}
+
+.issue-hero .issue-list {
+    margin-top: 0;
 }
 
 .issue-abstract-summary {
@@ -117,6 +97,45 @@
 
 .download-pdf-link:hover {
     text-decoration: underline;
+}
+
+.issue-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 0;
+    margin: 18px 0 0;
+    list-style: none;
+}
+
+.issue-list li {
+    margin: 0;
+}
+
+.issue-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: rgba(99, 102, 241, 0.08);
+    color: #222;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.issue-link:hover,
+.issue-link:focus {
+    background: rgba(99, 102, 241, 0.18);
+    border-color: rgba(99, 102, 241, 0.25);
+}
+
+.active-issue {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
 }
 
 /* --- UPPER QUANTITATIVE COUNTER MATRICES --- */
@@ -204,8 +223,9 @@
 .main-layout-split {
     display: grid;
     grid-template-columns: 1fr 280px;
-    gap: 40px;
-    align-items: start;
+    width: 90%;
+    gap: 10px;
+    /* align-items: start; */
 }
 
 /* --- LEFT CONTENT FEED LAYOUT RAIL --- */
@@ -302,7 +322,7 @@
 }
 
 .category-title {
-    font-size: 18px;
+    font-size: 25px;
     font-weight: 700;
     color: var(--primary);
     letter-spacing: 0.5px;
@@ -319,7 +339,7 @@
     display: flex;
     gap: 16px;
     background-color: #ffffff;
-    border: 2px solid var(--border);
+    border: transparent 2px solid;
     border-radius: 10px;
     padding: 15px;
     margin-bottom: -10px;
@@ -368,7 +388,7 @@
     color: var(--primary);
 }
 
-.article-title-link{
+.article-title-link {
     text-decoration: none;
     color: var(--primary);
 }
@@ -441,14 +461,19 @@
     color: #ffffff;
 }
 
-.btn-action-pdf {
-    background-color: #ffffff;
-    color: var(--primary);
+.btn-action-pdf{
+    border: none;
+    padding: 5px 0;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 11px;
+    background-color: var(--primary);
+    color: #ffffff;
 }
 
 .btn-action-pdf:hover {
-    background-color: var(--primary);
-    color: #fff;
+    background-color: var(--accent);
+    color: #ffffff;
 }
 
 /* Sidebar */
@@ -462,6 +487,8 @@
     /* Aligns with standard right desktop panels dimensions */
     box-sizing: border-box;
     background-color: transparent;
+    position: relative;
+    right: 50px;
 }
 
 /* --- REUSABLE ACADEMIC CARD SKINNER --- */
@@ -485,6 +512,25 @@
     border-bottom: 1px solid var(--border);
     /* Soft bottom divider line underneath text headings */
     text-transform: uppercase;
+}
+
+.member-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.member-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* --- RECENT ISSUES ROW TRACKS --- */
@@ -636,12 +682,6 @@
         gap: 30px;
     }
 
-    .journal-badge-cover {
-        width: 120px;
-        height: 170px;
-        padding: 16px 12px;
-    }
-
     .badge-volume {
         font-size: 28px;
     }
@@ -776,13 +816,6 @@
         flex-direction: column;
         gap: 20px;
         align-items: stretch;
-    }
-
-    .journal-badge-cover {
-        width: 100%;
-        height: 140px;
-        max-width: 300px;
-        padding: 14px 12px;
     }
 
     .badge-volume {
@@ -1036,13 +1069,6 @@
         gap: 15px;
     }
 
-    .journal-badge-cover {
-        width: 100%;
-        max-width: 250px;
-        height: 130px;
-        padding: 12px 10px;
-    }
-
     .badge-top {
         font-size: 9px;
     }
@@ -1252,14 +1278,6 @@
     .hero-flex-layout {
         flex-direction: column;
         gap: 12px;
-    }
-
-    .journal-badge-cover {
-        width: 100%;
-        max-width: 200px;
-        height: 120px;
-        padding: 10px 8px;
-        margin-bottom: 10px;
     }
 
     .badge-top {
@@ -1526,4 +1544,3 @@
         font-size: 10px;
     }
 }
-

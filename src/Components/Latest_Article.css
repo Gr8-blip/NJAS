@@ -40,13 +40,14 @@
 .article-card {
     /* border: 2px solid var(--border); */
     border-radius: 8px;
-    padding: 24px;
+    padding: 20px;
     margin-bottom: -45px;
     background-color: #fff;
     display: flex;
     flex-direction: column;
     text-decoration: none !important;
     transition: .5s;
+    margin-left: -20px;
 }
 
 /* .article-card:hover {
@@ -67,6 +68,24 @@
     color: #718096;
     margin-bottom: auto;
     padding-bottom: 15px;
+}
+
+.article-top p{
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.article-top .article-volume-label {
+    color: var(--primary);
+}
+
+.author {
+    margin-top: 20px;
+}
+
+.author li {
+  list-style-type: none !important; 
 }
 
 .meta-row {

@@ -55,9 +55,9 @@ const Volume = () => {
 
                                         <div>
                                             <div className="info-panel">
-                                                <div className="status-badge">Volume</div>
+                                                <div className="status-badge">Volume {volume.volume_number}</div>
                                                 {/* Displays only this specific card's data */}
-                                                <div className='volume-title'>{volume.volume_number}</div>
+                                                <div className='volume-title'>Issue {volume.issue_number}</div>
                                                 <div className='publish-date'>{volume.published_at}</div>
                                             </div>
                                         </div>
